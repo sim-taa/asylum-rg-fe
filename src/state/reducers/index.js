@@ -23,6 +23,7 @@ const dataState = {
     raceOrEthnicity: '',
     caseOutcome: '',
     completion: '',
+    completionDate: '',
     currentDate: '',
   },
 };
@@ -50,6 +51,7 @@ function data(state = dataState, action) {
         raceOrEthnicity: action.payload.raceOrEthnicity,
         caseOutcome: action.payload.caseOutcome,
         completion: action.payload.completion,
+        completionDate: action.completionDate,
         currentDate: action.payload.currentDate,
       };
   }
