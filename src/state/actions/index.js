@@ -7,7 +7,6 @@ import axios from 'axios';
 
 // Action Types
 export const SET_DATA = 'SET_DATA';
-export const SET_CURRENT_CASE = 'SET_CURRENT_CASE';
 
 // Action Creators
 export function fetchAllData() {
@@ -16,16 +15,6 @@ export function fetchAllData() {
       .get(/*/cases*/)
       .then(res => {
         dispatch({ type: SET_DATA, payload: res.data });
-      })
-      .catch(err => console.log(err));
-  };
-}
-export function fetchCaseInfo() {
-  return function(dispatch) {
-    axios
-      .get(/*/cases/{caseId}*/)
-      .then(res => {
-        dispatch({ type: SET_CURRENT_CASE, payload: res.data });
       })
       .catch(err => console.log(err));
   };

@@ -1,7 +1,7 @@
 // import all of your reducers into this file, and export them back out.
 // This allows for the simplification of flow when importing reducers into your actions throughout your app.
 import { combineReducers } from 'redux';
-import { SET_DATA, SET_CURRENT_CASE } from '../actions';
+import { SET_DATA } from '../actions';
 
 // SET_DATA should return all cases in format:
 // {asylum_office, citizenship, raceOrEthnicity, caseOutcome, completionFrom, completionTo, currentDate, isFiscalYear}
@@ -16,16 +16,6 @@ const dataState = {
   completionTo: [],
   currentDate: [],
   isFiscalYear: [],
-  currentCase: {
-    caseId: null,
-    asylumOffice: '',
-    ciizenship: '',
-    raceOrEthnicity: '',
-    caseOutcome: '',
-    completion: '',
-    completionDate: '',
-    currentDate: '',
-  },
 };
 
 function data(state = dataState, action) {
@@ -41,18 +31,6 @@ function data(state = dataState, action) {
         completionTo: action.payload.completion.completionTo,
         currentDate: action.payload.currentDate,
         isFiscalYear: action.payload.isFiscalYear,
-      };
-    case SET_CURRENT_CASE:
-      return {
-        ...state.currentCase,
-        caseId: action.payload.caseId,
-        asylumOffice: action.payload.asylum_office,
-        ciizenship: action.payload.citizenship,
-        raceOrEthnicity: action.payload.raceOrEthnicity,
-        caseOutcome: action.payload.caseOutcome,
-        completion: action.payload.completion,
-        completionDate: action.completionDate,
-        currentDate: action.payload.currentDate,
       };
   }
 }
