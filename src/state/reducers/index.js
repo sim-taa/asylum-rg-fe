@@ -8,14 +8,13 @@ import { SET_DATA } from '../actions';
 // SET_CURRENT_CASE should return current case in format:
 // {caseId, asylumOffice, ciizenship, raceOrEthnicity, caseOutcome, completion, currentDate}
 const dataState = {
-  asylum_office: [],
+  id: [],
+  completion: [],
+  asylumOffice: [],
   citizenship: [],
-  raceOrEthnicity: [],
-  caseOutcome: [],
-  completionFrom: [],
-  completionTo: [],
   currentDate: [],
-  isFiscalYear: [],
+  caseOutcome: [],
+  raceOrEthnicity: [],
 };
 
 function data(state = dataState, action) {
@@ -23,15 +22,16 @@ function data(state = dataState, action) {
     case SET_DATA:
       return {
         ...state,
-        asylum_office: action.payload.asylum_office,
+        id: action.payload.id,
+        completion: action.payload.completion,
+        asylumOffice: action.payload.asylumOffice,
         citizenship: action.payload.citizenship,
-        raceOrEthnicity: action.payload.raceOrEthnicity,
-        caseOutcome: action.payload.caseOutcome,
-        completionFrom: action.payload.completion.completionFrom,
-        completionTo: action.payload.completion.completionTo,
         currentDate: action.payload.currentDate,
-        isFiscalYear: action.payload.isFiscalYear,
+        caseOutcome: action.payload.caseOutcome,
+        raceOrEthnicity: action.payload.raceOrEthnicity,
       };
+    default:
+      return state;
   }
 }
 
