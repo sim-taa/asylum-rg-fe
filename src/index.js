@@ -20,7 +20,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
-import { Provider } from 'react';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './state/reducers/index';
 
