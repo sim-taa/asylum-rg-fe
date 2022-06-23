@@ -20,11 +20,19 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
+import { Provider } from 'react';
+import { createStore } from 'redux';
+import reducer from './state/reducers/index';
+
+const store = createStore(reducer);
+
 ReactDOM.render(
   <Router>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
   </Router>,
   document.getElementById('root')
 );
