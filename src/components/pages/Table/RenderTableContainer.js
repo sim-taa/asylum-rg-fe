@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import { data } from '../../../data/data';
 import { columns } from '../../../data/columns';
 import { makeStyles } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { setAllData } from '../../../state/actions';
 
 const useStyles = makeStyles({
   container: {
@@ -12,7 +14,19 @@ const useStyles = makeStyles({
 
 //data will come in as props and not be hard coded
 function RenderTablePage(props) {
+  const { asylum, setAllData } = props;
   const classes = useStyles();
+
+  useEffect(() => {
+    setAllData(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const count = Math.floor(Math.random() * 20) + 1;
+  const dataArray = [...new Array(count).keys()].map(key => ({
+    ...asylum,
+    key,
+  }));
 
   return (
     <div>
@@ -20,22 +34,29 @@ function RenderTablePage(props) {
         className={classes.container}
         bordered={true}
         loading={data.length === 0 ? true : false}
-        //columns is how many columns we will have
         columns={columns}
-        //datasource is where we get the data from
-        dataSource={data}
-        //pageSize=number controls number of items per page, default is 10
-        //position controls location of pagination, default is
+        dataSource={dataArray}
         pagination={{
-          //pageSize: 11,
           position: ['bottomCenter'],
         }}
         title={() => 'Tabular View'}
       />
-      ;
     </div>
   );
 }
-export default RenderTablePage;
 
-//onChange function can be used in Table component to filter data
+const mapStateToProps = state => {
+  return {
+    asylum: state.dataReducer,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setAllData: () => {
+      dispatch(setAllData(data));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RenderTablePage);

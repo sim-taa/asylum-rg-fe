@@ -1,42 +1,6 @@
 // import all of your reducers into this file, and export them back out.
 // This allows for the simplification of flow when importing reducers into your actions throughout your app.
 import { combineReducers } from 'redux';
-import { SET_DATA } from '../actions';
+import dataReducer from './dataReducer';
 
-// SET_DATA should return all cases in format:
-// {asylum_office, citizenship, raceOrEthnicity, caseOutcome, completionFrom, completionTo, currentDate, isFiscalYear}
-// SET_CURRENT_CASE should return current case in format:
-// {caseId, asylumOffice, ciizenship, raceOrEthnicity, caseOutcome, completion, currentDate}
-const dataState = {
-  asylum_office: [],
-  citizenship: [],
-  raceOrEthnicity: [],
-  caseOutcome: [],
-  completionFrom: [],
-  completionTo: [],
-  currentDate: [],
-  isFiscalYear: [],
-};
-
-function data(state = dataState, action) {
-  switch (action.type) {
-    case SET_DATA:
-      return {
-        ...state,
-        asylum_office: action.payload.asylum_office,
-        citizenship: action.payload.citizenship,
-        raceOrEthnicity: action.payload.raceOrEthnicity,
-        caseOutcome: action.payload.caseOutcome,
-        completionFrom: action.payload.completion.completionFrom,
-        completionTo: action.payload.completion.completionTo,
-        currentDate: action.payload.currentDate,
-        isFiscalYear: action.payload.isFiscalYear,
-      };
-    default:
-      return state;
-  }
-}
-
-export default combineReducers({ data });
-
-//todo possibly change contexts file to constants and store constants there
+export default combineReducers({ dataReducer });

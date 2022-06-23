@@ -19,12 +19,11 @@ import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './state/reducers/index';
+import { configureStore } from '@reduxjs/toolkit';
+import reducer from './state/reducers';
 
-const store = createStore(reducer);
+const store = configureStore({ reducer: reducer });
 
 ReactDOM.render(
   <Router>
