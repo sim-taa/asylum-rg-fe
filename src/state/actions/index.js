@@ -5,9 +5,7 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-
-// Action Types
-export const SET_DATA = 'SET_DATA';
+import { SET_DATA } from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -21,6 +19,6 @@ export const SET_DATA = 'SET_DATA';
 //   };
 // }
 
-export function setAllData({ dummyData }) {
-  return { type: SET_DATA, payload: dummyData };
+export function setAllData(data) {
+  return { type: SET_DATA, payload: data };
 }

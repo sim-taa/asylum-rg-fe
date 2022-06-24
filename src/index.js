@@ -9,21 +9,19 @@ import {
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
-
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
+import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-
-import reducer from './state/reducers/index';
+import reducer from './state/reducers';
 
 const store = configureStore({ reducer: reducer });
 
@@ -55,6 +53,7 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={LandingPage} />
+        <Route path="/table" component={TablePage} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
