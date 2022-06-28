@@ -1,7 +1,7 @@
 import React from 'react';
 import RenderTablePage from './RenderTableContainer';
 
-function LandingContainer() {
+function TableContainer() {
   return (
     <>
       <RenderTablePage />
@@ -9,4 +9,4 @@ function LandingContainer() {
   );
 }
 
-export default LandingContainer;
+export default TableContainer;
