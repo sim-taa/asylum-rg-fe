@@ -4,7 +4,7 @@ import { data } from '../../../data/data';
 import { columns } from '../../../data/columns';
 import { makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { setAllData } from '../../../state/actions';
+import { getAllData } from '../../../state/actions';
 
 const useStyles = makeStyles({
   container: {
@@ -14,15 +14,16 @@ const useStyles = makeStyles({
 
 //data will come in as props and not be hard coded
 function RenderTablePage(props) {
-  const { asylum, setAllData } = props;
+  const { asylum, getAllData } = props;
   const classes = useStyles();
 
   useEffect(() => {
-    setAllData(data);
+    getAllData(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const count = Math.floor(Math.random() * 20) + 1;
+  //code block below creates a random amount of state objects on each reload
+  const count = Math.floor(Math.random() * 50) + 25;
   const dataArray = [...new Array(count).keys()].map(key => ({
     ...asylum,
     key,
@@ -36,8 +37,10 @@ function RenderTablePage(props) {
         loading={data.length === 0 ? true : false}
         columns={columns}
         dataSource={dataArray}
+        scroll={{ y: 550 }}
         pagination={{
           position: ['bottomCenter'],
+          pageSize: 25,
         }}
         title={() => 'Tabular View'}
       />
@@ -53,8 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setAllData: () => {
-      dispatch(setAllData(data));
+    getAllData: () => {
+      dispatch(getAllData(data));
     },
   };
 };

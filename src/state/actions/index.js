@@ -5,7 +5,7 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-import { SET_DATA } from '../constants';
+import { GET_DATA } from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -13,12 +13,12 @@ import { SET_DATA } from '../constants';
 //     axios
 //       .get(/*/cases*/)
 //       .then(res => {
-//         dispatch({ type: SET_DATA, payload: res.data });
+//         dispatch({ type: GET_DATA, payload: res.data });
 //       })
 //       .catch(err => console.log(err));
 //   };
 // }
 
-export function setAllData(data) {
-  return { type: SET_DATA, payload: data };
+export function getAllData(data) {
+  return { type: GET_DATA, payload: data };
 }
