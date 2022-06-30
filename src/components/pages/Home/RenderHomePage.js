@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../common';
+import { TablePage } from '../Table';
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
@@ -21,6 +22,9 @@ function RenderHomePage(props) {
         <p>
           <Link to="/datavis">Data Visualizations Example</Link>
         </p>
+
+        <TablePage />
+
         <p>
           <Button
             handleClick={() => authService.logout()}

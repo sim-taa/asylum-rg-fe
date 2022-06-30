@@ -1,13 +1,15 @@
+// import { combineReducers } from 'redux';
 import { GET_DATA } from '../constants';
 
-const initialState = {
+const initialStates = {
   asylum: [],
+  filteredData: [],
+  filteredCount: 0,
 };
-
-const dataReducer = (state = initialState, action) => {
+export const dataReducer = (state = initialStates, action) => {
   switch (action.type) {
     case GET_DATA:
-      return action.payload;
+      return { ...state, asylum: action.payload };
     default:
       return state;
   }
