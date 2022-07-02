@@ -1,3 +1,7 @@
+/**
+ * Rather than straight up removing things, tentatively commenting them out for now. To be removed later if proven unnecessary
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// for the purposes of testing PageNav
+// import PageNav from '../../common/PageNav';
+import TempPageContainer from '../../common/TempPageContainer';
 
 function RenderLandingPage(props) {
   return (
@@ -20,6 +23,7 @@ function RenderLandingPage(props) {
           .
         </p>
       </div>
+      <TempPageContainer />
     </div>
   );
 }
