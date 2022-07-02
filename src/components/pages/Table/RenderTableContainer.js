@@ -15,8 +15,8 @@ const useStyles = makeStyles({
 
 //data will come in as props and not be hard coded
 function RenderTablePage(props) {
-  const { asylum, filteredData, filteredCount, getAllData } = props;
-  // console.log(asylum);
+  const { asylum, getAllData } = props;
+
   const classes = useStyles();
 
   useEffect(() => {
@@ -30,10 +30,6 @@ function RenderTablePage(props) {
     ...asylum,
     key,
   }));
-  const filteredArray = [...new Array(count).keys()].map(key => ({
-    ...filteredData,
-    key,
-  }));
 
   return (
     <div>
@@ -43,7 +39,7 @@ function RenderTablePage(props) {
         bordered={true}
         loading={data.length === 0 ? true : false}
         columns={columns}
-        dataSource={filteredCount === 0 ? dataArray : filteredArray}
+        dataSource={dataArray}
         scroll={{ y: 550 }}
         pagination={{
           position: ['bottomCenter'],
@@ -56,14 +52,13 @@ function RenderTablePage(props) {
 }
 
 const mapStateToProps = state => {
-  const asylumState = state.dataReducer.asylum;
-  const filteredDataState = state.dataReducer.filteredData;
-  const filteredCountState = state.dataReducer.filteredCount;
+  const reducerState = state.dataReducer;
+  const filteredReducer = reducerState.filteredReducer;
 
   return {
-    asylum: asylumState,
-    filteredData: filteredDataState,
-    filteredCount: filteredCountState,
+    asylum: reducerState.asylumReducer,
+    filteredData: filteredReducer.data,
+    filteredCount: filteredReducer.count,
   };
 };
 

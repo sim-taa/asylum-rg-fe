@@ -1,18 +1,51 @@
-// import { combineReducers } from 'redux';
-import { GET_DATA } from '../constants';
+import { combineReducers } from 'redux';
+import { GET_DATA, INPUT_CHANGE } from '../constants';
 
-const initialStates = {
-  asylum: [],
-  filteredData: [],
-  filteredCount: 0,
+// States
+const initialAsylumData = [];
+
+const initialFilteredStates = {
+  categories: [
+    'asylumOffice',
+    'citizenship',
+    'raceOrEthnicity',
+    'caseOutcome',
+    'completion',
+    'currentDate',
+  ],
+  count: 0,
+  data: [],
 };
-export const dataReducer = (state = initialStates, action) => {
+
+const initialFormState = {
+  searchTerm: '',
+  category: '',
+};
+
+// Reducers
+function asylumReducer(state = initialAsylumData, action) {
   switch (action.type) {
     case GET_DATA:
-      return { ...state, asylum: action.payload };
+      return action.payload;
     default:
       return state;
   }
-};
+}
 
-export default dataReducer;
+function filteredReducer(state = initialFilteredStates, action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
+function formReducer(state = initialFormState, action) {
+  switch (action.type) {
+    case INPUT_CHANGE:
+      return { ...state, [action.payload.name]: action.payload.value };
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ asylumReducer, filteredReducer, formReducer });

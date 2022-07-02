@@ -5,7 +5,7 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-import { GET_DATA } from '../constants';
+import { GET_DATA, INPUT_CHANGE } from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -21,4 +21,9 @@ import { GET_DATA } from '../constants';
 
 export function getAllData(data) {
   return { type: GET_DATA, payload: data };
+}
+
+export function inputChange({ name, value }) {
+  console.log(`inputChange_name: ${name}, value: ${value}`);
+  return { type: INPUT_CHANGE, payload: { name, value } };
 }

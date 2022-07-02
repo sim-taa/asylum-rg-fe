@@ -7,8 +7,3 @@ export const data = {
   completion: 'n',
   currentDate: 'f',
 };
-
-export const searchForm = {
-  searchTerm: '',
-  category: '',
-};

@@ -1,37 +1,78 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { searchForm } from '../../../data/data';
-function SearchBar(props) {
-  const { filteredCount, filteredData } = props;
-  const [searchValues, setSearchValues] = useState(searchForm);
+import { inputChange } from '../../../state/actions';
 
-  console.log(props);
-  console.log(searchValues);
+function SearchBar(props) {
+  const {
+    asylum,
+    categories,
+    filteredData,
+    filteredCount,
+    form,
+    inputChange,
+  } = props;
+
+  function onChange(evt) {
+    const { name, value } = evt.target;
+    const formValues = { name, value };
+    inputChange(formValues);
+  }
+
+  function onSubmit(evt) {
+    evt.preventDefault();
+    // Add in filter reducer action here
+  }
 
   return (
-    <div id="searchBar">
-      <input
-        id="searchTerm"
-        name="searchTerm"
-        type="text"
-        placeholder="Enter Search Term Here"
-        aria-label="Search Term Text Box"
-        value={searchValues.searchTerm}
-      ></input>
-    </div>
+    <form id="searchBar" onSubmit={onSubmit}>
+      <label>
+        {' '}
+        Search Term
+        <input
+          id="searchTerm"
+          name="searchTerm"
+          type="text"
+          value={form.searchTerm}
+          onChange={onChange}
+        ></input>
+      </label>
+      <select
+        onChange={onChange}
+        value={form.category}
+        name="category"
+        id="category"
+      >
+        <option value="null">Pick A Category</option>
+        {categories.map(category => {
+          return <option value={category}>{category}</option>;
+        })}
+      </select>
+      <button id="submitBtn" onClick={onSubmit}>
+        🔎
+      </button>
+    </form>
   );
 }
 
 const mapStateToProps = state => {
-  const asylumState = state.dataReducer.asylum;
-  const filteredDataState = state.dataReducer.filteredData;
-  const filteredCountState = state.dataReducer.filteredCount;
+  const reducerState = state.dataReducer;
+  const filteredReducer = reducerState.filteredReducer;
 
   return {
-    asylum: asylumState,
-    filteredData: filteredDataState,
-    filteredCount: filteredCountState,
+    asylum: reducerState.asylumReducer,
+    categories: filteredReducer.categories,
+    filteredData: filteredReducer.data,
+    filteredCount: filteredReducer.count,
+    form: reducerState.formReducer,
   };
 };
 
-export default connect(mapStateToProps)(SearchBar);
+const mapDispatchToProps = dispatch => {
+  return {
+    inputChange: ({ name, value }) => {
+      dispatch(inputChange({ name, value }));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
