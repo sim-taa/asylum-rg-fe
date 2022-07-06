@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
 //data will come in as props and not be hard coded
 function RenderTablePage(props) {
-  const { asylum, getAllData } = props;
+  const { asylum, getAllData, filteredCount, filteredData } = props;
 
   const classes = useStyles();
 
@@ -23,13 +23,6 @@ function RenderTablePage(props) {
     getAllData(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  //code block below creates a random amount of state objects on each reload
-  const count = Math.floor(Math.random() * 50) + 25;
-  const dataArray = [...new Array(count).keys()].map(key => ({
-    ...asylum,
-    key,
-  }));
 
   return (
     <div>
@@ -39,7 +32,7 @@ function RenderTablePage(props) {
         bordered={true}
         loading={data.length === 0 ? true : false}
         columns={columns}
-        dataSource={dataArray}
+        dataSource={filteredCount === 0 ? asylum : filteredData}
         scroll={{ y: 550 }}
         pagination={{
           position: ['bottomCenter'],

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { inputChange } from '../../../state/actions';
+import { inputChange, filterSearch } from '../../../state/actions';
 
 function SearchBar(props) {
   const {
@@ -8,6 +8,7 @@ function SearchBar(props) {
     categories,
     filteredData,
     filteredCount,
+    filterSearch,
     form,
     inputChange,
   } = props;
@@ -20,11 +21,16 @@ function SearchBar(props) {
 
   function onSubmit(evt) {
     evt.preventDefault();
-    // Add in filter reducer action here
+
+    const data = filteredCount === 0 ? asylum : filteredData;
+    const searchTerm = form.searchTerm;
+    const searchCategory = form.category;
+
+    filterSearch({ data, searchTerm, searchCategory });
   }
 
   return (
-    <form id="searchBar" onSubmit={onSubmit}>
+    <form id="searchBar">
       <label>
         {' '}
         Search Term
@@ -44,7 +50,11 @@ function SearchBar(props) {
       >
         <option value="null">Pick A Category</option>
         {categories.map(category => {
-          return <option value={category}>{category}</option>;
+          return (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          );
         })}
       </select>
       <button id="submitBtn" onClick={onSubmit}>
@@ -71,6 +81,9 @@ const mapDispatchToProps = dispatch => {
   return {
     inputChange: ({ name, value }) => {
       dispatch(inputChange({ name, value }));
+    },
+    filterSearch: ({ data, searchTerm, searchCategory }) => {
+      dispatch(filterSearch({ data, searchTerm, searchCategory }));
     },
   };
 };
