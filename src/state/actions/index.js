@@ -10,6 +10,7 @@ import {
   INPUT_CHANGE,
   FILTER_SEARCH,
   FILTER_CATEGORIES,
+  RESET_FILTER,
 } from '../constants';
 
 // Action Creators
@@ -44,4 +45,8 @@ export function filterCategories(categories, searchCategory) {
   );
 
   return { type: FILTER_CATEGORIES, payload: filteredCategories };
+}
+
+export function resetFilter() {
+  return { type: RESET_FILTER };
 }

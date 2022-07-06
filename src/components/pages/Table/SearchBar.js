@@ -4,6 +4,7 @@ import {
   inputChange,
   filterSearch,
   filterCategories,
+  resetFilter,
 } from '../../../state/actions';
 
 function SearchBar(props) {
@@ -16,6 +17,7 @@ function SearchBar(props) {
     filterSearch,
     form,
     inputChange,
+    resetFilter,
   } = props;
 
   function onChange(evt) {
@@ -64,9 +66,11 @@ function SearchBar(props) {
         })}
       </select>
       <button id="submitBtn" onClick={onSubmit}>
-        🔎
+        Search/Filter🔎
       </button>
-      <button id="resetBtn">Reset Search</button>
+      <button id="resetBtn" onClick={() => resetFilter()}>
+        Reset Search
+      </button>
     </form>
   );
 }
@@ -94,6 +98,9 @@ const mapDispatchToProps = dispatch => {
     },
     filterCategories: (categories, searchCategory) => {
       dispatch(filterCategories(categories, searchCategory));
+    },
+    resetFilter: () => {
+      dispatch(resetFilter());
     },
   };
 };

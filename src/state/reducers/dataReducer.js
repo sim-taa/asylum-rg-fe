@@ -4,6 +4,7 @@ import {
   INPUT_CHANGE,
   FILTER_SEARCH,
   FILTER_CATEGORIES,
+  RESET_FILTER,
 } from '../constants';
 
 // States
@@ -43,6 +44,8 @@ function filteredReducer(state = initialFilteredStates, action) {
       return { ...state, data: action.payload, count: state.count + 1 };
     case FILTER_CATEGORIES:
       return { ...state, categories: action.payload };
+    case RESET_FILTER:
+      return initialFilteredStates;
     default:
       return state;
   }
@@ -53,6 +56,8 @@ function formReducer(state = initialFormState, action) {
     case INPUT_CHANGE:
       return { ...state, [action.payload.name]: action.payload.value };
     case FILTER_SEARCH:
+      return initialFormState;
+    case RESET_FILTER:
       return initialFormState;
     default:
       return state;
