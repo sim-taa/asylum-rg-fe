@@ -32,9 +32,13 @@ function SearchBar(props) {
     const data = filteredCount === 0 ? asylum : filteredData;
     const searchTerm = form.searchTerm;
     const searchCategory = form.category;
-
-    filterSearch({ data, searchTerm, searchCategory });
-    filterCategories(categories, searchCategory);
+    console.log(`searchTerm: ${searchTerm}, searchCategory: ${searchCategory}`);
+    if (searchTerm === '' || searchCategory === '') {
+      alert('Please Enter A Search Term & Filter Category.');
+    } else {
+      filterSearch({ data, searchTerm, searchCategory });
+      filterCategories(categories, searchCategory);
+    }
   }
 
   return (
@@ -56,7 +60,7 @@ function SearchBar(props) {
         name="category"
         id="category"
       >
-        <option value="null">Pick A Category</option>
+        <option value="">Pick A Category</option>
         {categories.map(category => {
           return (
             <option key={category} value={category}>
