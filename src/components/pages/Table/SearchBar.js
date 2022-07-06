@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { inputChange, filterSearch } from '../../../state/actions';
+import {
+  inputChange,
+  filterSearch,
+  filterCategories,
+} from '../../../state/actions';
 
 function SearchBar(props) {
   const {
@@ -8,6 +12,7 @@ function SearchBar(props) {
     categories,
     filteredData,
     filteredCount,
+    filterCategories,
     filterSearch,
     form,
     inputChange,
@@ -27,6 +32,7 @@ function SearchBar(props) {
     const searchCategory = form.category;
 
     filterSearch({ data, searchTerm, searchCategory });
+    filterCategories(categories, searchCategory);
   }
 
   return (
@@ -60,6 +66,7 @@ function SearchBar(props) {
       <button id="submitBtn" onClick={onSubmit}>
         🔎
       </button>
+      <button id="resetBtn">Reset Search</button>
     </form>
   );
 }
@@ -84,6 +91,9 @@ const mapDispatchToProps = dispatch => {
     },
     filterSearch: ({ data, searchTerm, searchCategory }) => {
       dispatch(filterSearch({ data, searchTerm, searchCategory }));
+    },
+    filterCategories: (categories, searchCategory) => {
+      dispatch(filterCategories(categories, searchCategory));
     },
   };
 };

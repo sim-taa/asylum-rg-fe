@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import { GET_DATA, INPUT_CHANGE, FILTER_SEARCH } from '../constants';
+import {
+  GET_DATA,
+  INPUT_CHANGE,
+  FILTER_SEARCH,
+  FILTER_CATEGORIES,
+} from '../constants';
 
 // States
 const initialAsylumData = [];
@@ -36,6 +41,8 @@ function filteredReducer(state = initialFilteredStates, action) {
   switch (action.type) {
     case FILTER_SEARCH:
       return { ...state, data: action.payload, count: state.count + 1 };
+    case FILTER_CATEGORIES:
+      return { ...state, categories: action.payload };
     default:
       return state;
   }

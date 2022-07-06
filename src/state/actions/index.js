@@ -5,7 +5,12 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-import { GET_DATA, INPUT_CHANGE, FILTER_SEARCH } from '../constants';
+import {
+  GET_DATA,
+  INPUT_CHANGE,
+  FILTER_SEARCH,
+  FILTER_CATEGORIES,
+} from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -31,4 +36,12 @@ export function filterSearch({ data, searchTerm, searchCategory }) {
   const filteredData = data.filter(info => info[searchCategory] === searchTerm);
 
   return { type: FILTER_SEARCH, payload: filteredData };
+}
+
+export function filterCategories(categories, searchCategory) {
+  const filteredCategories = categories.filter(
+    category => category !== searchCategory
+  );
+
+  return { type: FILTER_CATEGORIES, payload: filteredCategories };
 }
