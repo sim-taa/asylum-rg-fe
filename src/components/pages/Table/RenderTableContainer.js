@@ -30,7 +30,7 @@ function RenderTablePage(props) {
       <Table
         className={classes.container}
         bordered={true}
-        loading={data.length === 0 ? true : false}
+        loading={asylum.length === 0 ? true : false}
         columns={columns}
         dataSource={filteredCount === 0 ? asylum : filteredData}
         scroll={{ y: 550 }}
