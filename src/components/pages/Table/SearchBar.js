@@ -32,13 +32,18 @@ function SearchBar(props) {
     const data = filteredCount === 0 ? asylum : filteredData;
     const searchTerm = form.searchTerm;
     const searchCategory = form.category;
-    console.log(`searchTerm: ${searchTerm}, searchCategory: ${searchCategory}`);
+
     if (searchTerm === '' || searchCategory === '') {
       alert('Please Enter A Search Term & Filter Category.');
     } else {
       filterSearch({ data, searchTerm, searchCategory });
       filterCategories(categories, searchCategory);
     }
+  }
+
+  function reset(evt) {
+    evt.preventDefault();
+    resetFilter();
   }
 
   return (
@@ -72,7 +77,7 @@ function SearchBar(props) {
       <button id="submitBtn" onClick={onSubmit}>
         Search/Filter🔎
       </button>
-      <button id="resetBtn" onClick={() => resetFilter()}>
+      <button id="resetBtn" onClick={reset}>
         Reset Search
       </button>
     </form>

@@ -34,7 +34,11 @@ export function inputChange({ name, value }) {
 }
 
 export function filterSearch({ data, searchTerm, searchCategory }) {
-  const filteredData = data.filter(info => info[searchCategory] === searchTerm);
+  const filteredData = data.filter(
+    info =>
+      info[searchCategory].toUpperCase().trim() ===
+      searchTerm.toUpperCase().trim()
+  );
 
   return { type: FILTER_SEARCH, payload: filteredData };
 }
