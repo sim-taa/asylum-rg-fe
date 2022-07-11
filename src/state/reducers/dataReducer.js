@@ -15,4 +15,4 @@ const dataReducer = (state = initialState, action) => {
 
 export default dataReducer;
 
-// testing my git
+// tech prop
