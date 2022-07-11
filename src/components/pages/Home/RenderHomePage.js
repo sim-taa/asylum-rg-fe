@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../common';
-import { TablePage } from '../Table';
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
+
   return (
     <div>
       <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
@@ -22,8 +22,9 @@ function RenderHomePage(props) {
         <p>
           <Link to="/datavis">Data Visualizations Example</Link>
         </p>
-
-        <TablePage />
+        <p>
+          <Link to="/table">Table Link</Link>
+        </p>
 
         <p>
           <Button
