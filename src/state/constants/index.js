@@ -1,1 +1,2 @@
 export const GET_DATA = 'GET_DATA';
+export const SET_DATE_FILTER_FORMAT = 'SET_DATE_FILTER_FORMAT';
