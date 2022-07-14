@@ -31,36 +31,46 @@ const initialFormState = {
 // Reducers
 function asylumReducer(state = initialAsylumData, action) {
   switch (action.type) {
-    case GET_DATA:
+    case GET_DATA: {
       return action.payload;
-    default:
+    }
+    default: {
       return state;
+    }
   }
 }
 
 function filteredReducer(state = initialFilteredStates, action) {
   switch (action.type) {
-    case FILTER_SEARCH:
+    case FILTER_SEARCH: {
       return { ...state, data: action.payload, count: state.count + 1 };
-    case FILTER_CATEGORIES:
+    }
+    case FILTER_CATEGORIES: {
       return { ...state, categories: action.payload };
-    case RESET_FILTER:
+    }
+    case RESET_FILTER: {
       return initialFilteredStates;
-    default:
+    }
+    default: {
       return state;
+    }
   }
 }
 
 function formReducer(state = initialFormState, action) {
   switch (action.type) {
-    case INPUT_CHANGE:
+    case INPUT_CHANGE: {
       return { ...state, [action.payload.name]: action.payload.value };
-    case FILTER_SEARCH:
+    }
+    case FILTER_SEARCH: {
       return initialFormState;
-    case RESET_FILTER:
+    }
+    case RESET_FILTER: {
       return initialFormState;
-    default:
+    }
+    default: {
       return state;
+    }
   }
 }
 
