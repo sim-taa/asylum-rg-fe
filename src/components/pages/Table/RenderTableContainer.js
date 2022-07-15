@@ -45,11 +45,10 @@ function RenderTablePage(props) {
 }
 
 const mapStateToProps = state => {
-  const reducerState = state.dataReducer;
-  const filteredReducer = reducerState.filteredReducer;
+  const filteredReducer = state.filterReducer;
 
   return {
-    asylum: reducerState.asylumReducer,
+    asylum: state.dataReducer,
     filteredData: filteredReducer.data,
     filteredCount: filteredReducer.count,
   };

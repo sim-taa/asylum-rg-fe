@@ -5,7 +5,12 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-import { GET_DATA, FILTER_SEARCH, RESET_DATA } from '../constants';
+import {
+  GET_DATA,
+  FILTER_SEARCH,
+  RESET_DATA,
+  SHOW_ADVANCED_SEARCH,
+} from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -33,4 +38,8 @@ export function filterSearch({ data, searchTerm, category }) {
 
 export function resetData() {
   return { type: RESET_DATA };
+}
+
+export function showAdvanced(hideAdvanced) {
+  return { type: SHOW_ADVANCED_SEARCH, payload: !hideAdvanced };
 }
