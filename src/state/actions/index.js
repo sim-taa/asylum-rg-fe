@@ -24,7 +24,9 @@ export function getAllData(data) {
 }
 
 export function filterSearch({ data, searchTerm, category }) {
-  const filteredData = data.filter(info => info[category].includes(searchTerm));
+  const filteredData = data.filter(info =>
+    info[category].toUpperCase().includes(searchTerm.toUpperCase())
+  );
 
   return { type: FILTER_SEARCH, payload: filteredData };
 }

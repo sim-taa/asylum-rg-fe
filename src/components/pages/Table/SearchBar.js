@@ -29,10 +29,12 @@ function SearchBar(props) {
   return (
     <Form
       form={form}
-      name="basic-searchbar"
+      name="searchBar"
       onFinish={onSubmit}
       autoComplete="off"
-      initialValues={{ searchTerm: '', category: '' }}
+      initialValues={{ searchTerm: '', category: null }}
+      layout="inline"
+      wrapperCol={{ span: 45 }}
     >
       {/* Basic Search(will move to another component) */}
       <Form.Item
@@ -43,11 +45,7 @@ function SearchBar(props) {
         <Input />
       </Form.Item>
       <Form.Item name="category" label="Category" rules={[{ required: true }]}>
-        <Select
-          placeholder="Pick A Category"
-          onChange={onCategoryChange}
-          allowClear
-        >
+        <Select placeholder="Pick A Category" onChange={onCategoryChange}>
           {columns.map(column => (
             <Option value={column.dataIndex}>{column.title}</Option>
           ))}
