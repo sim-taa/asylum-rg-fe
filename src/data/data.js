@@ -1,3 +1,4 @@
+//Here are 1000 randomly generated data points to work with
 export const data = [
   {
     caseId: 0,
