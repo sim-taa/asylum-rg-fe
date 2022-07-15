@@ -74,6 +74,7 @@ function SearchBar(props) {
           );
         })}
       </select>
+
       <button id="submitBtn" onClick={onSubmit}>
         Search/Filter🔎
       </button>
