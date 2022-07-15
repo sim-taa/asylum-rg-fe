@@ -5,13 +5,7 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-import {
-  GET_DATA,
-  INPUT_CHANGE,
-  FILTER_SEARCH,
-  FILTER_CATEGORIES,
-  RESET_FILTER,
-} from '../constants';
+import { GET_DATA, FILTER_SEARCH } from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -29,28 +23,8 @@ export function getAllData(data) {
   return { type: GET_DATA, payload: data };
 }
 
-export function inputChange({ name, value }) {
-  return { type: INPUT_CHANGE, payload: { name, value } };
-}
-
-export function filterSearch({ data, searchTerm, searchCategory }) {
-  const filteredData = data.filter(
-    info =>
-      info[searchCategory].toUpperCase().trim() ===
-      searchTerm.toUpperCase().trim()
-  );
+export function filterSearch({ data, searchTerm, category }) {
+  const filteredData = data.filter(info => info[category].includes(searchTerm));
 
   return { type: FILTER_SEARCH, payload: filteredData };
-}
-
-export function filterCategories(categories, searchCategory) {
-  const filteredCategories = categories.filter(
-    category => category !== searchCategory
-  );
-
-  return { type: FILTER_CATEGORIES, payload: filteredCategories };
-}
-
-export function resetFilter() {
-  return { type: RESET_FILTER };
 }

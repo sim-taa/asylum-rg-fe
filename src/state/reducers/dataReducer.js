@@ -1,31 +1,12 @@
 import { combineReducers } from 'redux';
-import {
-  GET_DATA,
-  INPUT_CHANGE,
-  FILTER_SEARCH,
-  FILTER_CATEGORIES,
-  RESET_FILTER,
-} from '../constants';
+import { GET_DATA, FILTER_SEARCH } from '../constants';
 
 // States
 const initialAsylumData = [];
 
 const initialFilteredStates = {
-  categories: [
-    'asylumOffice',
-    'citizenship',
-    'raceOrEthnicity',
-    'caseOutcome',
-    'completion',
-    'currentDate',
-  ],
   count: 0,
   data: [],
-};
-
-const initialFormState = {
-  searchTerm: '',
-  category: '',
 };
 
 // Reducers
@@ -45,33 +26,10 @@ function filteredReducer(state = initialFilteredStates, action) {
     case FILTER_SEARCH: {
       return { ...state, data: action.payload, count: state.count + 1 };
     }
-    case FILTER_CATEGORIES: {
-      return { ...state, categories: action.payload };
-    }
-    case RESET_FILTER: {
-      return initialFilteredStates;
-    }
     default: {
       return state;
     }
   }
 }
 
-function formReducer(state = initialFormState, action) {
-  switch (action.type) {
-    case INPUT_CHANGE: {
-      return { ...state, [action.payload.name]: action.payload.value };
-    }
-    case FILTER_SEARCH: {
-      return initialFormState;
-    }
-    case RESET_FILTER: {
-      return initialFormState;
-    }
-    default: {
-      return state;
-    }
-  }
-}
-
-export default combineReducers({ asylumReducer, filteredReducer, formReducer });
+export default combineReducers({ asylumReducer, filteredReducer });

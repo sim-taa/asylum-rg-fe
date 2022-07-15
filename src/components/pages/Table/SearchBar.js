@@ -1,87 +1,68 @@
 import React from 'react';
+import { Form, Input, Button, Select } from 'antd';
+import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
-import {
-  inputChange,
-  filterSearch,
-  filterCategories,
-  resetFilter,
-} from '../../../state/actions';
+import { filterSearch } from '../../../state/actions';
 
 function SearchBar(props) {
-  const {
-    asylum,
-    categories,
-    filteredData,
-    filteredCount,
-    filterCategories,
-    filterSearch,
-    form,
-    inputChange,
-    resetFilter,
-  } = props;
+  const { asylum, filteredData, filteredCount, filterSearch } = props;
 
-  function onChange(evt) {
-    const { name, value } = evt.target;
-    const formValues = { name, value };
-    inputChange(formValues);
+  const { Option } = Select;
+  const [form] = Form.useForm();
+
+  function onCategoryChange(value) {
+    form.setFieldsValue({ category: value });
   }
 
-  function onSubmit(evt) {
-    evt.preventDefault();
-
+  function onSubmit(values) {
+    const { searchTerm, category } = values;
     const data = filteredCount === 0 ? asylum : filteredData;
-    const searchTerm = form.searchTerm;
-    const searchCategory = form.category;
 
-    if (searchTerm === '' || searchCategory === '') {
-      alert('Please Enter A Search Term & Filter Category.');
-    } else {
-      filterSearch({ data, searchTerm, searchCategory });
-      filterCategories(categories, searchCategory);
-    }
+    filterSearch({ data, searchTerm, category });
+    form.resetFields();
   }
 
-  function reset(evt) {
-    evt.preventDefault();
-    resetFilter();
+  function reset() {
+    form.resetFields();
   }
 
   return (
-    <form id="searchBar">
-      <label>
-        {' '}
-        Search Term
-        <input
-          id="searchTerm"
-          name="searchTerm"
-          type="text"
-          value={form.searchTerm}
-          onChange={onChange}
-        ></input>
-      </label>
-      <select
-        onChange={onChange}
-        value={form.category}
-        name="category"
-        id="category"
+    <Form
+      form={form}
+      name="basic-searchbar"
+      onFinish={onSubmit}
+      autoComplete="off"
+      initialValues={{ searchTerm: '', category: '' }}
+    >
+      {/* Basic Search(will move to another component) */}
+      <Form.Item
+        label="Search Term"
+        name="searchTerm"
+        rules={[{ required: true }]}
       >
-        <option value="">Pick A Category</option>
-        {categories.map(category => {
-          return (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          );
-        })}
-      </select>
+        <Input />
+      </Form.Item>
+      <Form.Item name="category" label="Category" rules={[{ required: true }]}>
+        <Select
+          placeholder="Pick A Category"
+          onChange={onCategoryChange}
+          allowClear
+        >
+          {columns.map(column => (
+            <Option value={column.dataIndex}>{column.title}</Option>
+          ))}
+        </Select>
+      </Form.Item>
 
-      <button id="submitBtn" onClick={onSubmit}>
-        Search/Filter🔎
-      </button>
-      <button id="resetBtn" onClick={reset}>
-        Reset Search
-      </button>
-    </form>
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          Search/Filter🔎
+        </Button>
+        <Button htmlType="button" onClick={reset}>
+          Reset Search Terms
+        </Button>
+      </Form.Item>
+    </Form>
   );
 }
 
@@ -91,26 +72,15 @@ const mapStateToProps = state => {
 
   return {
     asylum: reducerState.asylumReducer,
-    categories: filteredReducer.categories,
     filteredData: filteredReducer.data,
     filteredCount: filteredReducer.count,
-    form: reducerState.formReducer,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    inputChange: ({ name, value }) => {
-      dispatch(inputChange({ name, value }));
-    },
-    filterSearch: ({ data, searchTerm, searchCategory }) => {
-      dispatch(filterSearch({ data, searchTerm, searchCategory }));
-    },
-    filterCategories: (categories, searchCategory) => {
-      dispatch(filterCategories(categories, searchCategory));
-    },
-    resetFilter: () => {
-      dispatch(resetFilter());
+    filterSearch: ({ data, searchTerm, category }) => {
+      dispatch(filterSearch({ data, searchTerm, category }));
     },
   };
 };
