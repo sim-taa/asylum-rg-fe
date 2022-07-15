@@ -2,10 +2,16 @@ import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
-import { filterSearch } from '../../../state/actions';
+import { filterSearch, resetData } from '../../../state/actions';
 
 function SearchBar(props) {
-  const { asylum, filteredData, filteredCount, filterSearch } = props;
+  const {
+    asylum,
+    filteredData,
+    filteredCount,
+    filterSearch,
+    resetData,
+  } = props;
 
   const { Option } = Select;
   const [form] = Form.useForm();
@@ -23,6 +29,7 @@ function SearchBar(props) {
   }
 
   function reset() {
+    resetData();
     form.resetFields();
   }
 
@@ -32,7 +39,6 @@ function SearchBar(props) {
       name="searchBar"
       onFinish={onSubmit}
       autoComplete="off"
-      initialValues={{ searchTerm: '', category: null }}
       layout="inline"
       wrapperCol={{ span: 45 }}
     >
@@ -79,6 +85,9 @@ const mapDispatchToProps = dispatch => {
   return {
     filterSearch: ({ data, searchTerm, category }) => {
       dispatch(filterSearch({ data, searchTerm, category }));
+    },
+    resetData: () => {
+      dispatch(resetData());
     },
   };
 };
