@@ -1,23 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Form, Checkbox, Button } from 'antd';
-
-/** Form Structure
- * Each category should be present to take in values
- * asylum office: [],
- * citizenship: [],
- * Race: [],
- * Case Outcome: [],
- * completion:"Date to Date"
- *
- * Run data to only filter asylumdata in total.
- */
+import { Form, Checkbox, Button, DatePicker } from 'antd';
 
 function AdvancedSearch(props) {
-  // console.log(props);
   const { asylum } = props;
   const [form] = Form.useForm();
-
+  const { RangePicker } = DatePicker;
   const asylumOfficeOptions = [];
   const citizenshipOptions = [];
   const raceOrEthnicityOptions = [];
@@ -42,7 +30,26 @@ function AdvancedSearch(props) {
   });
 
   function onFinish(values) {
-    console.log(values);
+    const {
+      asylumOffice,
+      citizenship,
+      raceOrEthnicity,
+      caseOutcome,
+      completionDate,
+    } = values;
+
+    const completion = [
+      completionDate[0].format('YYYY-MM-DD'),
+      completionDate[1].format('YYYY-MM-DD'),
+    ];
+
+    // Filter action for advanced filter({
+    //   asylumOffice,
+    //   citizenship,
+    //   raceOrEthnicity,
+    //   caseOutcome,
+    //   completion
+    // })
   }
 
   return (
@@ -63,9 +70,13 @@ function AdvancedSearch(props) {
         <Checkbox.Group options={caseOutcomeOptions} />
       </Form.Item>
 
+      <Form.Item label="Completion Date" name="completionDate">
+        <RangePicker />
+      </Form.Item>
+
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Get Results🔎
+          Get Advanced Results🔎
         </Button>
       </Form.Item>
     </Form>

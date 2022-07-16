@@ -3,7 +3,7 @@ import { FILTER_SEARCH, RESET_DATA, SHOW_ADVANCED_SEARCH } from '../constants';
 const initialFilteredStates = {
   count: 0,
   data: [],
-  hideAdvanced: true,
+  hideAdvanced: false,
 };
 
 function filteredReducer(state = initialFilteredStates, action) {
