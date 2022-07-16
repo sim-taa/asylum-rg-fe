@@ -1,9 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setAsylumOfficeFilter } from '../../../state/actions';
 import 'antd/dist/antd.css';
 import { Select, Popover } from 'antd';
 import { officeRegions } from '../../../data/filterConstants';
 
 const { Option } = Select;
+
+const mapStateToProps = state => ({
+  asylumOffice: state.filterReducer.asylumOffice,
+});
 
 const children = [];
 
@@ -14,7 +20,7 @@ officeRegions.forEach(office => {
         placement="right"
         title={`${office.location.city}, ${office.location.state}`}
         content={office.regions.map(region => (
-          <p>{region}</p>
+          <p key={region}>{region}</p>
         ))}
         trigger="hover"
       >
@@ -28,12 +34,11 @@ officeRegions.forEach(office => {
   );
 });
 
-const handleChange = value => {
-  console.log(`selected ${value}`);
-};
-
-const asylumOfficeSelect = () => (
-  <>
+const AsylumOfficeSelect = ({ asylumOffice, setAsylumOfficeFilter }) => {
+  const handleChange = value => {
+    setAsylumOfficeFilter(value);
+  };
+  return (
     <Select
       // Uncomment the following line to allow for selection of multiple regions
       //mode="multiple"
@@ -45,10 +50,14 @@ const asylumOfficeSelect = () => (
       placeholder="Filter By Office Region"
       defaultValue={[]}
       onChange={handleChange}
+      // value={asylumOffice}
+      // onChange={ (e) => setAsylumOfficeFilter(e.target.value)}
     >
       {children}
     </Select>
-  </>
-);
+  );
+};
 
-export default asylumOfficeSelect;
+export default connect(mapStateToProps, { setAsylumOfficeFilter })(
+  AsylumOfficeSelect
+);
