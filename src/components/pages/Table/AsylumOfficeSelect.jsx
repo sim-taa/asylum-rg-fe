@@ -40,7 +40,7 @@ const asylumOfficeSelect = () => (
       allowClear
       style={{
         textAlign: 'center',
-        width: '20em',
+        width: '15em',
       }}
       placeholder="Filter By Office Region"
       defaultValue={[]}
