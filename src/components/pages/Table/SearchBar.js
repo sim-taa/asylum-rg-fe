@@ -65,7 +65,9 @@ function SearchBar(props) {
         >
           <Select placeholder="Pick A Category" onChange={onCategoryChange}>
             {columns.map(column => (
-              <Option value={column.dataIndex}>{column.title}</Option>
+              <Option key={column.dataIndex} value={column.dataIndex}>
+                {column.title}
+              </Option>
             ))}
           </Select>
         </Form.Item>
@@ -77,7 +79,9 @@ function SearchBar(props) {
           <Button htmlType="button" onClick={reset}>
             Reset Search Terms
           </Button>
-          <Button onClick={showAdvancedSearch}>Advanced Search</Button>
+          <Button onClick={showAdvancedSearch}>
+            {hideAdvanced ? 'Advanced Search' : 'Hide Advanced Search'}
+          </Button>
         </Form.Item>
       </Form>
 
@@ -88,7 +92,7 @@ function SearchBar(props) {
 
 const mapStateToProps = state => {
   const filteredReducer = state.filterReducer;
-  console.log(filteredReducer);
+
   return {
     asylum: state.dataReducer,
     filteredData: filteredReducer.data,
