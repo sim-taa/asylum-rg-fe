@@ -1,7 +1,7 @@
 export const officeRegions = [
   {
     code: 'zar',
-    location: 'Arlington, VA',
+    location: { city: 'Arlington', state: 'VA' },
     regions: [
       'Alabama',
       'Georgia',
@@ -15,12 +15,12 @@ export const officeRegions = [
   },
   {
     code: 'zbo',
-    location: 'Boston, MA',
+    location: { city: 'Boston', state: 'MA' },
     regions: ['Maine', 'Massachusetts', 'New Hampshire', 'Rhode Island'],
   },
   {
     code: 'zch',
-    location: 'Chicago, IL',
+    location: { city: 'Chicago', state: 'IL' },
     regions: [
       'Illinois',
       'Indiana',
@@ -41,12 +41,12 @@ export const officeRegions = [
   },
   {
     code: 'zhn',
-    location: 'Houston, TX',
+    location: { city: 'Houston', state: 'TX' },
     regions: ['Colorado', 'Oklahoma', 'New Mexico', 'Texas', 'Utah', 'Wyoming'],
   },
   {
     code: 'zla',
-    location: 'Los Angeles, CA',
+    location: { city: 'Los Angeles', state: 'CA' },
     regions: [
       'Arizona',
       'California (9 southern counties)',
@@ -57,12 +57,12 @@ export const officeRegions = [
   },
   {
     code: 'zmi',
-    location: 'Miami, FL',
+    location: { city: 'Miami', state: 'FL' },
     regions: ['Florida', 'Puerto Rico', 'US Virgin Islands'],
   },
   {
     code: 'znk',
-    location: 'Newark, NJ',
+    location: { city: 'Newark', state: 'NJ' },
     regions: [
       'Connecticut',
       'Delaware',
@@ -74,17 +74,17 @@ export const officeRegions = [
   },
   {
     code: 'zny',
-    location: 'Bethpage, NY',
+    location: { city: 'Bethpage', state: 'NY' },
     regions: ['New York (12 southern counties, excluding Manhattan)'],
   },
   {
     code: 'zol',
-    location: 'New Orleans, LA',
+    location: { city: 'New Orleans', state: 'LA' },
     regions: ['Louisiana', 'Arkansas', 'Mississippi', 'Tennessee'],
   },
   {
     code: 'zsf',
-    location: 'San Francisco, CA',
+    location: { city: 'San Francisco', state: 'CA' },
     regions: [
       'Alaska',
       'California (49 northern counties)',
