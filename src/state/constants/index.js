@@ -2,3 +2,4 @@ export const GET_DATA = 'GET_DATA';
 export const FILTER_SEARCH = 'FILTER_SEARCH';
 export const RESET_DATA = 'RESET_DATA';
 export const SHOW_ADVANCED_SEARCH = 'SHOW_ADVANCED_SEARCH';
+export const ADVANCED_SEARCH = 'ADVANCED_SEARCH';

@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Checkbox, Button, DatePicker } from 'antd';
+import { advancedSearch } from '../../../state/actions';
 
 function AdvancedSearch(props) {
-  const { asylum } = props;
+  const { asylum, advancedSearch } = props;
   const [form] = Form.useForm();
   const { RangePicker } = DatePicker;
+
   const asylumOfficeOptions = [];
   const citizenshipOptions = [];
   const raceOrEthnicityOptions = [];
@@ -38,18 +40,29 @@ function AdvancedSearch(props) {
       completionDate,
     } = values;
 
-    const completion = [
-      completionDate[0].format('YYYY-MM-DD'),
-      completionDate[1].format('YYYY-MM-DD'),
-    ];
+    const parameters = {
+      data: asylum,
+      asylumOffice: null,
+      citizenship: null,
+      raceOrEthnicity: null,
+      caseOutcome: null,
+      completion: null,
+    };
 
-    // Filter action for advanced filter({
-    //   asylumOffice,
-    //   citizenship,
-    //   raceOrEthnicity,
-    //   caseOutcome,
-    //   completion
-    // })
+    if (asylumOffice !== undefined) parameters.asylumOffice = asylumOffice;
+    if (citizenship !== undefined) parameters.citizenship = citizenship;
+    if (raceOrEthnicity !== undefined)
+      parameters.raceOrEthnicity = raceOrEthnicity;
+    if (caseOutcome !== undefined) parameters.caseOutcome = caseOutcome;
+    if (completionDate !== undefined) {
+      parameters.completion = [
+        completionDate[0].format('YYYY-MM-DD'),
+        completionDate[1].format('YYYY-MM-DD'),
+      ];
+    }
+
+    advancedSearch(parameters);
+    console.log('pushed');
   }
 
   return (
@@ -89,4 +102,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(AdvancedSearch);
+const mapDispatchToProps = dispatch => {
+  return {
+    advancedSearch: parameters => {
+      dispatch(advancedSearch(parameters));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdvancedSearch);
