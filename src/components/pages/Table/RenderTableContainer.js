@@ -5,7 +5,7 @@ import { columns } from '../../../data/columns';
 import { makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getAllData } from '../../../state/actions';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar/SearchBar';
 
 const useStyles = makeStyles({
   container: {

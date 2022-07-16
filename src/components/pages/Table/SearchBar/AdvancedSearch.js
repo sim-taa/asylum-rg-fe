@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Checkbox, Button, DatePicker } from 'antd';
-import { advancedSearch } from '../../../state/actions';
+import { advancedSearch } from '../../../../state/actions/index';
 
 function AdvancedSearch(props) {
   const { asylum, advancedSearch } = props;
@@ -62,7 +62,6 @@ function AdvancedSearch(props) {
     }
 
     advancedSearch(parameters);
-    console.log('pushed');
   }
 
   return (

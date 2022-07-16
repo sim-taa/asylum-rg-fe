@@ -1,8 +1,12 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
-import { columns } from '../../../data/columns';
+import { columns } from '../../../../data/columns';
 import { connect } from 'react-redux';
-import { filterSearch, resetData, showAdvanced } from '../../../state/actions';
+import {
+  filterSearch,
+  resetData,
+  showAdvanced,
+} from '../../../../state/actions';
 import AdvancedSearch from './AdvancedSearch';
 
 function SearchBar(props) {
