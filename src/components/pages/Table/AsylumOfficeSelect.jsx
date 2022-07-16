@@ -11,37 +11,35 @@ const mapStateToProps = state => ({
   asylumOffice: state.filterReducer.asylumOffice,
 });
 
-const children = [];
-
-officeRegions.forEach(office => {
-  children.push(
-    <Option key={office.code}>
-      <Popover
-        placement="right"
-        title={`${office.location.city}, ${office.location.state}`}
-        content={office.regions.map(region => (
-          <p key={region}>{region}</p>
-        ))}
-        trigger="hover"
-      >
-        <p
-          style={{ textAlign: 'center' }}
-        >{`${office.location.city}, ${office.location.state}`}</p>
-        {/*To enable selection of multiple regions, replace the preceding line with this:*/}
-        {/* <p style={{ textAlign: 'center' }}>{office.location.state}</p> */}
-      </Popover>
-    </Option>
-  );
-});
+const children = officeRegions.map(office => (
+  <Option key={office.code}>
+    <Popover
+      placement="right"
+      title={`${office.location.city}, ${office.location.state}`}
+      content={office.regions.map(region => (
+        <p key={region}>{region}</p>
+      ))}
+      trigger="hover"
+    >
+      <p style={{ textAlign: 'center' }}>
+        {/* {`${office.location.city}, ${office.location.state}`} */}
+        {/*To enable selection of multiple regions, replace the preceding line with the following:*/}
+        {office.location.state}
+      </p>
+    </Popover>
+  </Option>
+));
 
 const AsylumOfficeSelect = ({ asylumOffice, setAsylumOfficeFilter }) => {
-  const handleChange = value => {
-    setAsylumOfficeFilter(value);
+  const dispatchChange = officeArray => {
+    setAsylumOfficeFilter(
+      typeof officeArray === 'string' ? [officeArray] : officeArray
+    );
   };
   return (
     <Select
       // Uncomment the following line to allow for selection of multiple regions
-      //mode="multiple"
+      mode="multiple"
       allowClear
       style={{
         textAlign: 'center',
@@ -49,7 +47,7 @@ const AsylumOfficeSelect = ({ asylumOffice, setAsylumOfficeFilter }) => {
       }}
       placeholder="Filter By Office Region"
       defaultValue={[]}
-      onChange={handleChange}
+      onChange={dispatchChange}
       // value={asylumOffice}
       // onChange={ (e) => setAsylumOfficeFilter(e.target.value)}
     >

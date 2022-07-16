@@ -2,7 +2,7 @@ import { SET_DATE_FILTER_FORMAT, SET_ASYLUM_OFFICE_FILTER } from '../constants';
 
 const initialState = {
   isFiscalYear: false,
-  asylumOffice: ['zny'],
+  asylumOffice: [],
 };
 
 const filterReducer = (state = initialState, action) => {
