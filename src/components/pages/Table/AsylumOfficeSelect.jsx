@@ -18,7 +18,11 @@ officeRegions.forEach(office => {
         ))}
         trigger="hover"
       >
-        <p style={{ textAlign: 'center' }}>{office.location.state}</p>
+        <p
+          style={{ textAlign: 'center' }}
+        >{`${office.location.city}, ${office.location.state}`}</p>
+        {/*To enable selection of multiple regions, replace the preceding line with this:*/}
+        {/* <p style={{ textAlign: 'center' }}>{office.location.state}</p> */}
       </Popover>
     </Option>
   );
@@ -31,7 +35,8 @@ const handleChange = value => {
 const asylumOfficeSelect = () => (
   <>
     <Select
-      mode="multiple"
+      // Uncomment the following line to allow for selection of multiple regions
+      //mode="multiple"
       allowClear
       style={{
         textAlign: 'center',
