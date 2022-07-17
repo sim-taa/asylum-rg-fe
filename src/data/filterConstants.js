@@ -300,6 +300,3 @@ export const regions = [
   { territory: 'ZAMBIA', continent: continentEnum.africa },
   { territory: 'ZIMBABWE', continent: continentEnum.africa },
 ];
-
-export const regionsFilterList = {};
-regions.forEach(region => (regionsFilterList[region.territory] = false));

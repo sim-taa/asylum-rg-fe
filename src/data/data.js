@@ -17,7 +17,7 @@ const completion = () =>
   ).toISOString();
 const currentDate = () => new Date(Date.now()).toISOString();
 
-const generateData = (numberOfEntries = 200) =>
+export const generateData = (numberOfEntries = 200) =>
   Array.from({ length: numberOfEntries }, (v, i) => {
     return {
       asylumOffice: asylumOffice(),

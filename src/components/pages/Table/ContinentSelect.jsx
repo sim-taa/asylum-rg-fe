@@ -4,7 +4,6 @@ import { setContinentFilter } from '../../../state/actions';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
 import { continentEnum } from '../../../data/filterConstants';
-
 const { Option } = Select;
 
 const mapStateToProps = state => ({
