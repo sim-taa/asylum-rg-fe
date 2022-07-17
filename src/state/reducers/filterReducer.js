@@ -1,4 +1,8 @@
-import { SET_DATE_FILTER_FORMAT, SET_ASYLUM_OFFICE_FILTER } from '../constants';
+import {
+  SET_DATE_FILTER_FORMAT,
+  SET_ASYLUM_OFFICE_FILTER,
+  SET_REGION_FILTER,
+} from '../constants';
 
 const initialState = {
   isFiscalYear: false,
@@ -17,6 +21,12 @@ const filterReducer = (state = initialState, action) => {
       return {
         ...state,
         asylumOffice: action.payload,
+      };
+    }
+    case SET_REGION_FILTER: {
+      return {
+        ...state,
+        region: action.payload,
       };
     }
     default: {

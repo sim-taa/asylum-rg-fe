@@ -9,6 +9,7 @@ import {
   GET_DATA,
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
+  SET_REGION_FILTER,
 } from '../constants';
 
 // Action Creators
@@ -33,4 +34,8 @@ export function setDateFilterFormat(isFiscalYear) {
 
 export function setAsylumOfficeFilter(offices) {
   return { type: SET_ASYLUM_OFFICE_FILTER, payload: offices };
+}
+
+export function setRegionFilter(regions) {
+  return { type: SET_REGION_FILTER, payload: regions };
 }
