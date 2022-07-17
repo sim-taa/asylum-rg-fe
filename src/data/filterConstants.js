@@ -95,7 +95,7 @@ export const officeRegions = [
   },
 ];
 
-const continentEnum = Object.freeze({
+export const continentEnum = Object.freeze({
   africa: 'Africa',
   asia: 'Asia',
   europe: 'Europe',
@@ -300,3 +300,6 @@ export const regions = [
   { territory: 'ZAMBIA', continent: continentEnum.africa },
   { territory: 'ZIMBABWE', continent: continentEnum.africa },
 ];
+
+export const regionsFilterList = {};
+regions.forEach(region => (regionsFilterList[region.territory] = false));
