@@ -22,9 +22,9 @@ const children = officeRegions.map(office => (
       trigger="hover"
     >
       <p style={{ textAlign: 'center' }}>
-        {/* {`${office.location.city}, ${office.location.state}`} */}
+        {`${office.location.city}, ${office.location.state}`}
         {/*To enable selection of multiple regions, replace the preceding line with the following:*/}
-        {office.location.state}
+        {/* {office.location.state} */}
       </p>
     </Popover>
   </Option>
@@ -39,7 +39,7 @@ const AsylumOfficeSelect = ({ asylumOffice, setAsylumOfficeFilter }) => {
   return (
     <Select
       // Uncomment the following line to allow for selection of multiple regions
-      mode="multiple"
+      // mode="multiple"
       allowClear
       style={{
         textAlign: 'center',
@@ -48,8 +48,6 @@ const AsylumOfficeSelect = ({ asylumOffice, setAsylumOfficeFilter }) => {
       placeholder="Filter By Office Region"
       defaultValue={[]}
       onChange={dispatchChange}
-      // value={asylumOffice}
-      // onChange={ (e) => setAsylumOfficeFilter(e.target.value)}
     >
       {children}
     </Select>

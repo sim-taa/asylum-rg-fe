@@ -5,7 +5,6 @@ import { columns } from '../../../data/columns';
 import { makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getAllData } from '../../../state/actions';
-import AsylumOfficeSelect from './AsylumOfficeSelect';
 
 const useStyles = makeStyles({
   container: {
@@ -32,7 +31,6 @@ function RenderTablePage(props) {
 
   return (
     <div>
-      <AsylumOfficeSelect />
       <Table
         className={classes.container}
         bordered={true}
