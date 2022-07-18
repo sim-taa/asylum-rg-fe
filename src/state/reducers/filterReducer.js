@@ -33,12 +33,6 @@ const filterReducer = (state = initialState, action) => {
         region: deriveRegion({ state, continents: action.payload }),
       };
     }
-    // case BUILD_QUERY_STRING: {
-    //   return {
-    //     //Using regionsFilterList data, create a coordinating list of citizenship to add to api request
-    //     //Build out API query parameter string
-    //   };
-    // }
     default: {
       return state;
     }
@@ -59,11 +53,9 @@ const deriveRegion = ({ continents }) => {
   return territoryList;
 };
 
-/* This will build the query parameter string to send to the api with all present filter values.
-   As more filter parameters are added, add a check in the first line to ensure there is a
-   filter that needs to be procesed.
-   Then build out the query parameters as specified in the api docs.
-*/
+// This will build the query parameter string to send to the api with all present filter values.
+// As more filter parameters are added, add onto the query string as specified in the api docs.
+
 export const buildQueryString = ({ isFiscalYear, asylumOffice, region }) => {
   let query = '?';
   const regionArray = Object.entries(region)
@@ -75,6 +67,8 @@ export const buildQueryString = ({ isFiscalYear, asylumOffice, region }) => {
     query += `asylumOffice=${asylumOffice.join(',')}&`;
   if (regionArray.length > 0) query += `citizenship=${regionArray.join(',')}&`;
 
+  if (query.slice(query.length - 1) === '&')
+    query = query.slice(0, query.length - 1);
   return query;
 };
 
