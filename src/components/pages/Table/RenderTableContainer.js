@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
 //data will come in as props and not be hard coded
 function RenderTablePage(props) {
-  const { asylum, getAllData, filteredCount, filteredData } = props;
+  const { cases, getAllData, filteredCount, filteredData } = props;
 
   const classes = useStyles();
 
@@ -30,9 +30,9 @@ function RenderTablePage(props) {
       <Table
         className={classes.container}
         bordered={true}
-        loading={asylum.length === 0 ? true : false}
+        loading={cases.length === 0 ? true : false}
         columns={columns}
-        dataSource={filteredCount === 0 ? asylum : filteredData}
+        dataSource={filteredCount === 0 ? cases : filteredData}
         scroll={{ y: 550 }}
         pagination={{
           position: ['bottomCenter'],
@@ -49,18 +49,18 @@ const mapStateToProps = state => {
   const filteredReducer = reducerState.filteredReducer;
 
   return {
-    asylum: reducerState.asylumReducer,
+    cases: reducerState.casesReducer,
     filteredData: filteredReducer.data,
     filteredCount: filteredReducer.count,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getAllData: () => {
-      dispatch(getAllData(data));
-    },
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getAllData: () => {
+//       dispatch(getAllData(data));
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RenderTablePage);
+export default connect(mapStateToProps, { getAllData })(RenderTablePage);

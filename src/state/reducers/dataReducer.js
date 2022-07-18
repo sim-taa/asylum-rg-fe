@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { GET_DATA, FILTER_SEARCH, RESET_DATA } from '../constants';
 
 // States
-const initialAsylumData = [];
+const initialCasesData = [];
 
 const initialFilteredStates = {
   count: 0,
@@ -10,7 +10,7 @@ const initialFilteredStates = {
 };
 
 // Reducers
-function asylumReducer(state = initialAsylumData, action) {
+function casesReducer(state = initialCasesData, action) {
   switch (action.type) {
     case GET_DATA: {
       return action.payload;
@@ -35,4 +35,4 @@ function filteredReducer(state = initialFilteredStates, action) {
   }
 }
 
-export default combineReducers({ asylumReducer, filteredReducer });
+export default combineReducers({ casesReducer, filteredReducer });

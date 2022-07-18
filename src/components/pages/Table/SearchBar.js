@@ -5,13 +5,7 @@ import { connect } from 'react-redux';
 import { filterSearch, resetData } from '../../../state/actions';
 
 function SearchBar(props) {
-  const {
-    asylum,
-    filteredData,
-    filteredCount,
-    filterSearch,
-    resetData,
-  } = props;
+  const { cases, filteredData, filteredCount, filterSearch, resetData } = props;
 
   const { Option } = Select;
   const [form] = Form.useForm();
@@ -22,7 +16,7 @@ function SearchBar(props) {
 
   function onSubmit(values) {
     const { searchTerm, category } = values;
-    const data = filteredCount === 0 ? asylum : filteredData;
+    const data = filteredCount === 0 ? cases : filteredData;
 
     filterSearch({ data, searchTerm, category });
     form.resetFields();
@@ -75,21 +69,10 @@ const mapStateToProps = state => {
   const filteredReducer = reducerState.filteredReducer;
 
   return {
-    asylum: reducerState.asylumReducer,
+    cases: reducerState.casesReducer,
     filteredData: filteredReducer.data,
     filteredCount: filteredReducer.count,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSearch: ({ data, searchTerm, category }) => {
-      dispatch(filterSearch({ data, searchTerm, category }));
-    },
-    resetData: () => {
-      dispatch(resetData());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, { filterSearch, resetData })(SearchBar);
