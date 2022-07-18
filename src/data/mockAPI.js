@@ -1,6 +1,6 @@
 import { generateData } from './data';
 
-const generatedData = generateData(1000);
+const generatedData = generateData(10000);
 
 const parseQueryString = query => {
   const filters = {};

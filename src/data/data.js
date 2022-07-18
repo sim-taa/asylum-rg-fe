@@ -27,7 +27,7 @@ export const generateData = (numberOfEntries = 200) =>
       currentDate: currentDate(),
     };
   });
-// For randomly generated data, once the RenderTableContainer is fixed, swap out data initializations
+// For randomly generated data, once the RenderTableContainer is fixed, use this data and delete the other:
 // const data = {asylum: [...generateData(20)]};
 
 export const data = {
