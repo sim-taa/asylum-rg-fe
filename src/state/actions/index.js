@@ -1,29 +1,29 @@
-// import all of your actions into this file, and export them back out.
-// This allows for the simplification of flow when importing actions into your components throughout your app.
-// Actions should be focused to a single purpose.
-// You can have multiple action creators per file if it makes sense to the purpose those action creators are serving.
-// Declare action TYPES at the top of the file
+/*Remember separation of concerns.
+Import the action-types and export an action-creator function for each.
+Each synchronous function should return an action object with a type and a payload -- these will be passed to the reducer.
+Each asynchronous function should dispatch its action object (type/payload) to the reducer.
+*/
 
-// import axios from 'axios';
+import axios from 'axios';
 import {
-  GET_DATA,
+  GET_DATA, //Deprecated. Will be phased out soon for a more robust set of options
+  GET_FILTERED_DATA,
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
 } from '../constants';
 
-// Action Creators
-// export function fetchAllData() {
-//   return function(dispatch) {
-//     axios
-//       .get(/*/cases*/)
-//       .then(res => {
-//         dispatch({ type: GET_DATA, payload: res.data });
-//       })
-//       .catch(err => console.log(err));
-//   };
-// }
+export const getFilteredData = queryString => dispatch => {
+  const url = ''; //the url will be built up using .env url variable and queryString concatenation
+  axios
+    .get(url)
+    .then(response => {
+      dispatch({ type: GET_FILTERED_DATA, payload: response.data });
+    })
+    .catch(err => console.error(err));
+};
 
+//This will shortly be deprecated and need to be removed
 export function getAllData(data) {
   return { type: GET_DATA, payload: data };
 }
