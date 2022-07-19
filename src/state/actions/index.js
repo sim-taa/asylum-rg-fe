@@ -14,9 +14,10 @@ import {
 } from '../constants';
 
 export const getFilteredData = queryString => dispatch => {
-  const url = ''; //the url will be built up using .env url variable and queryString concatenation
+  const url = '';
+  queryString = '?asylumOffice=zmi,zny&citizenship=ANGOLA,DENMARK,SAUDI ARABIA';
   axios
-    .get(url)
+    .get(url + queryString)
     .then(response => {
       dispatch({ type: GET_FILTERED_DATA, payload: response.data });
     })
