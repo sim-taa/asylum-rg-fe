@@ -3,12 +3,13 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout } from 'antd';
-import { Menu } from './Menu';
+
+
+import { Layout, Menu } from 'antd';
 import React from 'react';
 const { Header, Content, Footer, Sider } = Layout;
 
-const Navbar = () => (
+const App = () => (
   <Layout>
     <Sider
       breakpoint="lg"
@@ -21,7 +22,23 @@ const Navbar = () => (
       }}
     >
       <div className="logo" />
-      <Menu />
+
+
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={['4']}
+        items={[
+          UserOutlined,
+          VideoCameraOutlined,
+          UploadOutlined,
+          UserOutlined,
+        ].map((icon, index) => ({
+          key: String(index + 1),
+          icon: React.createElement(icon),
+          label: `nav ${index + 1}`,
+        }))}
+      />
     </Sider>
     <Layout>
       <Header
@@ -56,6 +73,10 @@ const Navbar = () => (
   </Layout>
 );
 
+<<<<<<< HEAD
 export default Navbar;
 
 // Main HRF site responds to screen width of 766 (Ant Design suggests a medium screen size of 768)
+=======
+export default App;
+>>>>>>> ffc5320 (BL-469 initial commit, pulling template from ANT)
