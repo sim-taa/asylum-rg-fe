@@ -76,8 +76,8 @@ export const buildQueryString = ({ isFiscalYear, asylumOffice, region }) => {
   // Eventually, the regions object should house a key for country code which can be used to build
   // The query parameter string so as to limit the length of the query string (DDOS issues can
   // Potentially come into play if the length is excessive)
-  if (regionArray.length > 0) query += `citizenship=${regionArray.join(',')}&`;
-
+  if (regionArray.length > 0) query += `citizenship=${regionArray.join('0')}&`;
+  // Use 0 as the delimiter to ease incorporating updates ("," and "-" show up in citizenship records)
   if (query.slice(query.length - 1) === '&')
     query = query.slice(0, query.length - 1);
   return query;
