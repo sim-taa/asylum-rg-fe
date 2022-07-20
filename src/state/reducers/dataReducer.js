@@ -1,4 +1,8 @@
-import { GET_DEFAULT_COMPARISONS, GET_FILTERED_DATA } from '../constants';
+import {
+  GET_DEFAULT_COMPARISONS,
+  GET_FILTERED_DATA,
+  GET_MOCK_FILTERED_DATA,
+} from '../constants';
 
 const initialState = {
   cases: [],
@@ -18,6 +22,12 @@ const dataReducer = (state = initialState, action) => {
     }
     //When a filter querystring is passed to the server and case data is returned
     case GET_FILTERED_DATA: {
+      return {
+        ...state,
+        cases: action.payload,
+      };
+    }
+    case GET_MOCK_FILTERED_DATA: {
       return {
         ...state,
         cases: action.payload,

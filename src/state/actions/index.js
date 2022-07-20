@@ -9,7 +9,9 @@ import {
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
+  GET_MOCK_FILTERED_DATA,
 } from '../constants';
+import { generateMockFilteredData } from '../../data/mockAPI';
 
 export const getFilteredData = queryString => dispatch => {
   const url = process.env.REACT_APP_CASE_DATA_API;
@@ -36,3 +38,10 @@ export function setAsylumOfficeFilter(offices) {
 export function setContinentFilter(continents) {
   return { type: SET_CONTINENT_FILTER, payload: continents };
 }
+
+export const getMockFilteredData = (queryString, caseCount) => {
+  return {
+    type: GET_MOCK_FILTERED_DATA,
+    payload: generateMockFilteredData(queryString, caseCount),
+  };
+};
