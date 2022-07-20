@@ -3,7 +3,7 @@ Import the action-types and export an action-creator function for each.
 Each synchronous function should return an action object with a type and a payload -- these will be passed to the reducer.
 Each asynchronous function should dispatch its action object (type/payload) to the reducer.
 */
-
+import 'dotenv/config';
 import axios from 'axios';
 import {
   GET_DATA, //Deprecated. Will be phased out soon for a more robust set of options
@@ -14,8 +14,7 @@ import {
 } from '../constants';
 
 export const getFilteredData = queryString => dispatch => {
-  const url = '';
-  queryString = '?asylumOffice=zmi,zny&citizenship=ANGOLA,DENMARK,SAUDI ARABIA';
+  const url = ''; //api url here
   axios
     .get(url + queryString)
     .then(response => {

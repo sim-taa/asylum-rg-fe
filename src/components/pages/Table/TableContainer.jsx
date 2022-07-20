@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RenderTablePage from './RenderTableContainer';
-import MountedTest from './TempMountingPoint';
+import AsylumOfficeSelect from './AsylumOfficeSelect';
+import ContinentSelect from './ContinentSelect';
+import SearchSubmitButton from './SearchSubmitButton';
 
-function TableContainer() {
+import { connect } from 'react-redux';
+import { getFilteredData } from '../../../state/actions';
+
+const TableContainer = ({ cases, getFilteredData }) => {
+  useEffect(() => {
+    getFilteredData('?');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
-      <MountedTest />
+      <AsylumOfficeSelect />
+      <ContinentSelect />
+      <SearchSubmitButton />
       <RenderTablePage />
     </>
   );
-}
+};
 
-export default TableContainer;
+const mapStateToProps = state => ({
+  cases: state.dataReducer.cases,
+});
+
+export default connect(mapStateToProps, { getFilteredData })(TableContainer);
