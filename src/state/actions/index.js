@@ -5,7 +5,6 @@ Each asynchronous function should dispatch its action object (type/payload) to t
 */
 import axios from 'axios';
 import {
-  GET_DATA, //Deprecated. Will be phased out soon for a more robust set of options
   GET_FILTERED_DATA,
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
@@ -25,11 +24,6 @@ export const getFilteredData = queryString => dispatch => {
     // Use conditional rendering to display an error to the user
     .catch(err => console.error(err));
 };
-
-//This will shortly be deprecated and need to be removed
-export function getAllData(data) {
-  return { type: GET_DATA, payload: data };
-}
 
 export function setDateFilterFormat(isFiscalYear) {
   return { type: SET_DATE_FILTER_FORMAT, payload: isFiscalYear };
