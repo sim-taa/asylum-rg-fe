@@ -3,7 +3,11 @@ import {
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
 } from '../constants';
-import { regions } from '../../data/filterConstants';
+import {
+  regions,
+  officeRegions,
+  continentEnum,
+} from '../../data/filterConstants';
 
 const initialState = {
   isFiscalYear: false,
@@ -44,7 +48,10 @@ const deriveRegion = ({ continents }) => {
   const territoryList = {};
   regions.forEach(region => (territoryList[region.territory] = false));
 
-  if (continents.length > 0) {
+  if (
+    continents.length > 0 &&
+    continents.length < Object.keys(continentEnum).length
+  ) {
     regions.forEach(region => {
       if (continents.includes(region.continent))
         territoryList[region.territory] = true;
@@ -55,7 +62,8 @@ const deriveRegion = ({ continents }) => {
 
 // This will build the query parameter string to send to the api with all present filter values.
 // As more filter parameters are added, add onto the query string as specified in the api docs.
-
+// When checking whether to build a query for a particular parameter, be sure to check not only if
+// a selection has been made, but whether all options have been selected (to limit string length).
 export const buildQueryString = ({ isFiscalYear, asylumOffice, region }) => {
   let query = '?';
   const regionArray = Object.entries(region)
@@ -63,8 +71,11 @@ export const buildQueryString = ({ isFiscalYear, asylumOffice, region }) => {
     .map(territory => territory[0]);
 
   if (isFiscalYear) query += 'isFiscalYear=true&';
-  if (asylumOffice.length > 0)
+  if (asylumOffice.length > 0 && asylumOffice.length < officeRegions.length)
     query += `asylumOffice=${asylumOffice.join(',')}&`;
+  // Eventually, the regions object should house a key for country code which can be used to build
+  // The query parameter string so as to limit the length of the query string (DDOS issues can
+  // Potentially come into play if the length is excessive)
   if (regionArray.length > 0) query += `citizenship=${regionArray.join(',')}&`;
 
   if (query.slice(query.length - 1) === '&')
