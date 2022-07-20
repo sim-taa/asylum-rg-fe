@@ -13,6 +13,7 @@ function RenderTablePage({ cases }) {
         }}
         bordered={true}
         loading={data.length === 0 ? true : false}
+        //As table rendering becomes dynamic, the needed columns will have to be destructured
         columns={columns}
         dataSource={cases.map((record, index) => ({ ...record, key: index }))}
         scroll={{ y: 550 }}
