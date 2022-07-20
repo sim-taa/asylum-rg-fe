@@ -7,6 +7,11 @@ import { connect } from 'react-redux';
 
 function SearchSubmitButton({ filters, getFilteredData }) {
   return (
+    //A slice of state should be added to the redux store to indicated loading
+    //Loading animation can be managed within the button component, though an
+    //app-wide loading indicator would be less work and more consistent
+    //See if somebody can use d3 to make an svg grouping of the HRF logo and
+    //Animate it with d3 awesome transition powers
     <Button
       type="primary"
       icon={<SearchOutlined />}
