@@ -61,6 +61,7 @@ function App() {
     // <Security {...config} onAuthRequired={authHandler}>
     <Switch>
       <Route path="/" exact component={LandingPage} />
+      <Route path="/table" component={TablePage} />
       <Route path="/example-list" component={ExampleListPage} />
       <Route path="/datavis" component={ExampleDataViz} />
       <Route component={NotFoundPage} />

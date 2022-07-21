@@ -28,14 +28,7 @@ export const generateData = (numberOfEntries = 200) =>
     };
   });
 // For randomly generated data, once the RenderTableContainer is fixed, use this data and delete the other:
-// const data = {asylum: [...generateData(20)]};
+// Adjust the number used below to adjust for number of dummy cases desired for testing.
+// Using 100 to allow for pagination to start.
 
-export const data = {
-  key: null,
-  asylumOffice: 'AyS',
-  citizenship: 'h',
-  raceOrEthnicity: 'other',
-  caseOutcome: 'pending',
-  completion: 'n',
-  currentDate: 'f',
-};
+export const data = [...generateData(100)];
