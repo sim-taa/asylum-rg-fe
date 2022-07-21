@@ -5,7 +5,12 @@
 // Declare action TYPES at the top of the file
 
 // import axios from 'axios';
-import { GET_DATA } from '../constants';
+import {
+  GET_DATA,
+  SET_DATE_FILTER_FORMAT,
+  SET_ASYLUM_OFFICE_FILTER,
+  SET_CONTINENT_FILTER,
+} from '../constants';
 
 // Action Creators
 // export function fetchAllData() {
@@ -21,4 +26,16 @@ import { GET_DATA } from '../constants';
 
 export function getAllData(data) {
   return { type: GET_DATA, payload: data };
+}
+
+export function setDateFilterFormat(isFiscalYear) {
+  return { type: SET_DATE_FILTER_FORMAT, payload: isFiscalYear };
+}
+
+export function setAsylumOfficeFilter(offices) {
+  return { type: SET_ASYLUM_OFFICE_FILTER, payload: offices };
+}
+
+export function setContinentFilter(continents) {
+  return { type: SET_CONTINENT_FILTER, payload: continents };
 }
