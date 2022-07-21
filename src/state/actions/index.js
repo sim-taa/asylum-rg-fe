@@ -9,6 +9,7 @@ import {
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
+  SET_GEOPOLITICAL_FILTER,
   GET_MOCK_FILTERED_DATA,
 } from '../constants';
 import { generateMockFilteredData } from '../../data/mockAPI';
@@ -37,6 +38,10 @@ export function setAsylumOfficeFilter(offices) {
 
 export function setContinentFilter(continents) {
   return { type: SET_CONTINENT_FILTER, payload: continents };
+}
+
+export function setGeopoliticalFilter(regions) {
+  return { type: SET_GEOPOLITICAL_FILTER, payload: regions };
 }
 
 export const getMockFilteredData = (queryString, caseCount) => {

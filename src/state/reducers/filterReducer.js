@@ -2,11 +2,13 @@ import {
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
+  SET_GEOPOLITICAL_FILTER,
 } from '../constants';
 import {
   regions,
   officeRegions,
   continentEnum,
+  geopoliticalEnum,
 } from '../../data/filterConstants';
 
 const initialState = {
@@ -14,6 +16,7 @@ const initialState = {
   asylumOffice: [],
   region: [],
   continents: [],
+  geopolitical: [],
 };
 
 const filterReducer = (state = initialState, action) => {
@@ -37,6 +40,13 @@ const filterReducer = (state = initialState, action) => {
         region: deriveRegion({ state, continents: action.payload }),
       };
     }
+    case SET_GEOPOLITICAL_FILTER: {
+      return {
+        ...state,
+        geopolitical: action.payload,
+        region: deriveRegion({ state, geopolitical: action.payload }),
+      };
+    }
     default: {
       return state;
     }
@@ -44,7 +54,7 @@ const filterReducer = (state = initialState, action) => {
 };
 
 // As regional filters are added, destructure them into this function and add the appropriate filter step
-const deriveRegion = ({ continents }) => {
+const deriveRegion = ({ continents, geopolitical }) => {
   const territoryList = {};
   regions.forEach(region => (territoryList[region.territory] = false));
 
@@ -57,6 +67,16 @@ const deriveRegion = ({ continents }) => {
         territoryList[region.territory] = true;
     });
   }
+  if (
+    geopolitical.length > 0 &&
+    geopolitical.length < Object.keys(geopoliticalEnum).length
+  ) {
+    regions.forEach(region => {
+      if (geopolitical.includes(region.geopolitical))
+        territoryList[region.territory] = true;
+    });
+  }
+
   return territoryList;
 };
 
