@@ -78,27 +78,32 @@ const items = [
     getItem(
       <a href="/campaigns/2021-policy-blueprint" title="">
         2021 Policy Blueprints
-      </a>
+      </a>,
+      'camp1'
     ),
     getItem(
       <a href="/campaigns/freedom-for-detained-refugees-project" title="">
         Freedom for Detained Refugees
-      </a>
+      </a>,
+      'camp2'
     ),
     getItem(
       <a href="/campaigns/never-torture" title="">
         Never Torture
-      </a>
+      </a>,
+      'camp3'
     ),
     getItem(
       <a href="/campaigns/refugees-renew-america" title="">
         Refugees Renew America
-      </a>
+      </a>,
+      'camp4'
     ),
     getItem(
       <a href="/campaigns/stop-refugee-ban" title="">
         Stop Trump's Muslim Refugee Ban
-      </a>
+      </a>,
+      'camp5'
     ),
     getItem(
       <a
@@ -106,12 +111,14 @@ const items = [
         title="Veterans for American Ideals is a nonpartisan group of veterans who share the belief that America is strongest when its policies and actions match its ideals."
       >
         Veterans for American Ideals
-      </a>
+      </a>,
+      'camp6'
     ),
     getItem(
       <a href="/campaigns/close-guantanamo" title="Close Guantanamo">
         Close Guantanamo
-      </a>
+      </a>,
+      'camp7'
     ),
   ]),
   getItem(
@@ -129,47 +136,56 @@ const items = [
           getItem(
             <a href="/topics/bahrain" title="Bahrain">
               Bahrain
-            </a>
+            </a>,
+            'top1a'
           ),
           getItem(
             <a href="/topics/egypt" title="Egypt">
               Egypt
-            </a>
+            </a>,
+            'top1b'
           ),
           getItem(
             <a href="/topics/russia" title="Russia">
               Russia
-            </a>
+            </a>,
+            'top1c'
           ),
           getItem(
             <a href="/topics/global-magnitsky" title="">
               Targeted Sanctions (Global Magnitsky)
-            </a>
+            </a>,
+            'top1d'
           ),
           getItem(
             <a href="/topics/guantanamo" title="Guantanamo">
               Guantanamo
-            </a>
+            </a>,
+            'top1e'
           ),
           getItem(
             <a href="/topics/interrogators" title="Interrogators">
               Interrogators
-            </a>
+            </a>,
+            'top1f'
           ),
           getItem(
             <a href="/topics/middle-east" title="Middle East">
               Middle East
-            </a>
+            </a>,
+            'top1g'
           ),
           getItem(
             <a href="/topics/syrian-refugees" title="Syrian Refugees">
               Syrian Refugees
-            </a>
+            </a>,
+            'top1h'
           ),
           getItem(
             <a href="/topics/torture" title="Torture">
               Torture
-            </a>
+            </a>,
+            'top1i'
           ),
         ]
       ),
@@ -182,7 +198,8 @@ const items = [
           getItem(
             <a href="/topics/xenophobia" title="Xenophobia">
               Xenophobia
-            </a>
+            </a>,
+            'top2a'
           ),
           getItem(
             <a
@@ -190,7 +207,8 @@ const items = [
               title="Antisemitism and Extremism"
             >
               Antisemitism and Extremism
-            </a>
+            </a>,
+            'top2b'
           ),
           getItem(
             <a
@@ -198,17 +216,20 @@ const items = [
               title=""
             >
               Commission on Unalienable Rights Resources
-            </a>
+            </a>,
+            'top2c'
           ),
           getItem(
             <a href="/topics/hate-crimes" title="Hate Crimes">
               Hate Crimes
-            </a>
+            </a>,
+            'top2d'
           ),
           getItem(
             <a href="/topics/islamophobia" title="Islamophobia">
               Islamophobia
-            </a>
+            </a>,
+            'top2e'
           ),
           getItem(
             <a
@@ -216,7 +237,8 @@ const items = [
               title="Prosecuting Terrorism"
             >
               Prosecuting Terrorism
-            </a>
+            </a>,
+            'top2f'
           ),
         ]
       ),
@@ -232,17 +254,20 @@ const items = [
               title="International Human Rights Law"
             >
               International Human Rights Law
-            </a>
+            </a>,
+            'top3a'
           ),
           getItem(
             <a href="/topics/religious-freedom" title="Religious Freedom">
               Religious Freedom
-            </a>
+            </a>,
+            'top3b'
           ),
           getItem(
             <a href="/topics/targeted-killing" title="Targeted Killing">
               Targeted Killing
-            </a>
+            </a>,
+            'top3c'
           ),
           getItem(
             <a
@@ -250,12 +275,14 @@ const items = [
               title="Immigration Detention"
             >
               Immigration Detention
-            </a>
+            </a>,
+            'top3d'
           ),
           getItem(
             <a href="/topics/refugee-protection" title="Refugee Protection">
               Refugee Protection
-            </a>
+            </a>,
+            'top3e'
           ),
         ]
       ),
@@ -268,7 +295,8 @@ const items = [
           getItem(
             <a href="/resource/counter-human-rights-disinformation" title="">
               Disinformation
-            </a>
+            </a>,
+            'top4a'
           ),
           getItem(
             <a
@@ -276,12 +304,14 @@ const items = [
               title="Human Rights Defenders"
             >
               Human Rights Defenders
-            </a>
+            </a>,
+            'top4b'
           ),
           getItem(
             <a href="/resource/hold-human-rights-abusers-accountable" title="">
               Accountability
-            </a>
+            </a>,
+            'top4c'
           ),
         ]
       ),
@@ -302,26 +332,43 @@ const items = [
       getItem(
         <a href="/press" title="">
           Press Releases
-        </a>
+        </a>,
+        'med1'
       ),
       getItem(
         <a href="/about/events" title="">
           Events
-        </a>
+        </a>,
+        'med2'
       ),
       getItem(
         <a href="/blog" title="Blog">
           Blog
-        </a>
+        </a>,
+        'med3'
       ),
       getItem(
         <a href="/press/in-the-news" title="">
           In the News
-        </a>
+        </a>,
+        'med4'
       ),
     ]
   ),
-  getItem('Initiatives', 'init'),
+  getItem(<span title="">Initiatives</span>, 'init', [
+    getItem(
+      <a href="/campaigns/innovation-lab-tech-for-human-rights" title="">
+        Innovation Lab
+      </a>,
+      'init1'
+    ),
+    getItem(
+      <a href="https://www.vfai.org" title="">
+        Vets for American Ideals
+      </a>,
+      'init2'
+    ),
+  ]),
   //   getItem('Navigation One', 'sub1', <MailOutlined />, [
   //     getItem(
   //       'Item 1',
