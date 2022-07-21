@@ -1,8 +1,3 @@
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
 import { Menu } from 'antd';
 import React from 'react';
 function getItem(label, key, children, type) {
@@ -79,7 +74,46 @@ const items = [
       ),
     ]
   ),
-  getItem('Campaigns', 'camp'),
+  getItem(<span title="Campaigns">Campaigns</span>, 'camp', [
+    getItem(
+      <a href="/campaigns/2021-policy-blueprint" title="">
+        2021 Policy Blueprints
+      </a>
+    ),
+    getItem(
+      <a href="/campaigns/freedom-for-detained-refugees-project" title="">
+        Freedom for Detained Refugees
+      </a>
+    ),
+    getItem(
+      <a href="/campaigns/never-torture" title="">
+        Never Torture
+      </a>
+    ),
+    getItem(
+      <a href="/campaigns/refugees-renew-america" title="">
+        Refugees Renew America
+      </a>
+    ),
+    getItem(
+      <a href="/campaigns/stop-refugee-ban" title="">
+        Stop Trump's Muslim Refugee Ban
+      </a>
+    ),
+    getItem(
+      <a
+        href="http://www.vfai.org"
+        title="Veterans for American Ideals is a nonpartisan group of veterans who share the belief that America is strongest when its policies and actions match its ideals."
+      >
+        Veterans for American Ideals
+      </a>
+    ),
+    getItem(
+      <a href="/campaigns/close-guantanamo" title="Close Guantanamo">
+        Close Guantanamo
+      </a>
+    ),
+  ]),
   getItem('Topics', 'top'),
   getItem('Resources', 'res'),
   getItem('Media', 'med'),
