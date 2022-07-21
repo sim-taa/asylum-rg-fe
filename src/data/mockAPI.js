@@ -9,7 +9,6 @@ const parseQueryString = query => {
         parameter.indexOf('=') + 1
       ))
   );
-  console.log(filters);
   if (filters.asylumOffice)
     filters.asylumOffice = filters.asylumOffice.split(',');
   if (filters.citizenship) filters.citizenship = filters.citizenship.split('0');
@@ -23,9 +22,7 @@ const filterData = (data, filters) => {
       return filters.asylumOffice.includes(record.asylumOffice);
     });
   if (filters.citizenship) {
-    console.log(filters.citizenship);
     data = data.filter(record => {
-      console.log(record);
       return filters.citizenship.includes(record.citizenship);
     });
   }

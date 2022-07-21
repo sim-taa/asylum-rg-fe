@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import RenderTablePage from './RenderTableContainer';
 import AsylumOfficeSelect from './AsylumOfficeSelect';
 import ContinentSelect from './ContinentSelect';
+import GeopoliticalSelect from './GeopoliticalSelect';
 import SearchSubmitButton from './SearchSubmitButton';
 
 import { connect } from 'react-redux';
@@ -44,6 +45,7 @@ const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
         >
           <AsylumOfficeSelect />
           <ContinentSelect />
+          <GeopoliticalSelect />
           <SearchSubmitButton />
         </div>
         <RenderTablePage />
