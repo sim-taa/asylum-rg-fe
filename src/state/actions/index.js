@@ -10,6 +10,8 @@ import {
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
+  FILTER_SEARCH,
+  RESET_DATA,
 } from '../constants';
 
 // Action Creators
@@ -26,6 +28,18 @@ import {
 
 export function getAllData(data) {
   return { type: GET_DATA, payload: data };
+}
+
+export function filterSearch({ data, searchTerm, category }) {
+  const filteredData = data.filter(info =>
+    info[category].toUpperCase().includes(searchTerm.toUpperCase())
+  );
+
+  return { type: FILTER_SEARCH, payload: filteredData };
+}
+
+export function resetData() {
+  return { type: RESET_DATA };
 }
 
 export function setDateFilterFormat(isFiscalYear) {

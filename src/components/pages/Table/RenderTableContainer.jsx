@@ -5,6 +5,7 @@ import { columns } from '../../../data/columns';
 import { makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getAllData } from '../../../state/actions';
+import SearchBar from './SearchBar';
 
 const useStyles = makeStyles({
   container: {
@@ -14,7 +15,8 @@ const useStyles = makeStyles({
 
 //data will come in as props and not be hard coded
 function RenderTablePage(props) {
-  const { asylum, getAllData } = props;
+  const { cases, getAllData, filteredCount, filteredData } = props;
+
   const classes = useStyles();
 
   useEffect(() => {
@@ -22,21 +24,15 @@ function RenderTablePage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //code block below creates a random amount of state objects on each reload
-  const count = Math.floor(Math.random() * 50) + 25;
-  const dataArray = [...new Array(count).keys()].map(key => ({
-    ...asylum,
-    key,
-  }));
-
   return (
     <div>
+      <SearchBar />
       <Table
         className={classes.container}
         bordered={true}
-        loading={data.length === 0 ? true : false}
+        loading={cases.length === 0 ? true : false}
         columns={columns}
-        dataSource={dataArray}
+        dataSource={filteredCount === 0 ? cases : filteredData}
         scroll={{ y: 550 }}
         pagination={{
           position: ['bottomCenter'],
@@ -49,17 +45,22 @@ function RenderTablePage(props) {
 }
 
 const mapStateToProps = state => {
+  const reducerState = state.dataReducer;
+  const filteredReducer = reducerState.filteredReducer;
+
   return {
-    asylum: state.dataReducer,
+    cases: reducerState.casesReducer,
+    filteredData: filteredReducer.data,
+    filteredCount: filteredReducer.count,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getAllData: () => {
-      dispatch(getAllData(data));
-    },
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getAllData: () => {
+//       dispatch(getAllData(data));
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RenderTablePage);
+export default connect(mapStateToProps, { getAllData })(RenderTablePage);
