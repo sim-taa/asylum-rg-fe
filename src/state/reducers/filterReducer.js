@@ -16,7 +16,7 @@ const initialState = {
   asylumOffice: [],
   region: [],
   continents: [],
-  geopolitical: [],
+  geopolitical: ['test'],
 };
 
 const filterReducer = (state = initialState, action) => {
@@ -37,14 +37,14 @@ const filterReducer = (state = initialState, action) => {
       return {
         ...state,
         continents: action.payload,
-        region: deriveRegion({ state, continents: action.payload }),
+        region: deriveRegion({ ...state, continents: action.payload }),
       };
     }
     case SET_GEOPOLITICAL_FILTER: {
       return {
         ...state,
         geopolitical: action.payload,
-        region: deriveRegion({ state, geopolitical: action.payload }),
+        region: deriveRegion({ ...state, geopolitical: action.payload }),
       };
     }
     default: {
