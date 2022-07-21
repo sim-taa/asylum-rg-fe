@@ -287,8 +287,40 @@ const items = [
       ),
     ]
   ),
-  getItem('Resources', 'res'),
-  getItem('Media', 'med'),
+  getItem(
+    <a href="/resources" title="Resources">
+      Resources
+    </a>,
+    'res'
+  ),
+  getItem(
+    <a href="/press" title="">
+      Media
+    </a>,
+    'med',
+    [
+      getItem(
+        <a href="/press" title="">
+          Press Releases
+        </a>
+      ),
+      getItem(
+        <a href="/about/events" title="">
+          Events
+        </a>
+      ),
+      getItem(
+        <a href="/blog" title="Blog">
+          Blog
+        </a>
+      ),
+      getItem(
+        <a href="/press/in-the-news" title="">
+          In the News
+        </a>
+      ),
+    ]
+  ),
   getItem('Initiatives', 'init'),
   //   getItem('Navigation One', 'sub1', <MailOutlined />, [
   //     getItem(
