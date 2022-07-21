@@ -114,7 +114,179 @@ const items = [
       </a>
     ),
   ]),
-  getItem('Topics', 'top'),
+  getItem(
+    <a href="/topics" title="">
+      Topics
+    </a>,
+    'top',
+    [
+      getItem(
+        <a href="/topics/authoritarianism" title="Authoritarianism">
+          Authoritarianism
+        </a>,
+        'top1',
+        [
+          getItem(
+            <a href="/topics/bahrain" title="Bahrain">
+              Bahrain
+            </a>
+          ),
+          getItem(
+            <a href="/topics/egypt" title="Egypt">
+              Egypt
+            </a>
+          ),
+          getItem(
+            <a href="/topics/russia" title="Russia">
+              Russia
+            </a>
+          ),
+          getItem(
+            <a href="/topics/global-magnitsky" title="">
+              Targeted Sanctions (Global Magnitsky)
+            </a>
+          ),
+          getItem(
+            <a href="/topics/guantanamo" title="Guantanamo">
+              Guantanamo
+            </a>
+          ),
+          getItem(
+            <a href="/topics/interrogators" title="Interrogators">
+              Interrogators
+            </a>
+          ),
+          getItem(
+            <a href="/topics/middle-east" title="Middle East">
+              Middle East
+            </a>
+          ),
+          getItem(
+            <a href="/topics/syrian-refugees" title="Syrian Refugees">
+              Syrian Refugees
+            </a>
+          ),
+          getItem(
+            <a href="/topics/torture" title="Torture">
+              Torture
+            </a>
+          ),
+        ]
+      ),
+      getItem(
+        <a href="/topics/extremism" title="Extremism">
+          Extremism
+        </a>,
+        'top2',
+        [
+          getItem(
+            <a href="/topics/xenophobia" title="Xenophobia">
+              Xenophobia
+            </a>
+          ),
+          getItem(
+            <a
+              href="/topics/antisemitism-and-extremism"
+              title="Antisemitism and Extremism"
+            >
+              Antisemitism and Extremism
+            </a>
+          ),
+          getItem(
+            <a
+              href="/topics-foreign-policy/commission-unalienable-rights-resources"
+              title=""
+            >
+              Commission on Unalienable Rights Resources
+            </a>
+          ),
+          getItem(
+            <a href="/topics/hate-crimes" title="Hate Crimes">
+              Hate Crimes
+            </a>
+          ),
+          getItem(
+            <a href="/topics/islamophobia" title="Islamophobia">
+              Islamophobia
+            </a>
+          ),
+          getItem(
+            <a
+              href="/topics/prosecuting-terrorism"
+              title="Prosecuting Terrorism"
+            >
+              Prosecuting Terrorism
+            </a>
+          ),
+        ]
+      ),
+      getItem(
+        <a href="/topics/systemic-injustice" title="">
+          Systemic Injustice
+        </a>,
+        'top3',
+        [
+          getItem(
+            <a
+              href="/topics/international-human-rights-law"
+              title="International Human Rights Law"
+            >
+              International Human Rights Law
+            </a>
+          ),
+          getItem(
+            <a href="/topics/religious-freedom" title="Religious Freedom">
+              Religious Freedom
+            </a>
+          ),
+          getItem(
+            <a href="/topics/targeted-killing" title="Targeted Killing">
+              Targeted Killing
+            </a>
+          ),
+          getItem(
+            <a
+              href="/topics/immigration-detention"
+              title="Immigration Detention"
+            >
+              Immigration Detention
+            </a>
+          ),
+          getItem(
+            <a href="/topics/refugee-protection" title="Refugee Protection">
+              Refugee Protection
+            </a>
+          ),
+        ]
+      ),
+      getItem(
+        <a href="/campaigns/innovation-lab-tech-for-human-rights" title="">
+          The Use & Abuse of Technology
+        </a>,
+        'top4',
+        [
+          getItem(
+            <a href="/resource/counter-human-rights-disinformation" title="">
+              Disinformation
+            </a>
+          ),
+          getItem(
+            <a
+              href="/topics/human-rights-defenders"
+              title="Human Rights Defenders"
+            >
+              Human Rights Defenders
+            </a>
+          ),
+          getItem(
+            <a href="/resource/hold-human-rights-abusers-accountable" title="">
+              Accountability
+            </a>
+          ),
+        ]
+      ),
+    ]
+  ),
   getItem('Resources', 'res'),
   getItem('Media', 'med'),
   getItem('Initiatives', 'init'),
