@@ -1,6 +1,6 @@
 import { data } from '../data/data';
 import { render, screen } from '@testing-library/react';
-import TablePage from '../components/pages/Table';
+import TableContainer from '../components/pages/Table/TableContainer';
 
 describe('Asylum Office is a string', () => {
   test('[1] asylumOffice is a string', () => {
@@ -22,7 +22,7 @@ describe('Race or Ethnicity data is a string', () => {
 
 describe('Table renders to the screen with data', () => {
   test('[4] Table renders to the screen with data', () => {
-    render(<TablePage />);
+    render(<TableContainer />);
     const asylumOfficeString = screen.getByText(/AyS/i);
     expect(asylumOfficeString).toBeInTheDocument();
   });
