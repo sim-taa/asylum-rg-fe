@@ -4,8 +4,16 @@ import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
 import { filterSearch, resetData } from '../../../state/actionCreators';
 
+const mapStateToProps = state => {
+  return {
+    cases: state.dataReducer.cases,
+    filteredCases: state.dataReducer.filteredCases,
+    filterCount: state.dataReducer.filterCount,
+  };
+};
+
 function SearchBar(props) {
-  const { cases, filteredData, filteredCount, filterSearch, resetData } = props;
+  const { cases, filteredCases, filterCount, filterSearch, resetData } = props;
 
   const { Option } = Select;
   const [form] = Form.useForm();
@@ -16,7 +24,7 @@ function SearchBar(props) {
 
   function onSubmit(values) {
     const { searchTerm, category } = values;
-    const data = filteredCount === 0 ? cases : filteredData;
+    const data = filterCount === 0 ? cases : filteredCases;
 
     filterSearch({ data, searchTerm, category });
     form.resetFields();
@@ -65,16 +73,5 @@ function SearchBar(props) {
     </Form>
   );
 }
-
-const mapStateToProps = state => {
-  const reducerState = state.dataReducer;
-  const filteredReducer = reducerState.filteredReducer;
-
-  return {
-    cases: reducerState.casesReducer,
-    filteredData: filteredReducer.data,
-    filteredCount: filteredReducer.count,
-  };
-};
 
 export default connect(mapStateToProps, { filterSearch, resetData })(SearchBar);

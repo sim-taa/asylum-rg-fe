@@ -8,6 +8,12 @@ import {
 import { buildQueryString } from '../../../state/reducers/fetchFilterReducer';
 import { connect } from 'react-redux';
 
+const mapStateToProps = state => {
+  return {
+    filters: state.fetchFilterReducer,
+  };
+};
+
 function SearchSubmitButton({ filters, getFilteredData, getMockFilteredData }) {
   return (
     //A slice of state should be added to the redux store to indicated loading
@@ -24,12 +30,6 @@ function SearchSubmitButton({ filters, getFilteredData, getMockFilteredData }) {
     </Button>
   );
 }
-
-const mapStateToProps = state => {
-  return {
-    filters: state.fetchFilterReducer,
-  };
-};
 
 export default connect(mapStateToProps, {
   getFilteredData,

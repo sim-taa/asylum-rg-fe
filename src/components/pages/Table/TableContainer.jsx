@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import Table from './RenderTableContainer';
+import Table from './Table';
 import AsylumOfficeSelect from './AsylumOfficeSelect';
 import ContinentSelect from './ContinentSelect';
 import GeopoliticalSelect from './GeopoliticalSelect';
@@ -10,6 +10,10 @@ import {
   getFilteredData,
   getMockFilteredData,
 } from '../../../state/actionCreators';
+
+const mapStateToProps = state => ({
+  cases: state.dataReducer.cases,
+});
 
 const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
   /*As JavaScript treats functions like first class objects, when it rerenders it
@@ -56,10 +60,6 @@ const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
     </>
   );
 };
-
-const mapStateToProps = state => ({
-  cases: state.apiDataReducer.cases,
-});
 
 export default connect(mapStateToProps, {
   getFilteredData,

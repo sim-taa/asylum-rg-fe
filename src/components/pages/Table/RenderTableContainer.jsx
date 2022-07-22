@@ -4,8 +4,16 @@ import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 
+const mapStateToProps = state => {
+  return {
+    cases: state.dataReducer.cases,
+    filteredCases: state.dataReducer.filteredCases,
+    filterCount: state.dataReducer.filterCount,
+  };
+};
+
 function RenderTablePage(props) {
-  const { cases, filteredCount, filteredData } = props;
+  const { cases, filterCount, filteredCases } = props;
 
   return (
     <div>
@@ -18,9 +26,9 @@ function RenderTablePage(props) {
         loading={cases.length === 0 ? true : false}
         columns={columns}
         dataSource={
-          filteredCount === 0
+          filterCount === 0
             ? cases.map((record, index) => ({ ...record, key: index }))
-            : filteredData
+            : filteredCases.map((record, index) => ({ ...record, key: index }))
         }
         scroll={{ y: 550 }}
         pagination={{
@@ -32,13 +40,5 @@ function RenderTablePage(props) {
     </div>
   );
 }
-
-const mapStateToProps = state => {
-  return {
-    cases: state.apiDataReducer.cases,
-    filteredData: state.dataReducer.filteredReducer.data,
-    filteredCount: state.dataReducer.filteredReducer.count,
-  };
-};
 
 export default connect(mapStateToProps)(RenderTablePage);

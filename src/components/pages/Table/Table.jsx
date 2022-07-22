@@ -1,8 +1,13 @@
 import React from 'react';
 import { Table } from 'antd';
-// import { data } from '../../../data/data';
 import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  return {
+    cases: state.dataReducer.cases,
+  };
+};
 
 function DataTable({ cases }) {
   return (
@@ -26,11 +31,5 @@ function DataTable({ cases }) {
     </div>
   );
 }
-
-const mapStateToProps = state => {
-  return {
-    cases: state.apiDataReducer.cases,
-  };
-};
 
 export default connect(mapStateToProps)(DataTable);
