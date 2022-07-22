@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Checkbox, Button, DatePicker } from 'antd';
-import { advancedSearch } from '../../../../state/actions/index';
+import { advancedSearch } from '../../../state/actions/index';
 
 function AdvancedSearch(props) {
-  const { asylum, advancedSearch } = props;
+  const { cases, advancedSearch } = props;
   const [form] = Form.useForm();
   const { RangePicker } = DatePicker;
 
@@ -13,7 +13,7 @@ function AdvancedSearch(props) {
   const raceOrEthnicityOptions = [];
   const caseOutcomeOptions = [];
 
-  asylum.forEach(entry => {
+  cases.forEach(entry => {
     if (!asylumOfficeOptions.includes(entry.asylumOffice)) {
       asylumOfficeOptions.push(entry.asylumOffice);
     }
@@ -41,7 +41,7 @@ function AdvancedSearch(props) {
     } = values;
 
     const parameters = {
-      data: asylum,
+      data: cases,
       asylumOffice: null,
       citizenship: null,
       raceOrEthnicity: null,
@@ -99,17 +99,12 @@ function AdvancedSearch(props) {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
+  const reducerState = state.dataReducer;
+
   return {
-    asylum: state.dataReducer,
+    cases: reducerState.casesReducer,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    advancedSearch: parameters => {
-      dispatch(advancedSearch(parameters));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdvancedSearch);
+export default connect(mapStateToProps, { advancedSearch })(AdvancedSearch);
