@@ -74,9 +74,12 @@ function AdvancedSearch(props) {
         <Checkbox.Group options={citizenshipOptions} />
       </Form.Item>
 
-      <Form.Item label="Race/Ethnicity" name="raceOrEthnicity">
+      {/* Commenting the following item for this search feature as the new means of
+       procuring randomly generated dummy data does not include race or ethnicity. */}
+
+      {/* <Form.Item label="Race/Ethnicity" name="raceOrEthnicity">
         <Checkbox.Group options={raceOrEthnicityOptions} />
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item label="Case Outcome" name="caseOutcome">
         <Checkbox.Group options={caseOutcomeOptions} />

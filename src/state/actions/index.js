@@ -7,6 +7,9 @@
 // import axios from 'axios';
 import {
   GET_DATA,
+  SET_DATE_FILTER_FORMAT,
+  SET_ASYLUM_OFFICE_FILTER,
+  SET_CONTINENT_FILTER,
   FILTER_SEARCH,
   RESET_DATA,
   SHOW_ADVANCED_SEARCH,
@@ -88,4 +91,16 @@ export function advancedSearch(parameters) {
   }
 
   return { type: ADVANCED_SEARCH, payload: payloadData };
+}
+
+export function setDateFilterFormat(isFiscalYear) {
+  return { type: SET_DATE_FILTER_FORMAT, payload: isFiscalYear };
+}
+
+export function setAsylumOfficeFilter(offices) {
+  return { type: SET_ASYLUM_OFFICE_FILTER, payload: offices };
+}
+
+export function setContinentFilter(continents) {
+  return { type: SET_CONTINENT_FILTER, payload: continents };
 }

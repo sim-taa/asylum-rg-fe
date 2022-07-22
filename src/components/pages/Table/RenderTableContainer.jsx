@@ -54,12 +54,12 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getAllData: () => {
-      dispatch(getAllData(data));
-    },
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getAllData: () => {
+//       dispatch(getAllData(data));
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RenderTablePage);
+export default connect(mapStateToProps, { getAllData })(RenderTablePage);
