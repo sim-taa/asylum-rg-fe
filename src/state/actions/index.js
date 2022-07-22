@@ -5,13 +5,13 @@ Each asynchronous function should dispatch its action object (type/payload) to t
 */
 import axios from 'axios';
 import {
-  GET_DATA, //Deprecated. Will be phased out soon for a more robust set of options
   GET_FILTERED_DATA,
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
   FILTER_SEARCH,
   RESET_DATA,
+  GET_DATA,
 } from '../constants';
 
 export const getFilteredData = queryString => dispatch => {
