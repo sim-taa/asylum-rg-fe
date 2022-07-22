@@ -13,8 +13,7 @@ import {
   SET_CONTINENT_FILTER,
   SET_GEOPOLITICAL_FILTER,
   FILTER_SEARCH,
-  RESET_DATA,
-  GET_DATA,
+  RESET_CASE_DATA,
 } from '../actionTypes';
 import { generateMockFilteredData } from '../../data/mockAPI';
 
@@ -58,20 +57,13 @@ export function setGeopoliticalFilter(regions) {
   return { type: SET_GEOPOLITICAL_FILTER, payload: regions };
 }
 
-//These are for FE filtering
-//This will shortly be deprecated and need to be removed
-export function getAllData(data) {
-  return { type: GET_DATA, payload: data };
-}
-
 export function filterSearch({ data, searchTerm, category }) {
   const filteredData = data.filter(info =>
     info[category].toUpperCase().includes(searchTerm.toUpperCase())
   );
-
   return { type: FILTER_SEARCH, payload: filteredData };
 }
 
 export function resetData() {
-  return { type: RESET_DATA };
+  return { type: RESET_CASE_DATA };
 }

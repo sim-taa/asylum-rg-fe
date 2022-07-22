@@ -1,6 +1,6 @@
 import {
   FILTER_SEARCH,
-  RESET_DATA,
+  RESET_CASE_DATA,
   GET_DEFAULT_COMPARISONS,
   GET_FILTERED_DATA,
   GET_MOCK_FILTERED_DATA,
@@ -43,7 +43,7 @@ function dataReducer(state = initialState, action) {
         filterCount: state.count + 1,
       };
     }
-    case RESET_DATA: {
+    case RESET_CASE_DATA: {
       return { ...state, filterCount: 0, filteredCases: [] };
     }
     default: {
