@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import RenderTablePage from './RenderTableContainer';
+import Table from './Table';
 import AsylumOfficeSelect from './AsylumOfficeSelect';
 import ContinentSelect from './ContinentSelect';
 import GeopoliticalSelect from './GeopoliticalSelect';
@@ -48,14 +48,14 @@ const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
           <GeopoliticalSelect />
           <SearchSubmitButton />
         </div>
-        <RenderTablePage />
+        <Table />
       </div>
     </>
   );
 };
 
 const mapStateToProps = state => ({
-  cases: state.dataReducer.cases,
+  cases: state.apiDataReducer.cases,
 });
 
 export default connect(mapStateToProps, {

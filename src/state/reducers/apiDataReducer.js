@@ -11,7 +11,7 @@ const initialState = {
   },
 };
 
-const dataReducer = (state = initialState, action) => {
+const apiDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_DEFAULT_COMPARISONS: {
       //When memoized comparison data is fetched from the server to display on the site landing page
@@ -38,4 +38,4 @@ const dataReducer = (state = initialState, action) => {
   }
 };
 
-export default dataReducer;
+export default apiDataReducer;

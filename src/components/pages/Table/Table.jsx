@@ -4,7 +4,7 @@ import { data } from '../../../data/data';
 import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
 
-function RenderTablePage({ cases }) {
+function DataTable({ cases }) {
   return (
     <div>
       <Table
@@ -29,8 +29,8 @@ function RenderTablePage({ cases }) {
 
 const mapStateToProps = state => {
   return {
-    cases: state.dataReducer.cases,
+    cases: state.apiDataReducer.cases,
   };
 };
 
-export default connect(mapStateToProps)(RenderTablePage);
+export default connect(mapStateToProps)(DataTable);

@@ -16,7 +16,7 @@ const initialState = {
   asylumOffice: [],
   region: [],
   continents: [],
-  geopolitical: ['test'],
+  geopolitical: [],
 };
 
 const filterReducer = (state = initialState, action) => {
