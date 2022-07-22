@@ -19,7 +19,7 @@ import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 
-import { NavBar } from './components/common';
+import { NavBar } from './components/Menu';
 import { Layout } from 'antd';
 
 // currently unused imports/components
