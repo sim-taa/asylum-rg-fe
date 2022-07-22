@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import Table from './Table';
+import Table from './RenderTableContainer';
 import AsylumOfficeSelect from './AsylumOfficeSelect';
 import ContinentSelect from './ContinentSelect';
 import GeopoliticalSelect from './GeopoliticalSelect';

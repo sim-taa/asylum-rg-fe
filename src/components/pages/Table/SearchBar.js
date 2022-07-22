@@ -46,8 +46,10 @@ function SearchBar(props) {
       </Form.Item>
       <Form.Item name="category" label="Category" rules={[{ required: true }]}>
         <Select placeholder="Pick A Category" onChange={onCategoryChange}>
-          {columns.map(column => (
-            <Option value={column.dataIndex}>{column.title}</Option>
+          {columns.map((column, index) => (
+            <Option value={column.dataIndex} key={index}>
+              {column.title}
+            </Option>
           ))}
         </Select>
       </Form.Item>

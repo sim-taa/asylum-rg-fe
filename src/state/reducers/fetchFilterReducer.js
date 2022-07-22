@@ -1,3 +1,6 @@
+//This reducer is used strictly for allowing the user
+//to build up a query string which is sent to the API.
+//The response is handled by the dataReducer.
 import {
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
