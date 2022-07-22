@@ -17,6 +17,7 @@ const initialState = {
   region: [],
   continents: [],
   geopolitical: [],
+
 };
 
 const filterReducer = (state = initialState, action) => {

@@ -9,9 +9,11 @@ import {
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
+
   FILTER_SEARCH,
   RESET_DATA,
   GET_DATA,
+
   SET_GEOPOLITICAL_FILTER,
   GET_MOCK_FILTERED_DATA,
 } from '../constants';
@@ -35,6 +37,7 @@ export const getFilteredData = queryString => dispatch => {
 export function getAllData(data) {
   return { type: GET_DATA, payload: data };
 }
+
 
 export function filterSearch({ data, searchTerm, category }) {
   const filteredData = data.filter(info =>
