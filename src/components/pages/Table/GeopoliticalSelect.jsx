@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setGeopoliticalFilter } from '../../../state/actions';
+import { setGeopoliticalFilter } from '../../../state/actionCreators';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
 import { geopoliticalEnum } from '../../../data/filterConstants';

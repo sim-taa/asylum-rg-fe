@@ -2,7 +2,7 @@ import {
   GET_DEFAULT_COMPARISONS,
   GET_FILTERED_DATA,
   GET_MOCK_FILTERED_DATA,
-} from '../constants';
+} from '../actionTypes';
 
 const initialState = {
   cases: [],

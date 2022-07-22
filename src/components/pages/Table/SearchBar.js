@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
-import { filterSearch, resetData } from '../../../state/actions';
+import { filterSearch, resetData } from '../../../state/actionCreators';
 
 function SearchBar(props) {
   const { cases, filteredData, filteredCount, filterSearch, resetData } = props;

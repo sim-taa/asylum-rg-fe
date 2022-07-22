@@ -6,7 +6,10 @@ import GeopoliticalSelect from './GeopoliticalSelect';
 import SearchSubmitButton from './SearchSubmitButton';
 
 import { connect } from 'react-redux';
-import { getFilteredData, getMockFilteredData } from '../../../state/actions';
+import {
+  getFilteredData,
+  getMockFilteredData,
+} from '../../../state/actionCreators';
 
 const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
   /*As JavaScript treats functions like first class objects, when it rerenders it

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_DATA, FILTER_SEARCH, RESET_DATA } from '../constants';
+import { GET_DATA, FILTER_SEARCH, RESET_DATA } from '../actionTypes';
 
 // States
 const initialCasesData = [];
@@ -7,17 +7,14 @@ const initialCasesData = [];
 const initialFilteredStates = {
   count: 0,
   data: [],
-
 };
 
 // Reducers
 function casesReducer(state = initialCasesData, action) {
   switch (action.type) {
-
     case GET_DATA: {
       return action.payload;
     }
-
 
     default: {
       return state;

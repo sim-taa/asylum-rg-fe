@@ -3,7 +3,7 @@ import {
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
   SET_GEOPOLITICAL_FILTER,
-} from '../constants';
+} from '../actionTypes';
 import {
   regions,
   officeRegions,
