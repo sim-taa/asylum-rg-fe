@@ -15,6 +15,7 @@ import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { NavBar } from './components/Menu';
 import { Layout } from 'antd';
+import { FooterContent } from './components/common/FooterContent.js';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
@@ -33,7 +34,7 @@ ReactDOM.render(
 );
 
 function App() {
-  const { Content, Sider } = Layout;
+  const { Content, Sider, Footer } = Layout;
   return (
     <Layout>
       <Sider
@@ -62,6 +63,9 @@ function App() {
             <Route component={NotFoundPage} />
           </Switch>
         </Content>
+        <Footer>
+          <FooterContent />
+        </Footer>
       </Layout>
     </Layout>
   );
