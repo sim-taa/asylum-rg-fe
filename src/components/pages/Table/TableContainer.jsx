@@ -5,12 +5,21 @@ import ContinentSelect from './ContinentSelect';
 import SearchSubmitButton from './SearchSubmitButton';
 
 import { connect } from 'react-redux';
-import { getFilteredData } from '../../../state/actions';
+import { getFilteredData, getMockFilteredData } from '../../../state/actions';
 
-const TableContainer = ({ cases, getFilteredData }) => {
+const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
+  /*As JavaScript treats functions like first class objects, when it rerenders it
+  creates a new instance of the function it is destructuring from props. And when
+  React checks whether one instance is the same as another, it will always return
+  false because they are different instances. This triggers a rerender, and thereby
+  an infinite loop. Using the useCallback hook allows use to memoize the callback
+  and thereby not trigger that rerendering. Fun!*/
   const memoizedGetFilteredData = useCallback(() => {
-    getFilteredData('?');
-  }, [getFilteredData]);
+    //Swap use of the next two function calls and switch the dependency array accordingly
+    //to revert to using the api rather than mock data generation:
+    //getFilteredData('?');
+    getMockFilteredData('?');
+  }, [getMockFilteredData]);
 
   useEffect(() => {
     memoizedGetFilteredData();
@@ -47,4 +56,7 @@ const mapStateToProps = state => ({
   cases: state.dataReducer.cases,
 });
 
-export default connect(mapStateToProps, { getFilteredData })(TableContainer);
+export default connect(mapStateToProps, {
+  getFilteredData,
+  getMockFilteredData,
+})(TableContainer);

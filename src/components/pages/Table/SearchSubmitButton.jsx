@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { getFilteredData } from '../../../state/actions';
+import { getFilteredData, getMockFilteredData } from '../../../state/actions';
 import { buildQueryString } from '../../../state/reducers/filterReducer';
 import { connect } from 'react-redux';
 
-function SearchSubmitButton({ filters, getFilteredData }) {
+function SearchSubmitButton({ filters, getFilteredData, getMockFilteredData }) {
   return (
     //A slice of state should be added to the redux store to indicated loading
     //Loading animation can be managed within the button component, though an
@@ -15,7 +15,7 @@ function SearchSubmitButton({ filters, getFilteredData }) {
     <Button
       type="primary"
       icon={<SearchOutlined />}
-      onClick={() => getFilteredData(buildQueryString(filters))}
+      onClick={() => getMockFilteredData(buildQueryString(filters))}
     >
       Search
     </Button>
@@ -28,6 +28,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getFilteredData })(
-  SearchSubmitButton
-);
+export default connect(mapStateToProps, {
+  getFilteredData,
+  getMockFilteredData,
+})(SearchSubmitButton);
