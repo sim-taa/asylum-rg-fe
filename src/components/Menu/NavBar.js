@@ -15,7 +15,8 @@ const NavBar = () => {
     <Menu
       onClick={onClick}
       style={{
-        width: 256,
+        width: 'auto',
+        height: 'auto',
       }}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
