@@ -14,7 +14,26 @@ export function FooterContent() {
     >
       <Space direction="vertical">
         {/*minified 'nav bar' for footer*/}
-        <div>About Us Contact Press Terms & Privacy Sign Up Careers</div>
+        <Space direction="horizontal">
+          <Button type="text" size="small">
+            About Us
+          </Button>
+          <Button type="text" size="small">
+            Contact Us
+          </Button>
+          <Button type="text" size="small">
+            Press
+          </Button>
+          <Button type="text" size="small">
+            Terms & Privacy
+          </Button>
+          <Button type="text" size="small">
+            Sign Up
+          </Button>
+          <Button type="text" size="small">
+            Careers
+          </Button>
+        </Space>
         {/*contact info*/}
         <Text>
           New York Washington Los Angeles
