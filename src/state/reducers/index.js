@@ -3,5 +3,6 @@
 import { combineReducers } from 'redux';
 import dataReducer from './dataReducer';
 import filterReducer from './filterReducer';
+import apiDataReducer from './apiDataReducer';
 
-export default combineReducers({ dataReducer, filterReducer });
+export default combineReducers({ dataReducer, filterReducer, apiDataReducer });

@@ -1,3 +1,8 @@
+/*These are the columns that are imported for the Ant Design Table Component. 
+  This array can be expanded as dynamic table construction is implemented.
+  If this happens, remember to use Array.filter() to filter out the columns you need inside each Component.
+  A suggestion for optimization at that point would be to change this array to an object with the "key" as the hash.*/
+
 export const columns = [
   {
     title: 'Asylum Office',
@@ -8,11 +13,6 @@ export const columns = [
     title: 'Citizenship',
     dataIndex: 'citizenship',
     key: 'citizenship',
-  },
-  {
-    title: 'Race or Ethnicity',
-    dataIndex: 'raceOrEthnicity',
-    key: 'raceOrEthnicity',
   },
   {
     title: 'Case Outcome',
