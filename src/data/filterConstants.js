@@ -105,198 +105,969 @@ export const continentEnum = Object.freeze({
   unknown: 'Unknown',
 });
 
+export const geopoliticalEnum = Object.freeze({
+  middleEastNorthAfrica: 'Middle East/North Africa',
+  subSaharanAfrica: 'Sub-Saharan Africa',
+  europe: 'Europe',
+  centralAsia: 'Central Asia',
+  caribbean: 'Caribbean',
+  eastAsiaPacific: 'East Asia/Pacific',
+  southAsia: 'South Asia',
+  centralSouthAmerica: 'Central/South America',
+  northAmerica: 'North America',
+  stateless: 'Stateless', // These two last enum options are rare and somewhat similar, how should they be handled?
+  unknown: 'Unknown',
+});
+
 export const regions = [
-  { territory: 'AFGHANISTAN', continent: continentEnum.asia },
-  { territory: 'ALBANIA', continent: continentEnum.europe },
-  { territory: 'ALGERIA', continent: continentEnum.africa },
-  { territory: 'ANGOLA', continent: continentEnum.africa },
-  { territory: 'ANTIGUA-BARBUDA', continent: continentEnum.northAmerica },
-  { territory: 'ARGENTINA', continent: continentEnum.southAmerica },
-  { territory: 'ARMENIA', continent: continentEnum.asia },
-  { territory: 'AUSTRALIA', continent: continentEnum.oceania },
-  { territory: 'AUSTRIA', continent: continentEnum.europe },
-  { territory: 'AZERBAIJAN', continent: continentEnum.asia },
-  { territory: 'BAHAMAS', continent: continentEnum.northAmerica },
-  { territory: 'BAHRAIN', continent: continentEnum.asia },
-  { territory: 'BANGLADESH', continent: continentEnum.asia },
-  { territory: 'BARBADOS', continent: continentEnum.northAmerica },
-  { territory: 'BELARUS', continent: continentEnum.europe },
-  { territory: 'BELGIUM', continent: continentEnum.europe },
-  { territory: 'BELIZE', continent: continentEnum.northAmerica },
-  { territory: 'BENIN', continent: continentEnum.africa },
-  { territory: 'BHUTAN', continent: continentEnum.asia },
-  { territory: 'BOLIVIA', continent: continentEnum.southAmerica },
-  { territory: 'BOSNIA-HERZEGOVINA', continent: continentEnum.europe },
-  { territory: 'BOTSWANA', continent: continentEnum.africa },
-  { territory: 'BRAZIL', continent: continentEnum.southAmerica },
-  { territory: 'BRUNEI', continent: continentEnum.asia },
-  { territory: 'BULGARIA', continent: continentEnum.europe },
-  { territory: 'BURKINA FASO', continent: continentEnum.africa },
-  { territory: 'BURMA', continent: continentEnum.asia }, //Now Myanmar
-  { territory: 'BURUNDI', continent: continentEnum.africa },
-  { territory: 'CAMBODIA', continent: continentEnum.asia },
-  { territory: 'CAMEROON', continent: continentEnum.africa },
-  { territory: 'CANADA', continent: continentEnum.northAmerica },
-  { territory: 'CAPE VERDE', continent: continentEnum.africa },
-  { territory: 'CENTRAL AFRICAN REPUBLIC', continent: continentEnum.africa },
-  { territory: 'CHAD', continent: continentEnum.africa },
-  { territory: 'CHILE', continent: continentEnum.southAmerica },
-  { territory: "CHINA, PEOPLE'S REPUBLIC OF", continent: continentEnum.asia },
-  { territory: 'COLOMBIA', continent: continentEnum.southAmerica },
-  { territory: 'COMOROS', continent: continentEnum.africa },
-  { territory: 'CONGO', continent: continentEnum.africa },
-  { territory: 'COSTA RICA', continent: continentEnum.northAmerica },
-  { territory: 'CROATIA', continent: continentEnum.europe },
-  { territory: 'CUBA', continent: continentEnum.northAmerica },
-  { territory: 'CYPRUS', continent: continentEnum.europe },
-  { territory: 'CZECH REPUBLIC', continent: continentEnum.europe }, // Czechia is the official name since 1993
-  { territory: 'CZECHOSLOVAKIA', continent: continentEnum.europe }, // Deprecated since 1993 (see Czechia/Czech Republic)
-  { territory: "CÃ”TE D'IVOIRE", continent: continentEnum.africa }, //sic -- the name is Côte d'Ivoire, alternately Ivory Coast
-  { territory: 'DEM REP OF THE CONGO', continent: continentEnum.africa },
-  { territory: 'DENMARK', continent: continentEnum.europe },
-  { territory: 'DJIBOUTI', continent: continentEnum.africa },
-  { territory: 'DOMINICA', continent: continentEnum.northAmerica },
-  { territory: 'DOMINICAN REPUBLIC', continent: continentEnum.northAmerica },
-  { territory: 'ECUADOR', continent: continentEnum.southAmerica },
-  { territory: 'EGYPT', continent: continentEnum.africa }, //Can be considered part of Asia
-  { territory: 'EL SALVADOR', continent: continentEnum.northAmerica },
-  { territory: 'EQUATORIAL GUINEA', continent: continentEnum.africa },
-  { territory: 'ERITREA', continent: continentEnum.africa },
-  { territory: 'ESTONIA', continent: continentEnum.europe },
-  { territory: 'ESWATINI', continent: continentEnum.africa }, //Not yet included, formerly Swaziland
-  { territory: 'ETHIOPIA', continent: continentEnum.africa },
-  { territory: 'FIJI', continent: continentEnum.oceania },
-  { territory: 'FINLAND', continent: continentEnum.europe }, //Not included in the data
-  { territory: 'FRANCE', continent: continentEnum.europe },
-  { territory: 'GABON', continent: continentEnum.africa },
-  { territory: 'GEORGIA', continent: continentEnum.asia },
-  { territory: 'GERMANY', continent: continentEnum.europe },
-  { territory: 'GHANA', continent: continentEnum.africa },
-  { territory: 'GREECE', continent: continentEnum.europe },
-  { territory: 'GRENADA', continent: continentEnum.northAmerica },
-  { territory: 'GUATEMALA', continent: continentEnum.northAmerica },
-  { territory: 'GUINEA', continent: continentEnum.africa },
-  { territory: 'GUINEA-BISSAU', continent: continentEnum.africa },
-  { territory: 'GUYANA', continent: continentEnum.southAmerica },
-  { territory: 'HAITI', continent: continentEnum.northAmerica },
-  { territory: 'HONDURAS', continent: continentEnum.northAmerica },
-  { territory: 'HONG KONG', continent: continentEnum.asia },
-  { territory: 'HUNGARY', continent: continentEnum.europe },
-  { territory: 'ICELAND', continent: continentEnum.europe },
-  { territory: 'INDIA', continent: continentEnum.asia },
-  { territory: 'INDONESIA', continent: continentEnum.asia },
-  { territory: 'IRAN', continent: continentEnum.asia },
-  { territory: 'IRAQ', continent: continentEnum.asia },
-  { territory: 'IRELAND', continent: continentEnum.europe },
-  { territory: 'ISRAEL', continent: continentEnum.asia },
-  { territory: 'ITALY', continent: continentEnum.europe },
-  { territory: 'JAMAICA', continent: continentEnum.northAmerica },
-  { territory: 'JAPAN', continent: continentEnum.asia },
-  { territory: 'JORDAN', continent: continentEnum.asia },
-  { territory: 'KAZAKHSTAN', continent: continentEnum.asia },
-  { territory: 'KENYA', continent: continentEnum.africa },
-  { territory: 'KOREA', continent: continentEnum.asia },
-  { territory: 'KOSOVO', continent: continentEnum.europe },
-  { territory: 'KUWAIT', continent: continentEnum.asia },
-  { territory: 'KYRGYZSTAN', continent: continentEnum.asia },
-  { territory: 'LAOS', continent: continentEnum.asia },
-  { territory: 'LATVIA', continent: continentEnum.europe },
-  { territory: 'LEBANON', continent: continentEnum.asia },
-  { territory: 'LESOTHO', continent: continentEnum.africa },
-  { territory: 'LIBERIA', continent: continentEnum.africa },
-  { territory: 'LIBYA', continent: continentEnum.africa },
-  { territory: 'LITHUANIA', continent: continentEnum.europe },
-  { territory: 'MACAO', continent: continentEnum.asia }, //Not included in current data but is similar to Hong Kong in its political standing
-  { territory: 'MADAGASCAR', continent: continentEnum.africa },
-  { territory: 'MALAWI', continent: continentEnum.africa },
-  { territory: 'MALAYSIA', continent: continentEnum.asia },
-  { territory: 'MALDIVES', continent: continentEnum.asia },
-  { territory: 'MALI', continent: continentEnum.africa },
-  { territory: 'MALTA', continent: continentEnum.europe },
-  { territory: 'MAURITANIA', continent: continentEnum.africa },
-  { territory: 'MAURITIUS', continent: continentEnum.africa },
-  { territory: 'MEXICO', continent: continentEnum.northAmerica },
-  { territory: 'MOLDOVA', continent: continentEnum.europe },
-  { territory: 'MONGOLIA', continent: continentEnum.asia },
-  { territory: 'MONTENEGRO', continent: continentEnum.europe }, // See Serbia
-  { territory: 'MOROCCO', continent: continentEnum.africa },
-  { territory: 'MOZAMBIQUE', continent: continentEnum.africa },
-  { territory: 'MYANMAR', continent: continentEnum.asia }, //Not yet in the data -- formerly Burma
-  { territory: 'NAMIBIA', continent: continentEnum.africa },
-  { territory: 'NEPAL', continent: continentEnum.asia },
-  { territory: 'NETHERLANDS', continent: continentEnum.europe },
-  { territory: 'NEW ZEALAND', continent: continentEnum.oceania },
-  { territory: 'NICARAGUA', continent: continentEnum.northAmerica },
-  { territory: 'NIGER', continent: continentEnum.africa },
-  { territory: 'NIGERIA', continent: continentEnum.africa },
-  { territory: 'NORTH KOREA', continent: continentEnum.asia },
-  { territory: 'NORTH MACEDONIA', continent: continentEnum.europe },
-  { territory: 'NORWAY', continent: continentEnum.europe },
-  { territory: 'OMAN', continent: continentEnum.asia },
-  { territory: 'PAKISTAN', continent: continentEnum.asia },
-  { territory: 'PALAU', continent: continentEnum.oceania },
-  { territory: 'PANAMA', continent: continentEnum.northAmerica },
-  { territory: 'PARAGUAY', continent: continentEnum.southAmerica },
-  { territory: 'PERU', continent: continentEnum.southAmerica },
-  { territory: 'PHILIPPINES', continent: continentEnum.asia },
-  { territory: 'POLAND', continent: continentEnum.europe },
-  { territory: 'PORTUGAL', continent: continentEnum.europe },
-  { territory: 'QATAR', continent: continentEnum.asia },
-  { territory: 'ROMANIA', continent: continentEnum.europe },
-  { territory: 'RUSSIA', continent: continentEnum.europe }, //By population, 2/3 in Europe. Partially Asia.
-  { territory: 'RWANDA', continent: continentEnum.africa },
-  { territory: 'SAO TOME AND PRINCIPE', continent: continentEnum.africa },
-  { territory: 'SAUDI ARABIA', continent: continentEnum.asia },
-  { territory: 'SENEGAL', continent: continentEnum.africa },
-  { territory: 'SERBIA', continent: continentEnum.europe }, // 2006+, formerly Yugoslavia/Serbia and Montenegro
-  { territory: 'SERBIA AND MONTENEGRO', continent: continentEnum.europe }, //2003-2006, formerly YugoSlavia
-  { territory: 'SEYCHELLES', continent: continentEnum.africa },
-  { territory: 'SIERRA LEONE', continent: continentEnum.africa },
-  { territory: 'SINGAPORE', continent: continentEnum.asia },
-  { territory: 'SLOVAKIA', continent: continentEnum.europe },
-  { territory: 'SLOVENIA', continent: continentEnum.europe },
-  { territory: 'SOMALIA', continent: continentEnum.africa },
-  { territory: 'SOUTH AFRICA', continent: continentEnum.africa },
-  { territory: 'SOUTH KOREA', continent: continentEnum.asia },
-  { territory: 'SOUTH SUDAN', continent: continentEnum.africa },
-  { territory: 'SPAIN', continent: continentEnum.europe },
-  { territory: 'SRI LANKA', continent: continentEnum.asia },
-  { territory: 'ST. KITTS-NEVIS', continent: continentEnum.northAmerica },
-  { territory: 'ST. LUCIA', continent: continentEnum.northAmerica },
+  {
+    territory: 'AFGHANISTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'ALBANIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'ALGERIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'ANGOLA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'ANTIGUA-BARBUDA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'ARGENTINA',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'ARMENIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'AUSTRALIA',
+    continent: continentEnum.oceania,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'AUSTRIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'AZERBAIJAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'BAHAMAS',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'BAHRAIN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'BANGLADESH',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'BARBADOS',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'BELARUS',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'BELGIUM',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'BELIZE',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'BENIN',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'BHUTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'BOLIVIA',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'BOSNIA-HERZEGOVINA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'BOTSWANA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'BRAZIL',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'BRUNEI',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'BULGARIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'BURKINA FASO',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'BURMA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  }, //Now Myanmar
+  {
+    territory: 'BURUNDI',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'CAMBODIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'CAMEROON',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'CANADA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.northAmerica,
+  },
+  {
+    territory: 'CAPE VERDE',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'CENTRAL AFRICAN REPUBLIC',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'CHAD',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'CHILE',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: "CHINA, PEOPLE'S REPUBLIC OF",
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'COLOMBIA',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'COMOROS',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'CONGO',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'COSTA RICA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'CROATIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'CUBA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'CYPRUS',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'CZECH REPUBLIC',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, // Czechia is the official name since 1993
+  {
+    territory: 'CZECHOSLOVAKIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, // Deprecated since 1993 (see Czechia/Czech Republic)
+  {
+    territory: "CÃ”TE D'IVOIRE",
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  }, //sic -- the name is Côte d'Ivoire, alternately Ivory Coast
+  {
+    territory: 'DEM REP OF THE CONGO',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'DENMARK',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'DJIBOUTI',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'DOMINICA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'DOMINICAN REPUBLIC',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'ECUADOR',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'EGYPT',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  }, //Can be considered part of Asia
+  {
+    territory: 'EL SALVADOR',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'EQUATORIAL GUINEA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'ERITREA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'ESTONIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'ESWATINI',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  }, //Not yet included, formerly Swaziland
+  {
+    territory: 'ETHIOPIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'FIJI',
+    continent: continentEnum.oceania,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'FINLAND',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, //Not included in the data
+  {
+    territory: 'FRANCE',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'GABON',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'GEORGIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'GERMANY',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'GHANA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'GREECE',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'GRENADA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'GUATEMALA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'GUINEA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'GUINEA-BISSAU',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'GUYANA',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'HAITI',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'HONDURAS',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'HONG KONG',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'HUNGARY',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'ICELAND',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'INDIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'INDONESIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'IRAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'IRAQ',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'IRELAND',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'ISRAEL',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'ITALY',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'JAMAICA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'JAPAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'JORDAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'KAZAKHSTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'KENYA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'KOREA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'KOSOVO',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'KUWAIT',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'KYRGYZSTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'LAOS',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'LATVIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'LEBANON',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'LESOTHO',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'LIBERIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'LIBYA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'LITHUANIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'MACAO',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  }, //Not included in current data but is similar to Hong Kong in its political standing
+  {
+    territory: 'MADAGASCAR',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'MALAWI',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'MALAYSIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'MALDIVES',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'MALI',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'MALTA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'MAURITANIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'MAURITIUS',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'MEXICO',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'MOLDOVA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'MONGOLIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'MONTENEGRO',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, // See Serbia
+  {
+    territory: 'MOROCCO',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'MOZAMBIQUE',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'MYANMAR',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  }, //Not yet in the data -- formerly Burma
+  {
+    territory: 'NAMIBIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'NEPAL',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'NETHERLANDS',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'NEW ZEALAND',
+    continent: continentEnum.oceania,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'NICARAGUA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'NIGER',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'NIGERIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'NORTH KOREA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'NORTH MACEDONIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'NORWAY',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'OMAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'PAKISTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'PALAU',
+    continent: continentEnum.oceania,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'PANAMA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'PARAGUAY',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'PERU',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'PHILIPPINES',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'POLAND',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'PORTUGAL',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'QATAR',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'ROMANIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'RUSSIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, //By population, 2/3 in Europe. Partially Asia.
+  {
+    territory: 'RWANDA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SAO TOME AND PRINCIPE',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SAUDI ARABIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'SENEGAL',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SERBIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, // 2006+, formerly Yugoslavia/Serbia and Montenegro
+  {
+    territory: 'SERBIA AND MONTENEGRO',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, //2003-2006, formerly YugoSlavia
+  {
+    territory: 'SEYCHELLES',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SIERRA LEONE',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SINGAPORE',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'SLOVAKIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'SLOVENIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'SOMALIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SOUTH AFRICA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SOUTH KOREA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'SOUTH SUDAN',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SPAIN',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'SRI LANKA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.southAsia,
+  },
+  {
+    territory: 'ST. KITTS-NEVIS',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'ST. LUCIA',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
   {
     territory: 'ST. VINCENT-GRENADINES',
     continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
   },
-  { territory: 'STATELESS', continent: continentEnum.unknown },
-  { territory: 'SUDAN', continent: continentEnum.africa },
-  { territory: 'SURINAME', continent: continentEnum.southAmerica },
-  { territory: 'SWAZILAND', continent: continentEnum.africa }, //Now called Eswatini
-  { territory: 'SWEDEN', continent: continentEnum.europe },
-  { territory: 'SWITZERLAND', continent: continentEnum.europe },
-  { territory: 'SYRIA', continent: continentEnum.asia },
-  { territory: 'TAIWAN', continent: continentEnum.asia }, //Compare with Macao and Hong Kong for geopolitical standing
-  { territory: 'TAJIKISTAN', continent: continentEnum.asia },
-  { territory: 'TANZANIA', continent: continentEnum.africa },
-  { territory: 'THAILAND', continent: continentEnum.asia },
-  { territory: 'THE GAMBIA', continent: continentEnum.africa }, //Check with new data dumps for GAMBIA, THE
-  { territory: 'TOGO', continent: continentEnum.africa },
-  { territory: 'TONGA', continent: continentEnum.oceania },
-  { territory: 'TRINIDAD AND TOBAGO', continent: continentEnum.northAmerica },
-  { territory: 'TUNISIA', continent: continentEnum.africa },
-  { territory: 'TURKEY', continent: continentEnum.europe },
-  { territory: 'TURKMENISTAN', continent: continentEnum.asia },
-  { territory: 'UGANDA', continent: continentEnum.africa },
-  { territory: 'UKRAINE', continent: continentEnum.europe },
-  { territory: 'UNITED ARAB EMIRATES', continent: continentEnum.asia },
-  { territory: 'UNITED KINGDOM', continent: continentEnum.europe },
-  { territory: 'UNKNOWN', continent: continentEnum.unknown },
-  { territory: 'URUGUAY', continent: continentEnum.southAmerica },
-  { territory: 'USSR', continent: continentEnum.europe }, //Partly in Asia, see Russia
-  { territory: 'UZBEKISTAN', continent: continentEnum.asia },
-  { territory: 'VENEZUELA', continent: continentEnum.southAmerica },
-  { territory: 'VIETNAM', continent: continentEnum.asia },
-  { territory: 'YEMEN', continent: continentEnum.asia },
-  { territory: 'YUGOSLAVIA', continent: continentEnum.europe }, //Deprecated, now Serbia
-  { territory: 'ZAMBIA', continent: continentEnum.africa },
-  { territory: 'ZIMBABWE', continent: continentEnum.africa },
+  {
+    territory: 'STATELESS',
+    continent: continentEnum.unknown,
+    geopolitical: geopoliticalEnum.stateless,
+  },
+  {
+    territory: 'SUDAN',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'SURINAME',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'SWAZILAND',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  }, //Now called Eswatini
+  {
+    territory: 'SWEDEN',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'SWITZERLAND',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'SYRIA',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'TAIWAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  }, //Compare with Macao and Hong Kong for geopolitical standing
+  {
+    territory: 'TAJIKISTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'TANZANIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'THAILAND',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'THE GAMBIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  }, //Check with new data dumps for GAMBIA, THE
+  {
+    territory: 'TOGO',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'TONGA',
+    continent: continentEnum.oceania,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'TRINIDAD AND TOBAGO',
+    continent: continentEnum.northAmerica,
+    geopolitical: geopoliticalEnum.caribbean,
+  },
+  {
+    territory: 'TUNISIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'TURKEY',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'TURKMENISTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'UGANDA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'UKRAINE',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'UNITED ARAB EMIRATES',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'UNITED KINGDOM',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  },
+  {
+    territory: 'UNKNOWN',
+    continent: continentEnum.unknown,
+    geopolitical: geopoliticalEnum.unknown,
+  },
+  {
+    territory: 'URUGUAY',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'USSR',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, //Partly in Asia, see Russia
+  {
+    territory: 'UZBEKISTAN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.centralAsia,
+  },
+  {
+    territory: 'VENEZUELA',
+    continent: continentEnum.southAmerica,
+    geopolitical: geopoliticalEnum.centralSouthAmerica,
+  },
+  {
+    territory: 'VIETNAM',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.eastAsiaPacific,
+  },
+  {
+    territory: 'YEMEN',
+    continent: continentEnum.asia,
+    geopolitical: geopoliticalEnum.middleEastNorthAfrica,
+  },
+  {
+    territory: 'YUGOSLAVIA',
+    continent: continentEnum.europe,
+    geopolitical: geopoliticalEnum.europe,
+  }, //Deprecated, now Serbia
+  {
+    territory: 'ZAMBIA',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
+  {
+    territory: 'ZIMBABWE',
+    continent: continentEnum.africa,
+    geopolitical: geopoliticalEnum.subSaharanAfrica,
+  },
 ];
