@@ -12,7 +12,6 @@ p {
 }
 */
 
-
 /* Font imports for Acumin Pro Italic */
 @font-face {
     font-family: 'AcuminProItalic';
@@ -66,3 +65,32 @@ p {
          url('./assets/Fonts/Moneta_Bold/Moneta_Bold.woff') format('woff'),
          url('./assets/Fonts/Moneta_Bold/Moneta_Bold.ttf') format('truetype');
 }
+
+/* This is where we define the CSS fonts as global variables to be referenced later */
+:root {
+    --primary-color-white: #FFFFFF;
+    --primary-color-champagne: #F7E4Ca;
+    --primary-color-old-burgundy: #3E2B2F;
+    --primary-color-coral: #FD8960;
+    --primary-color-tawny-birch: #BB8673;
+
+    --secondary-color-timberwolf: #D6D1CA;
+    --secondary-color-blast-off-bronze: #9D6852;
+    --secondary-color-nickel: #707070;
+    --secondary-color-manatee: #8D8D99;
+    --secondary-color-dark-slate-gray: #404C4A;
+    --secondary-color-khaki: #C2BCA0;
+
+    --font-acumin-pro-italic: 'AcuminProItalic'
+    --font-acumin-pro-medium: 'AcuminProMedium'
+    --font-acumin-pro-medium-italic: 'AcuminProMediumItalic'
+    --font-acumin-pro-regular: 'AcuminProRegular'
+    --font-beatrice-regular: 'BeatriceRegular'
+    --font-moneta-bold: 'MonetaBold'
+}
+
+/* This is an example of how you'd reference the global variable in an example p tag: 
+p {
+    color: var(--primary-color-champagne)
+}
+*/
