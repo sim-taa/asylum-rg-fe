@@ -81,12 +81,12 @@ p {
     --secondary-color-dark-slate-gray: #404C4A;
     --secondary-color-khaki: #C2BCA0;
 
-    --font-acumin-pro-italic: 'AcuminProItalic'
-    --font-acumin-pro-medium: 'AcuminProMedium'
-    --font-acumin-pro-medium-italic: 'AcuminProMediumItalic'
-    --font-acumin-pro-regular: 'AcuminProRegular'
-    --font-beatrice-regular: 'BeatriceRegular'
-    --font-moneta-bold: 'MonetaBold'
+    --font-acumin-pro-italic: 'AcuminProItalic';
+    --font-acumin-pro-medium: 'AcuminProMedium';
+    --font-acumin-pro-medium-italic: 'AcuminProMediumItalic';
+    --font-acumin-pro-regular: 'AcuminProRegular';
+    --font-beatrice-regular: 'BeatriceRegular';
+    --font-moneta-bold: 'MonetaBold';
 }
 
 /* This is an example of how you'd reference the global variable in an example p tag: 

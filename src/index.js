@@ -22,6 +22,7 @@ import { LoadingComponent } from './components/common';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
+import './styles/styles.css';
 
 const store = configureStore({ reducer: reducer });
 
