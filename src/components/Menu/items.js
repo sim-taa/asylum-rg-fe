@@ -367,5 +367,13 @@ const items = [
       'init2'
     ),
   ]),
+  getItem(<span title="Asylum Case Data">Asylum Case Data</span>, 'data', [
+    getItem(
+      <a href="/table" title="table">
+        Table
+      </a>,
+      'data1'
+    ),
+  ]),
 ];
 export default items;
