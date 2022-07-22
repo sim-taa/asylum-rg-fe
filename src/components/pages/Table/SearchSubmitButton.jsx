@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getFilteredData, getMockFilteredData } from '../../../state/actions';
-import { buildQueryString } from '../../../state/reducers/filterReducer';
+import { buildQueryString } from '../../../state/reducers/fetchFilterReducer';
 import { connect } from 'react-redux';
 
 function SearchSubmitButton({ filters, getFilteredData, getMockFilteredData }) {
@@ -24,7 +24,7 @@ function SearchSubmitButton({ filters, getFilteredData, getMockFilteredData }) {
 
 const mapStateToProps = state => {
   return {
-    filters: state.filterReducer,
+    filters: state.fetchFilterReducer,
   };
 };
 

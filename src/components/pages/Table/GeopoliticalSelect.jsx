@@ -7,7 +7,7 @@ import { geopoliticalEnum } from '../../../data/filterConstants';
 const { Option } = Select;
 
 const mapStateToProps = state => ({
-  geopolitical: state.filterReducer.geopolitical,
+  geopolitical: state.fetchFilterReducer.geopolitical,
 });
 
 const geopoliticalOptions = Object.values(geopoliticalEnum).map(

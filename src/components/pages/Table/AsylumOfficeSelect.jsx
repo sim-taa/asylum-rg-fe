@@ -8,7 +8,7 @@ import { officeRegions } from '../../../data/filterConstants';
 const { Option } = Select;
 
 const mapStateToProps = state => ({
-  asylumOffice: state.filterReducer.asylumOffice,
+  asylumOffice: state.fetchFlterReducer.asylumOffice,
 });
 
 const children = officeRegions.map(office => (
