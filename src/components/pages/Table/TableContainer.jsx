@@ -1,9 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import Table from './Table';
-import AsylumOfficeSelect from './AsylumOfficeSelect';
-import ContinentSelect from './ContinentSelect';
-import GeopoliticalSelect from './GeopoliticalSelect';
-import SearchSubmitButton from './SearchSubmitButton';
+import DataTable from './DataTable';
 
 import { connect } from 'react-redux';
 import {
@@ -49,13 +45,8 @@ const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
             height: '15vh',
             alignItems: 'center',
           }}
-        >
-          <AsylumOfficeSelect />
-          <ContinentSelect />
-          <GeopoliticalSelect />
-          <SearchSubmitButton />
-        </div>
-        <Table />
+        ></div>
+        <DataTable />
       </div>
     </>
   );
