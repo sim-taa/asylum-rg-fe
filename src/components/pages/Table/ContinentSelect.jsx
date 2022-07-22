@@ -22,7 +22,6 @@ const ContinentSelect = ({ continents, setContinentFilter }) => {
   };
   return (
     <Select
-      // Uncomment the following line to allow for selection of multiple regions
       mode="multiple"
       allowClear
       style={{
