@@ -20,6 +20,9 @@ import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 
+import { NavBar } from './components/common';
+import { Layout } from 'antd';
+
 // currently unused imports/components
 /**
  * import { LoadingComponent } from './components/common';
@@ -48,6 +51,7 @@ ReactDOM.render(
 );
 
 function App() {
+  const { Content, Sider } = Layout;
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   // const history = useHistory();
@@ -60,13 +64,35 @@ function App() {
 
   return (
     // <Security {...config} onAuthRequired={authHandler}>
-    <Switch>
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/table" component={TablePage} />
-      <Route path="/example-list" component={ExampleListPage} />
-      <Route path="/datavis" component={ExampleDataViz} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <Layout>
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          // position: 'fixed',
+          left: 0,
+          top: 0,
+          bottom: 0,
+        }}
+      >
+        <NavBar />
+      </Sider>
+      <Layout>
+        <Content style={{ margin: '24px 16px 0' }}>
+          <Switch>
+            <Route path="/" exact component={LandingPage} />
+            <Route path="/table" component={TablePage} />
+            <Route path="/example-list" component={ExampleListPage} />
+            <Route path="/datavis" component={ExampleDataViz} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Content>
+      </Layout>
+    </Layout>
     // </Security>
   );
 }
+
+// style={{ padding: 100 }}
