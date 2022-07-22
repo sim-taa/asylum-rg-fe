@@ -1,5 +1,5 @@
 import React from 'react';
-import RenderLandingPage from './RenderLandingPage';
+import RenderLandingPage from './RenderLandingPage.jsx';
 
 function LandingContainer({ LoadingComponent }) {
   return (
