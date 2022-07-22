@@ -10,11 +10,6 @@ export const columns = [
     key: 'citizenship',
   },
   {
-    title: 'Race or Ethnicity',
-    dataIndex: 'raceOrEthnicity',
-    key: 'raceOrEthnicity',
-  },
-  {
     title: 'Case Outcome',
     dataIndex: 'caseOutcome',
     key: 'caseOutcome',
