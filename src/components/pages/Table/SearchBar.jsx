@@ -9,14 +9,23 @@ import {
 } from '../../../state/actionCreators';
 import AdvancedSearch from './AdvancedSearch';
 
+const mapStateToProps = state => {
+  return {
+    cases: state.dataReducer.cases,
+    filteredCases: state.dataReducer.filteredCases,
+    filterCount: state.dataReducer.filterCount,
+    hideAdvanced: state.dataReducer.hideAdvanced,
+  };
+};
+
 function SearchBar(props) {
   const {
     cases,
-    filteredData,
-    filteredCount,
-    hideAdvanced,
+    filteredCases,
+    filterCount,
     filterSearch,
     resetData,
+    hideAdvanced,
     showAdvanced,
   } = props;
 
@@ -29,7 +38,7 @@ function SearchBar(props) {
 
   function onSubmit(values) {
     const { searchTerm, category } = values;
-    const data = filteredCount === 0 ? cases : filteredData;
+    const data = filterCount === 0 ? cases : filteredCases;
 
     filterSearch({ data, searchTerm, category });
     form.resetFields();
@@ -68,12 +77,13 @@ function SearchBar(props) {
           rules={[{ required: true }]}
         >
           <Select placeholder="Pick A Category" onChange={onCategoryChange}>
-            {columns.map(column => (
-              <Option value={column.dataIndex}>{column.title}</Option>
+            {columns.map((column, index) => (
+              <Option value={column.dataIndex} key={index}>
+                {column.title}
+              </Option>
             ))}
           </Select>
         </Form.Item>
-
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Search/Filter🔎
@@ -90,19 +100,6 @@ function SearchBar(props) {
     </>
   );
 }
-
-const mapStateToProps = state => {
-  console.log(state);
-  const reducerState = state.dataReducer;
-  const filteredReducer = reducerState.filteredReducer;
-
-  return {
-    cases: reducerState.casesReducer,
-    filteredData: filteredReducer.data,
-    filteredCount: filteredReducer.count,
-    hideAdvanced: filteredReducer.hideAdvanced,
-  };
-};
 
 export default connect(mapStateToProps, {
   filterSearch,
