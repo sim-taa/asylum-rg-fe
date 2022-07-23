@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setContinentFilter } from '../../../state/actions';
+import { setContinentFilter } from '../../../state/actionCreators';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
 import { continentEnum } from '../../../data/filterConstants';

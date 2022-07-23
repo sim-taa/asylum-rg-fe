@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Checkbox, Button, DatePicker } from 'antd';
-import { advancedSearch } from '../../../state/actions/index';
+import { advancedSearch } from '../../../state/actionCreators/index';
 
 function AdvancedSearch(props) {
   const { cases, advancedSearch } = props;

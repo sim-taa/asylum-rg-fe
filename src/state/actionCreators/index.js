@@ -14,7 +14,7 @@ import {
   RESET_DATA,
   SHOW_ADVANCED_SEARCH,
   ADVANCED_SEARCH,
-} from '../constants';
+} from '../actionTypes';
 
 // Action Creators
 // export function fetchAllData() {

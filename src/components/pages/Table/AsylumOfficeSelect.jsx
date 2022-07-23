@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setAsylumOfficeFilter } from '../../../state/actions';
+import { setAsylumOfficeFilter } from '../../../state/actionCreators';
 import 'antd/dist/antd.css';
 import { Select, Popover } from 'antd';
 import { officeRegions } from '../../../data/filterConstants';

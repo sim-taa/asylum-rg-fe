@@ -5,7 +5,7 @@ import {
   RESET_DATA,
   SHOW_ADVANCED_SEARCH,
   ADVANCED_SEARCH,
-} from '../constants';
+} from '../actionTypes';
 
 // States
 const initialCasesData = [];
