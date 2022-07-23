@@ -67,7 +67,7 @@ export function filterSearch({ data, searchTerm, category }) {
   return { type: FILTER_SEARCH, payload: filteredData };
 }
 
-export function resetData() {
+export function resetCaseData() {
   return { type: RESET_CASE_DATA };
 }
 

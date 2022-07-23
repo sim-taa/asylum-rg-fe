@@ -4,7 +4,7 @@ import { columns } from '../../../data/columns';
 import { connect } from 'react-redux';
 import {
   filterSearch,
-  resetData,
+  resetCaseData,
   showAdvanced,
 } from '../../../state/actionCreators';
 import AdvancedSearch from './AdvancedSearch';
@@ -24,7 +24,7 @@ function SearchBar(props) {
     filteredCases,
     filterCount,
     filterSearch,
-    resetData,
+    resetCaseData,
     hideAdvanced,
     showAdvanced,
   } = props;
@@ -45,7 +45,7 @@ function SearchBar(props) {
   }
 
   function reset() {
-    resetData();
+    resetCaseData();
     form.resetFields();
   }
 
@@ -108,6 +108,6 @@ function SearchBar(props) {
 
 export default connect(mapStateToProps, {
   filterSearch,
-  resetData,
+  resetCaseData,
   showAdvanced,
 })(SearchBar);
