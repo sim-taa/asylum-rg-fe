@@ -1,4 +1,3 @@
-//_______
 /*Consider breaking this down into separate actionCreator files if it becomes overly crowded!
 Remember separation of concerns.
 Import the action-types and export an action-creator function for each.
