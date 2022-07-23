@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {
   filterSearch,
   resetCaseData,
-  showAdvanced,
+  toggleAdvancedSearch,
 } from '../../../state/actionCreators';
 import AdvancedSearch from './AdvancedSearch';
 
@@ -14,7 +14,7 @@ const mapStateToProps = state => {
     cases: state.dataReducer.cases,
     filteredCases: state.dataReducer.filteredCases,
     filterCount: state.dataReducer.filterCount,
-    hideAdvanced: state.dataReducer.hideAdvanced,
+    displayAdvancedSearch: state.dataReducer.displayAdvancedSearch,
   };
 };
 
@@ -25,8 +25,8 @@ function SearchBar(props) {
     filterCount,
     filterSearch,
     resetCaseData,
-    hideAdvanced,
-    showAdvanced,
+    displayAdvancedSearch,
+    toggleAdvancedSearch,
   } = props;
 
   const { Option } = Select;
@@ -50,17 +50,17 @@ function SearchBar(props) {
   }
 
   function showAdvancedSearch() {
-    showAdvanced(hideAdvanced);
+    toggleAdvancedSearch(displayAdvancedSearch);
   }
 
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'end' }}>
         <Button onClick={showAdvancedSearch}>
-          {hideAdvanced ? 'Advanced Search' : 'Hide Advanced Search'}
+          {displayAdvancedSearch ? 'Use Basic Search' : 'Use Advanced Search'}
         </Button>
       </div>
-      {hideAdvanced ? (
+      {displayAdvancedSearch ? (
         <AdvancedSearch />
       ) : (
         <Form
@@ -70,8 +70,14 @@ function SearchBar(props) {
           autoComplete="off"
           layout="inline"
           wrapperCol={{ span: 45 }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignContent: 'start',
+          }}
         >
           {/* Basic Search(will move to another component) */}
+
           <Form.Item
             label="Search Term"
             name="searchTerm"
@@ -79,6 +85,7 @@ function SearchBar(props) {
           >
             <Input />
           </Form.Item>
+
           <Form.Item
             name="category"
             label="Category"
@@ -109,5 +116,5 @@ function SearchBar(props) {
 export default connect(mapStateToProps, {
   filterSearch,
   resetCaseData,
-  showAdvanced,
+  toggleAdvancedSearch,
 })(SearchBar);

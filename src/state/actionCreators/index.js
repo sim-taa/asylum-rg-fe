@@ -15,7 +15,7 @@ import {
   SET_GEOPOLITICAL_FILTER,
   FILTER_SEARCH,
   RESET_CASE_DATA,
-  SHOW_ADVANCED_SEARCH,
+  TOGGLE_ADVANCED_SEARCH,
   ADVANCED_SEARCH,
 } from '../actionTypes';
 import { generateMockFilteredData } from '../../data/mockAPI';
@@ -71,11 +71,12 @@ export function resetCaseData() {
   return { type: RESET_CASE_DATA };
 }
 
-export function showAdvanced(hideAdvanced) {
-  return { type: SHOW_ADVANCED_SEARCH, payload: !hideAdvanced };
+export function toggleAdvancedSearch(displayAdvancedSearch) {
+  return { type: TOGGLE_ADVANCED_SEARCH, payload: !displayAdvancedSearch };
 }
 
 export function advancedSearch(parameters) {
+  console.log(parameters);
   const { data, completion } = parameters;
 
   const parameterKeys = Object.keys(parameters);

@@ -1,5 +1,5 @@
 //These are for filtering/searching data already retrieved from the API
-export const SHOW_ADVANCED_SEARCH = 'SHOW_ADVANCED_SEARCH';
+export const TOGGLE_ADVANCED_SEARCH = 'TOGGLE_ADVANCED_SEARCH';
 export const ADVANCED_SEARCH = 'ADVANCED_SEARCH';
 export const FILTER_SEARCH = 'FILTER_SEARCH';
 export const RESET_CASE_DATA = 'RESET_DATA';

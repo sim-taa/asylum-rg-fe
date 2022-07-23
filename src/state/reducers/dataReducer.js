@@ -5,7 +5,7 @@ import {
   GET_FILTERED_DATA,
   GET_MOCK_FILTERED_DATA,
   ADVANCED_SEARCH,
-  SHOW_ADVANCED_SEARCH,
+  TOGGLE_ADVANCED_SEARCH,
 } from '../actionTypes';
 
 const initialState = {
@@ -15,6 +15,7 @@ const initialState = {
   },
   filterCount: 0,
   filteredCases: [],
+  displayAdvancedSearch: false,
 };
 function dataReducer(state = initialState, action) {
   switch (action.type) {
@@ -48,8 +49,8 @@ function dataReducer(state = initialState, action) {
     case ADVANCED_SEARCH: {
       return { ...state, data: action.payload, count: state.count + 1 };
     }
-    case SHOW_ADVANCED_SEARCH: {
-      return { ...state, hideAdvanced: action.payload };
+    case TOGGLE_ADVANCED_SEARCH: {
+      return { ...state, displayAdvancedSearch: action.payload };
     }
     case RESET_CASE_DATA: {
       return { ...state, filterCount: 0, filteredCases: [] };
