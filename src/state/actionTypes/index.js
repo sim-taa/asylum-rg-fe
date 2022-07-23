@@ -1,4 +1,6 @@
 //These are for filtering/searching data already retrieved from the API
+export const TOGGLE_ADVANCED_SEARCH = 'TOGGLE_ADVANCED_SEARCH';
+export const PERFORM_ADVANCED_SEARCH = 'ADVANCED_SEARCH';
 export const FILTER_SEARCH = 'FILTER_SEARCH';
 export const RESET_CASE_DATA = 'RESET_DATA';
 //Actions to choose filters and fetch API data

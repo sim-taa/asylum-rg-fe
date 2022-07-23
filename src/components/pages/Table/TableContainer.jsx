@@ -38,14 +38,6 @@ const TableContainer = ({ cases, getFilteredData, getMockFilteredData }) => {
           backgroundColor: '#f7e4ca',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            height: '15vh',
-            alignItems: 'center',
-          }}
-        ></div>
         <DataTable />
       </div>
     </>

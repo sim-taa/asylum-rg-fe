@@ -4,6 +4,8 @@ import {
   GET_DEFAULT_COMPARISONS,
   GET_FILTERED_DATA,
   GET_MOCK_FILTERED_DATA,
+  PERFORM_ADVANCED_SEARCH,
+  TOGGLE_ADVANCED_SEARCH,
 } from '../actionTypes';
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
   },
   filterCount: 0,
   filteredCases: [],
+  displayAdvancedSearch: false,
 };
 function dataReducer(state = initialState, action) {
   switch (action.type) {
@@ -42,6 +45,16 @@ function dataReducer(state = initialState, action) {
         filteredCases: action.payload,
         filterCount: state.count + 1,
       };
+    }
+    case PERFORM_ADVANCED_SEARCH: {
+      return {
+        ...state,
+        filteredCases: action.payload,
+        filterCount: state.count + 1,
+      };
+    }
+    case TOGGLE_ADVANCED_SEARCH: {
+      return { ...state, displayAdvancedSearch: action.payload };
     }
     case RESET_CASE_DATA: {
       return { ...state, filterCount: 0, filteredCases: [] };

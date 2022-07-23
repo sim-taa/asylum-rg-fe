@@ -14,6 +14,8 @@ import {
   SET_GEOPOLITICAL_FILTER,
   FILTER_SEARCH,
   RESET_CASE_DATA,
+  TOGGLE_ADVANCED_SEARCH,
+  PERFORM_ADVANCED_SEARCH,
 } from '../actionTypes';
 import { generateMockFilteredData } from '../../data/mockAPI';
 
@@ -64,6 +66,55 @@ export function filterSearch({ data, searchTerm, category }) {
   return { type: FILTER_SEARCH, payload: filteredData };
 }
 
-export function resetData() {
+export function resetCaseData() {
   return { type: RESET_CASE_DATA };
+}
+
+export function toggleAdvancedSearch(displayAdvancedSearch) {
+  return { type: TOGGLE_ADVANCED_SEARCH, payload: !displayAdvancedSearch };
+}
+
+export function performAdvancedSearch(parameters) {
+  const { data, completion } = parameters;
+
+  const parameterKeys = Object.keys(parameters);
+  let count = 0;
+  let payloadData = [];
+
+  for (let i = 1; i < parameterKeys.length - 1; i++) {
+    const currentKey = parameterKeys[i];
+    const currentDataset = parameters[parameterKeys[i]];
+
+    if (currentDataset !== null && count === 0) {
+      payloadData = data.filter(entry =>
+        currentDataset.includes(entry[currentKey])
+      );
+      count++;
+    } else if (currentDataset !== null && count > 0) {
+      payloadData = payloadData.filter(entry =>
+        currentDataset.includes(entry[currentKey])
+      );
+    }
+  }
+
+  if (completion !== null) {
+    const start = completion[0];
+    const end = completion[1];
+
+    if (count === 0) {
+      payloadData = data.filter(
+        entry =>
+          entry.completion.toString('YYYY-MM-DD') >= start &&
+          entry.completion.toString('YYYY-MM-DD') <= end
+      );
+    } else {
+      payloadData = payloadData.filter(
+        entry =>
+          entry.completion.toString('YYYY-MM-DD') >= start &&
+          entry.completion.toString('YYYY-MM-DD') <= end
+      );
+    }
+  }
+
+  return { type: PERFORM_ADVANCED_SEARCH, payload: payloadData };
 }
