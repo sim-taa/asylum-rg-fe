@@ -1,47 +1,74 @@
-// import all of your actions into this file, and export them back out.
-// This allows for the simplification of flow when importing actions into your components throughout your app.
-// Actions should be focused to a single purpose.
-// You can have multiple action creators per file if it makes sense to the purpose those action creators are serving.
-// Declare action TYPES at the top of the file
-
-// import axios from 'axios';
+//_______
+/*Consider breaking this down into separate actionCreator files if it becomes overly crowded!
+Remember separation of concerns.
+Import the action-types and export an action-creator function for each.
+Each synchronous function should return an action object with a type and a payload -- these will be passed to the reducer.
+Each asynchronous function should dispatch its action object (type/payload) to the reducer.
+*/
+import axios from 'axios';
 import {
-  GET_DATA,
+  GET_MOCK_FILTERED_DATA,
+  GET_FILTERED_DATA,
   SET_DATE_FILTER_FORMAT,
   SET_ASYLUM_OFFICE_FILTER,
   SET_CONTINENT_FILTER,
+  SET_GEOPOLITICAL_FILTER,
   FILTER_SEARCH,
-  RESET_DATA,
+  RESET_CASE_DATA,
   SHOW_ADVANCED_SEARCH,
   ADVANCED_SEARCH,
 } from '../actionTypes';
+import { generateMockFilteredData } from '../../data/mockAPI';
 
-// Action Creators
-// export function fetchAllData() {
-//   return function(dispatch) {
-//     axios
-//       .get(/*/cases*/)
-//       .then(res => {
-//         dispatch({ type: GET_DATA, payload: res.data });
-//       })
-//       .catch(err => console.log(err));
-//   };
-// }
+export const getMockFilteredData = (queryString, caseCount) => {
+  return {
+    type: GET_MOCK_FILTERED_DATA,
+    payload: generateMockFilteredData(queryString, caseCount),
+  };
+};
 
-export function getAllData(data) {
-  return { type: GET_DATA, payload: data };
+export const getFilteredData = queryString => dispatch => {
+  const url = process.env.REACT_APP_CASE_DATA_API;
+  //Add a slice of state to tell the user to please hold ...
+  //Perhaps an animated HRF logo (we have the svg)
+  axios
+    .get(url + queryString)
+    .then(response => {
+      dispatch({ type: GET_FILTERED_DATA, payload: response.data });
+    })
+    //A failed-to-retrieve notification of some sort should be added to this catch:
+    //dispatch({ type: SET_FETCH_FAIL})
+    //Also, we should create a dataReducer slice of state to track this
+    //and use conditional rendering to display an error to the user
+    .catch(err => console.error(err));
+};
+
+//These are for sending a filtered-data request to the api
+export function setDateFilterFormat(isFiscalYear) {
+  return { type: SET_DATE_FILTER_FORMAT, payload: isFiscalYear };
+}
+
+export function setAsylumOfficeFilter(offices) {
+  return { type: SET_ASYLUM_OFFICE_FILTER, payload: offices };
+}
+
+export function setContinentFilter(continents) {
+  return { type: SET_CONTINENT_FILTER, payload: continents };
+}
+
+export function setGeopoliticalFilter(regions) {
+  return { type: SET_GEOPOLITICAL_FILTER, payload: regions };
 }
 
 export function filterSearch({ data, searchTerm, category }) {
   const filteredData = data.filter(info =>
     info[category].toUpperCase().includes(searchTerm.toUpperCase())
   );
-
   return { type: FILTER_SEARCH, payload: filteredData };
 }
 
 export function resetData() {
-  return { type: RESET_DATA };
+  return { type: RESET_CASE_DATA };
 }
 
 export function showAdvanced(hideAdvanced) {
@@ -91,16 +118,4 @@ export function advancedSearch(parameters) {
   }
 
   return { type: ADVANCED_SEARCH, payload: payloadData };
-}
-
-export function setDateFilterFormat(isFiscalYear) {
-  return { type: SET_DATE_FILTER_FORMAT, payload: isFiscalYear };
-}
-
-export function setAsylumOfficeFilter(offices) {
-  return { type: SET_ASYLUM_OFFICE_FILTER, payload: offices };
-}
-
-export function setContinentFilter(continents) {
-  return { type: SET_CONTINENT_FILTER, payload: continents };
 }
