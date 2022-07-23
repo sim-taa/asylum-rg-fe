@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Checkbox, Button, DatePicker } from 'antd';
-import { advancedSearch } from '../../../state/actionCreators';
+import { performAdvancedSearch } from '../../../state/actionCreators';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 };
 
 function AdvancedSearch(props) {
-  const { cases, advancedSearch } = props;
+  const { cases, performAdvancedSearch } = props;
   const [form] = Form.useForm();
   const { RangePicker } = DatePicker;
 
@@ -67,7 +67,7 @@ function AdvancedSearch(props) {
       ];
     }
 
-    advancedSearch(parameters);
+    performAdvancedSearch(parameters);
   }
 
   return (
@@ -104,4 +104,6 @@ function AdvancedSearch(props) {
   );
 }
 
-export default connect(mapStateToProps, { advancedSearch })(AdvancedSearch);
+export default connect(mapStateToProps, { performAdvancedSearch })(
+  AdvancedSearch
+);

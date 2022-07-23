@@ -4,7 +4,7 @@ import {
   GET_DEFAULT_COMPARISONS,
   GET_FILTERED_DATA,
   GET_MOCK_FILTERED_DATA,
-  ADVANCED_SEARCH,
+  PERFORM_ADVANCED_SEARCH,
   TOGGLE_ADVANCED_SEARCH,
 } from '../actionTypes';
 
@@ -46,7 +46,7 @@ function dataReducer(state = initialState, action) {
         filterCount: state.count + 1,
       };
     }
-    case ADVANCED_SEARCH: {
+    case PERFORM_ADVANCED_SEARCH: {
       return { ...state, data: action.payload, count: state.count + 1 };
     }
     case TOGGLE_ADVANCED_SEARCH: {

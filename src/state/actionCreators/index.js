@@ -16,7 +16,7 @@ import {
   FILTER_SEARCH,
   RESET_CASE_DATA,
   TOGGLE_ADVANCED_SEARCH,
-  ADVANCED_SEARCH,
+  PERFORM_ADVANCED_SEARCH,
 } from '../actionTypes';
 import { generateMockFilteredData } from '../../data/mockAPI';
 
@@ -75,7 +75,7 @@ export function toggleAdvancedSearch(displayAdvancedSearch) {
   return { type: TOGGLE_ADVANCED_SEARCH, payload: !displayAdvancedSearch };
 }
 
-export function advancedSearch(parameters) {
+export function performAdvancedSearch(parameters) {
   console.log(parameters);
   const { data, completion } = parameters;
 
@@ -118,5 +118,5 @@ export function advancedSearch(parameters) {
     }
   }
 
-  return { type: ADVANCED_SEARCH, payload: payloadData };
+  return { type: PERFORM_ADVANCED_SEARCH, payload: payloadData };
 }
