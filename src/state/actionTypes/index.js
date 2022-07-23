@@ -1,6 +1,3 @@
-export const GET_DATA = 'GET_DATA';
-export const RESET_DATA = 'RESET_DATA';
-
 //These are for filtering/searching data already retrieved from the API
 export const SHOW_ADVANCED_SEARCH = 'SHOW_ADVANCED_SEARCH';
 export const ADVANCED_SEARCH = 'ADVANCED_SEARCH';
