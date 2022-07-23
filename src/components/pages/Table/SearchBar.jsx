@@ -60,55 +60,52 @@ function SearchBar(props) {
           {displayAdvancedSearch ? 'Use Basic Search' : 'Use Advanced Search'}
         </Button>
       </div>
-      {displayAdvancedSearch ? (
-        <AdvancedSearch />
-      ) : (
-        <Form
-          form={form}
-          name="searchBar"
-          onFinish={onSubmit}
-          autoComplete="off"
-          layout="inline"
-          wrapperCol={{ span: 45 }}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignContent: 'start',
-          }}
+
+      <Form
+        form={form}
+        name="searchBar"
+        onFinish={onSubmit}
+        autoComplete="off"
+        layout="inline"
+        wrapperCol={{ span: 45 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignContent: 'start',
+        }}
+      >
+        {/* Basic Search(will move to another component) */}
+
+        <Form.Item
+          label="Search Term"
+          name="searchTerm"
+          rules={[{ required: true }]}
         >
-          {/* Basic Search(will move to another component) */}
-
-          <Form.Item
-            label="Search Term"
-            name="searchTerm"
-            rules={[{ required: true }]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="category"
-            label="Category"
-            rules={[{ required: true }]}
-          >
-            <Select placeholder="Pick A Category" onChange={onCategoryChange}>
-              {columns.map((column, index) => (
-                <Option value={column.dataIndex} key={index}>
-                  {column.title}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Search/Filter🔎
-            </Button>
-            <Button htmlType="button" onClick={reset}>
-              Reset Search Terms
-            </Button>
-          </Form.Item>
-        </Form>
-      )}
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="category"
+          label="Category"
+          rules={[{ required: true }]}
+        >
+          <Select placeholder="Pick A Category" onChange={onCategoryChange}>
+            {columns.map((column, index) => (
+              <Option value={column.dataIndex} key={index}>
+                {column.title}
+              </Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Search/Filter🔎
+          </Button>
+          <Button htmlType="button" onClick={reset}>
+            Reset Search Terms
+          </Button>
+        </Form.Item>
+      </Form>
+      {displayAdvancedSearch ? <AdvancedSearch /> : null}
     </>
   );
 }

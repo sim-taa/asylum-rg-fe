@@ -47,7 +47,11 @@ function dataReducer(state = initialState, action) {
       };
     }
     case PERFORM_ADVANCED_SEARCH: {
-      return { ...state, data: action.payload, count: state.count + 1 };
+      return {
+        ...state,
+        filteredCases: action.payload,
+        filterCount: state.count + 1,
+      };
     }
     case TOGGLE_ADVANCED_SEARCH: {
       return { ...state, displayAdvancedSearch: action.payload };

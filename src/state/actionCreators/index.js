@@ -76,7 +76,6 @@ export function toggleAdvancedSearch(displayAdvancedSearch) {
 }
 
 export function performAdvancedSearch(parameters) {
-  console.log(parameters);
   const { data, completion } = parameters;
 
   const parameterKeys = Object.keys(parameters);
