@@ -98,10 +98,10 @@ function SearchBar(props) {
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Search/Filter🔎
+            Filter By Term🔎
           </Button>
           <Button htmlType="button" onClick={reset}>
-            Reset Search Terms
+            Reset Term Filter
           </Button>
         </Form.Item>
       </Form>
