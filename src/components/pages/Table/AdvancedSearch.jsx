@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Checkbox, Button, DatePicker } from 'antd';
-import { advancedSearch } from '../../../state/actionCreators/index';
+import { advancedSearch } from '../../../state/actionCreators';
+
+const mapStateToProps = state => {
+  return {
+    cases: state.dataReducer.cases,
+  };
+};
 
 function AdvancedSearch(props) {
   const { cases, advancedSearch } = props;
@@ -97,14 +103,5 @@ function AdvancedSearch(props) {
     </Form>
   );
 }
-
-const mapStateToProps = state => {
-  console.log(state);
-  const reducerState = state.dataReducer;
-
-  return {
-    cases: reducerState.casesReducer,
-  };
-};
 
 export default connect(mapStateToProps, { advancedSearch })(AdvancedSearch);
