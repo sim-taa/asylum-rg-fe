@@ -44,16 +44,31 @@ const HeatMapContainer = props => {
       (current, next) => current + next.grant + next.deny + next.dismiss,
       0
     );
-  // const reduceGrantRate = region => {
-  //     let grant = 0, deny = 0;
-  //     region.forEach( xt) => current + next.grant + next.deny, 0)};
+  const reduceGrantRate = region => {
+    let grant = 0,
+      deny = 0;
+    region.forEach(year => {
+      grant += year.grant;
+      deny += year.deny;
+    });
+    return Math.floor((100 * grant) / (grant + deny));
+  };
 
   return (
-    <WorldHeatMap
-      yearSelection={yearSelection}
-      reducerForm={reduceTotals}
-      apiData={apiData}
-    />
+    <div style={{ display: 'flex' }}>
+      <WorldHeatMap
+        yearSelection={yearSelection}
+        reducerForm={reduceTotals}
+        apiData={apiData}
+        title={'Total Asylum Petitions'}
+      />
+      <WorldHeatMap
+        yearSelection={yearSelection}
+        reducerForm={reduceGrantRate}
+        apiData={apiData}
+        title={'Petition Grant Rate %'}
+      />
+    </div>
   );
 };
 
