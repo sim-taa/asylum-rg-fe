@@ -57,46 +57,71 @@ const HeatMapContainer = props => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Select
+    <div style={{ display: 'flex', backgroundColor: '#f7e4ca' }}>
+      <div style={{ width: '20vw', backgroundColor: '#fd8960' }}></div>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
+      >
+        <div
           style={{
+            height: '20vh',
+            fontWeight: '900',
+            fontSize: '4em',
+            color: '#ffffff',
+            backgroundColor: '#3e2b2f',
             textAlign: 'center',
-            width: '15em',
-            marginTop: '15vh',
           }}
-          placeholder="Filter By Office Region"
-          defaultValue={'all'}
-          onChange={value => setYearSelection(value)}
         >
-          <Option value={'all'}>Display Year: All</Option>
-          <Option value={2018}>Display Year: 2018</Option>
-          <Option value={2019}>Display Year: 2019</Option>
-          <Option value={2020}>Display Year: 2020</Option>
-          <Option value={2021}>Display Year: 2021</Option>
-        </Select>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <WorldHeatMap
-          yearSelection={yearSelection}
-          reducerForm={reduceTotals}
-          apiData={apiData}
-          title={
-            yearSelection === 'all'
-              ? 'Total Asylum Petitions 2018-2021'
-              : `Asylum Petitions In ${yearSelection}`
-          }
-        />
-        <WorldHeatMap
-          yearSelection={yearSelection}
-          reducerForm={reduceGrantRate}
-          apiData={apiData}
-          title={
-            yearSelection === 'all'
-              ? 'Total Asylum Grant Rate % 2018-2021'
-              : `Asylum Grant Rate % For ${yearSelection}`
-          }
-        />
+          Can You Feel The Heat?
+        </div>
+        <div
+          style={{ display: 'flex', justifyContent: 'center', width: '80vw' }}
+        >
+          <Select
+            style={{
+              textAlign: 'center',
+              width: '15em',
+              marginTop: '15vh',
+            }}
+            placeholder="Filter By Office Region"
+            defaultValue={'all'}
+            onChange={value => setYearSelection(value)}
+          >
+            <Option value={'all'}>Display Year: All</Option>
+            <Option value={2018}>Display Year: 2018</Option>
+            <Option value={2019}>Display Year: 2019</Option>
+            <Option value={2020}>Display Year: 2020</Option>
+            <Option value={2021}>Display Year: 2021</Option>
+          </Select>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: '#f7e4ca',
+          }}
+        >
+          <WorldHeatMap
+            yearSelection={yearSelection}
+            reducerForm={reduceTotals}
+            apiData={apiData}
+            title={
+              yearSelection === 'all'
+                ? 'Total Asylum Petitions 2018-2021'
+                : `Asylum Petitions In ${yearSelection}`
+            }
+          />
+          <WorldHeatMap
+            yearSelection={yearSelection}
+            reducerForm={reduceGrantRate}
+            apiData={apiData}
+            title={
+              yearSelection === 'all'
+                ? 'Total Asylum Grant Rate % 2018-2021'
+                : `Asylum Grant Rate % For ${yearSelection}`
+            }
+          />
+        </div>
       </div>
     </div>
   );
