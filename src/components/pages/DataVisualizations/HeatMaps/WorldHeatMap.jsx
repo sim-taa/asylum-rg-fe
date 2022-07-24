@@ -12,7 +12,7 @@ const CaseTotalsHeatMap = props => {
           locationmode: 'country names',
           locations: apiData.map(region => region.location),
           z: apiData.map(region =>
-            yearSelection === 'Total'
+            yearSelection === 'all'
               ? reducerForm(region.caseTotals)
               : reducerForm(
                   region.caseTotals.filter(
@@ -20,7 +20,6 @@ const CaseTotalsHeatMap = props => {
                   )
                 )
           ),
-          // text: apiData.map(region => region.location),
           autocolorscale: true,
         },
       ]}
