@@ -2,6 +2,7 @@ import React from 'react';
 import Plot from 'react-plotly.js';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const CaseTotalsHeatMap = props => {
   const { yearSelection, reducerForm, apiData, title } = props;
 =======
@@ -10,6 +11,10 @@ const CaseTotalsHeatMap = props => {
 const CaseTotalsHeatMap = props => {
   const { yearSelection, reducerForm, apiData } = props;
 >>>>>>> c4164f7 (BL-TBD Created HeatMapContainer, moved data generation and managedment of year selection to that container, and began abstracting the functions used to generate the data arrays for each heatmap into props that can be passed from the parent container through props (thereby creating a reusable heatmap component))
+=======
+const CaseTotalsHeatMap = props => {
+  const { yearSelection, reducerForm, apiData, title } = props;
+>>>>>>> 8ccb194 (BL-TBD Finished preliminary abstraction of individualizing heatmap properties -- WorldHeatMap component is now reusable)
 
   return (
     <Plot
@@ -47,6 +52,7 @@ const CaseTotalsHeatMap = props => {
       ]}
       layout={{
 <<<<<<< HEAD
+<<<<<<< HEAD
         title,
         paper_bgcolor: '#f7e4ca',
         hoverlabel: {
@@ -55,6 +61,9 @@ const CaseTotalsHeatMap = props => {
 =======
         title: 'Asylum Applications',
 >>>>>>> c4164f7 (BL-TBD Created HeatMapContainer, moved data generation and managedment of year selection to that container, and began abstracting the functions used to generate the data arrays for each heatmap into props that can be passed from the parent container through props (thereby creating a reusable heatmap component))
+=======
+        title,
+>>>>>>> 8ccb194 (BL-TBD Finished preliminary abstraction of individualizing heatmap properties -- WorldHeatMap component is now reusable)
         geo: {
           scope: 'world',
           projection: {

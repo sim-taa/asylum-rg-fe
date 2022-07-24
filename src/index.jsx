@@ -13,25 +13,10 @@ import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-<<<<<<< HEAD
 import { FooterContent, SiderContent, SubFooter } from './components/Layout';
 import { Layout } from 'antd';
 import CaseTotalsHeatMap from './components/pages/DataVisualizations/CaseTotalsHeatMap';
 import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
-=======
-import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
-
-// currently unused imports/components
-/**
- * import { LoadingComponent } from './components/common';
- * import { config } from './utils/oktaConfig';
- * import { HomePage } from './components/pages/Home';
- * import { LoginPage } from './components/pages/Login';
- * import { ProfileListPage } from './components/pages/ProfileList';
- *
- */
-
->>>>>>> c4164f7 (BL-TBD Created HeatMapContainer, moved data generation and managedment of year selection to that container, and began abstracting the functions used to generate the data arrays for each heatmap into props that can be passed from the parent container through props (thereby creating a reusable heatmap component))
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
@@ -52,7 +37,6 @@ ReactDOM.render(
 function App() {
   const { Content, Footer } = Layout;
   return (
-<<<<<<< HEAD
     <Layout>
       <Layout>
         <SiderContent />
@@ -84,17 +68,5 @@ function App() {
         <SubFooter />
       </Footer>
     </Layout>
-=======
-    // <Security {...config} onAuthRequired={authHandler}>
-    <Switch>
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/table" component={TablePage} />
-      <Route path="/example-list" component={ExampleListPage} />
-      <Route path="/datavis" component={ExampleDataViz} />
-      <Route path="/heatmap" component={HeatMapContainer} />
-      <Route component={NotFoundPage} />
-    </Switch>
-    // </Security>
->>>>>>> c4164f7 (BL-TBD Created HeatMapContainer, moved data generation and managedment of year selection to that container, and began abstracting the functions used to generate the data arrays for each heatmap into props that can be passed from the parent container through props (thereby creating a reusable heatmap component))
   );
 }
