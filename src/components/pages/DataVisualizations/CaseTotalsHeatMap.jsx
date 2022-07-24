@@ -1,5 +1,6 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
+import { regions } from '../../../data/filterConstants';
 
 const CaseTotalsHeatMap = props => {
   return (
@@ -8,9 +9,9 @@ const CaseTotalsHeatMap = props => {
         {
           type: 'choropleth',
           locationmode: 'country names',
-          locations: ['Canada', 'PORTUGAL'],
-          z: [10, 15],
-          text: ['CANADA', 'PORTUGAL'],
+          locations: regions.map(region => region.territory),
+          z: regions.map(region => Math.floor(Math.random() * 200)),
+          text: regions.map(region => region.territory),
           autocolorscale: true,
         },
       ]}
