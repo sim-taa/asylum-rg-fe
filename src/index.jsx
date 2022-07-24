@@ -18,7 +18,7 @@ import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import CaseTotalsHeatMap from './components/pages/DataVisualizations/CaseTotalsHeatMap';
+import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
 
 // currently unused imports/components
 /**
@@ -65,7 +65,7 @@ function App() {
       <Route path="/table" component={TablePage} />
       <Route path="/example-list" component={ExampleListPage} />
       <Route path="/datavis" component={ExampleDataViz} />
-      <Route path="/heatmap" component={CaseTotalsHeatMap} />
+      <Route path="/heatmap" component={HeatMapContainer} />
       <Route component={NotFoundPage} />
     </Switch>
     // </Security>
