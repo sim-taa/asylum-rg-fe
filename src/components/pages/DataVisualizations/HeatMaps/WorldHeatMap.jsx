@@ -20,12 +20,16 @@ const CaseTotalsHeatMap = props => {
                   )
                 )
           ),
-          text: apiData.map(region => region.location),
+          // text: apiData.map(region => region.location),
           autocolorscale: true,
         },
       ]}
       layout={{
         title,
+        paper_bgcolor: '#f7e4ca',
+        hoverlabel: {
+          bordercolor: '#f7e4ca',
+        },
         geo: {
           scope: 'world',
           projection: {
@@ -33,6 +37,7 @@ const CaseTotalsHeatMap = props => {
           },
         },
       }}
+      style={{ width: '40%', fontWeight: '900' }}
     ></Plot>
   );
 };
