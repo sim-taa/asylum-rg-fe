@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import WorldHeatMap from './HeatMaps/WorldHeatMap';
 import { regions } from '../../../data/filterConstants';
-
-//Auto-generate a data-values object to simulate what the API could return
+import 'antd/dist/antd.css';
+import { Select } from 'antd';
+const { Option } = Select;
+//Auto-generate a response object to simulate API functionality
 
 const apiData = regions.map(region => {
   return {
@@ -37,7 +39,7 @@ const apiData = regions.map(region => {
 });
 
 const HeatMapContainer = props => {
-  const [yearSelection, setYearSelection] = useState(2018);
+  const [yearSelection, setYearSelection] = useState('all');
 
   const reduceTotals = region =>
     region.reduce(
@@ -55,19 +57,47 @@ const HeatMapContainer = props => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
-      <WorldHeatMap
-        yearSelection={yearSelection}
-        reducerForm={reduceTotals}
-        apiData={apiData}
-        title={'Total Asylum Petitions'}
-      />
-      <WorldHeatMap
-        yearSelection={yearSelection}
-        reducerForm={reduceGrantRate}
-        apiData={apiData}
-        title={'Petition Grant Rate %'}
-      />
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Select
+          style={{
+            textAlign: 'center',
+            width: '15em',
+            marginTop: '15vh',
+          }}
+          placeholder="Filter By Office Region"
+          defaultValue={'all'}
+          onChange={value => setYearSelection(value)}
+        >
+          <Option value={'all'}>Display Year: All</Option>
+          <Option value={2018}>Display Year: 2018</Option>
+          <Option value={2019}>Display Year: 2019</Option>
+          <Option value={2020}>Display Year: 2020</Option>
+          <Option value={2021}>Display Year: 2021</Option>
+        </Select>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <WorldHeatMap
+          yearSelection={yearSelection}
+          reducerForm={reduceTotals}
+          apiData={apiData}
+          title={
+            yearSelection === 'all'
+              ? 'Total Asylum Petitions 2018-2021'
+              : `Asylum Petitions In ${yearSelection}`
+          }
+        />
+        <WorldHeatMap
+          yearSelection={yearSelection}
+          reducerForm={reduceGrantRate}
+          apiData={apiData}
+          title={
+            yearSelection === 'all'
+              ? 'Total Asylum Grant Rate % 2018-2021'
+              : `Asylum Grant Rate % For ${yearSelection}`
+          }
+        />
+      </div>
     </div>
   );
 };
