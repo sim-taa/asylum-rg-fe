@@ -1,10 +1,8 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 
-//Auto-generate a data-values object to simulate what the API could return
-
 const CaseTotalsHeatMap = props => {
-  const { yearSelection, reducerForm, apiData } = props;
+  const { yearSelection, reducerForm, apiData, title } = props;
 
   return (
     <Plot
@@ -27,7 +25,7 @@ const CaseTotalsHeatMap = props => {
         },
       ]}
       layout={{
-        title: 'Asylum Applications',
+        title,
         geo: {
           scope: 'world',
           projection: {
