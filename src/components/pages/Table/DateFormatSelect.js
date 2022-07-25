@@ -8,7 +8,7 @@ import { Select } from 'antd';
 const { Option } = Select;
 
 const mapStateToProps = state => ({
-  isFiscalYear: state.filterReducer.isFiscalYear,
+  isFiscalYear: state.apiFilterReducer.isFiscalYear,
 });
 
 const DateFormatSelect = ({ isFiscalYear, setDateFilterFormat }) => (
