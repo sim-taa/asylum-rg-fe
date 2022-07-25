@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
 import DataTable from './DataTable';
-
 import { connect } from 'react-redux';
 import {
   getFilteredData,
