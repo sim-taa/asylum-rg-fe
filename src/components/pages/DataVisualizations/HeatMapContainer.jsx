@@ -93,7 +93,7 @@ const HeatMapContainer = props => {
             defaultValue={'all'}
             onChange={value => setYearSelection(value)}
           >
-            {/* Ultimately, as the data shape is better known, these should be dynamically created */}
+            {/*  Ultimately, as the data shape is better known, these should be dynamically created  */}
             <Option value={'all'}>Display Year: All</Option>
             <Option value={2021}>Display Year: 2021</Option>
             <Option value={2020}>Display Year: 2020</Option>
