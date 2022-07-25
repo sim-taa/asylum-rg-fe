@@ -4,7 +4,9 @@ import { regions } from '../../../data/filterConstants';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
 const { Option } = Select;
-//Auto-generate a response object to simulate API functionality
+//Auto-generates a simulated API data response object
+//This schema is tentative and will need to be adjusted
+//as the backend resource and DTO schema develop
 
 const apiData = regions.map(region => {
   return {
@@ -39,8 +41,12 @@ const apiData = regions.map(region => {
 });
 
 const HeatMapContainer = props => {
+  //If these components get approved, state should be moved to the Redux store
   const [yearSelection, setYearSelection] = useState('all');
 
+  //These reducer functions are passed to the component and used to process
+  //incoming API data into case data arrays. Defining these functions outside
+  //of the individual heatmap components allows for reusability
   const reduceTotals = region =>
     region.reduce(
       (current, next) => current + next.grant + next.deny + next.dismiss,
@@ -58,7 +64,7 @@ const HeatMapContainer = props => {
 
   return (
     <div style={{ display: 'flex', backgroundColor: '#f7e4ca' }}>
-      <div style={{ width: '20vw', backgroundColor: '#fd8960' }}></div>
+      <div style={{ width: '12vw', backgroundColor: '#fd8960' }}></div>
       <div
         style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
       >
@@ -87,11 +93,12 @@ const HeatMapContainer = props => {
             defaultValue={'all'}
             onChange={value => setYearSelection(value)}
           >
+            {/* Ultimately, as the data shape is better known, these should be dynamically created */}
             <Option value={'all'}>Display Year: All</Option>
-            <Option value={2018}>Display Year: 2018</Option>
-            <Option value={2019}>Display Year: 2019</Option>
-            <Option value={2020}>Display Year: 2020</Option>
             <Option value={2021}>Display Year: 2021</Option>
+            <Option value={2020}>Display Year: 2020</Option>
+            <Option value={2019}>Display Year: 2019</Option>
+            <Option value={2018}>Display Year: 2018</Option>
           </Select>
         </div>
         <div
