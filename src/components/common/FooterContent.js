@@ -59,9 +59,18 @@ export function FooterContent() {
         </div>
         {/*buttons*/}
         <Space direction="horizontal">
-          <Button>ASYLUM</Button>
-          <Button>DONATE</Button>
-          <Button>SIGN UP</Button>
+          <Button
+            shape="round"
+            href="http://www.humanrightsfirst.org/our-work/refugee-protection/probono-program"
+          >
+            ASYLUM
+          </Button>
+          <Button shape="round" href="https://www.humanrightsfirst.org/donate">
+            DONATE
+          </Button>
+          <Button shape="round" href="https://www.humanrightsfirst.org/sign-up">
+            SIGN UP
+          </Button>
         </Space>
       </div>
     </Space>
