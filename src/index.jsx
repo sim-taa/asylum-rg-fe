@@ -11,6 +11,7 @@ import {
   Switch,
 } from 'react-router-dom';
 // import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
+import './styles/styles.css';
 
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
