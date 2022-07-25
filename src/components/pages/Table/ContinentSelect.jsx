@@ -7,7 +7,7 @@ import { continentEnum } from '../../../data/filterConstants';
 const { Option } = Select;
 
 const mapStateToProps = state => ({
-  continents: state.filterReducer.continents,
+  continents: state.fetchFilterReducer.continents,
 });
 
 const continentOptions = Object.values(continentEnum).map(continent => (
