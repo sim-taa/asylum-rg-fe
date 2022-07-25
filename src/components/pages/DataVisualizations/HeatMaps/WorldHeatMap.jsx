@@ -9,8 +9,12 @@ const CaseTotalsHeatMap = props => {
       data={[
         {
           type: 'choropleth',
+          // This can be switched to country codes if that proves more efficient for data transfer
           locationmode: 'country names',
+          //Takes an array of each country name, or country code if that becomes the format
           locations: apiData.map(region => region.location),
+          //This array takes in the values for each country. The Plot will figure out the heat
+          //map color range from the data that's available
           z: apiData.map(region =>
             yearSelection === 'all'
               ? reducerForm(region.caseTotals)
