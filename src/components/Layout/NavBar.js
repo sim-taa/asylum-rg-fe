@@ -16,7 +16,8 @@ const NavBar = () => {
       onClick={onClick}
       style={{
         width: 'auto',
-        height: 'auto',
+        height: '100%',
+        color: '#3E2B2F',
       }}
       defaultSelectedKeys={['ab1']}
       defaultOpenKeys={['ab']}

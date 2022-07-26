@@ -1,3 +1,4 @@
 import NavBar from './NavBar';
-import { FooterContent } from './Footer';
-export { NavBar, FooterContent };
+import { FooterContent, SubFooter } from './Footer';
+import { SiderContent } from './Sider';
+export { NavBar, FooterContent, SubFooter, SiderContent };

@@ -13,7 +13,7 @@ import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import { NavBar, FooterContent } from './components/Menu';
+import { FooterContent, SubFooter, SiderContent } from './components/Layout';
 import { Layout } from 'antd';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
@@ -33,27 +33,12 @@ ReactDOM.render(
 );
 
 function App() {
-  const { Content, Sider, Footer } = Layout;
+  const { Content, Footer } = Layout;
   return (
     <Layout>
-      <Sider
-        // I would wait on breakpoints and collapsing options until design documents updated to include mobile
-        // breakpoint="lg"
-        // collapsedWidth="0"
-        style={{
-          overflow: 'auto',
-          height: '100vh',
-          // position: 'fixed',
-          left: 0,
-          top: 0,
-          bottom: 0,
-        }}
-        width="auto"
-      >
-        <NavBar />
-      </Sider>
       <Layout>
-        <Content style={{ margin: '24px 16px 0' }}>
+        <SiderContent />
+        <Content>
           <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/table" component={TablePage} />
@@ -62,10 +47,23 @@ function App() {
             <Route component={NotFoundPage} />
           </Switch>
         </Content>
-        <Footer>
-          <FooterContent />
-        </Footer>
       </Layout>
+      <Footer
+        style={{
+          backgroundColor: '#473D3D',
+          color: '#E2F0F7',
+        }}
+      >
+        <FooterContent />
+      </Footer>
+      <Footer
+        style={{
+          backgroundColor: '#403737',
+          padding: 0,
+        }}
+      >
+        <SubFooter />
+      </Footer>
     </Layout>
   );
 }
