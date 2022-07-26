@@ -3,7 +3,6 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-
 import { Layout } from 'antd';
 import { Menu } from './Menu';
 import React from 'react';
@@ -22,7 +21,6 @@ const Navbar = () => (
       }}
     >
       <div className="logo" />
-
       <Menu />
     </Sider>
     <Layout>

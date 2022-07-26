@@ -13,7 +13,7 @@ import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import { FooterContent, SubFooter, SiderContent } from './components/Layout';
+import { FooterContent, SiderContent, SubFooter } from './components/Layout';
 import { Layout } from 'antd';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';

@@ -2,7 +2,6 @@ import { Button, Space, Typography, Layout, Image } from 'antd';
 import React from 'react';
 import Logo from '../../styles/Images/WhiteLogo.png';
 const { Text } = Typography;
-
 function FooterContent() {
   return (
     <div>
