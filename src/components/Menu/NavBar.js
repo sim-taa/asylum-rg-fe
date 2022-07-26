@@ -18,8 +18,8 @@ const NavBar = () => {
         width: 'auto',
         height: 'auto',
       }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
+      defaultSelectedKeys={['ab1']}
+      defaultOpenKeys={['ab']}
       mode="inline"
       items={items}
     />

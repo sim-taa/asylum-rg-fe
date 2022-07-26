@@ -1,3 +1,8 @@
+// NOTE: I pulled the routes from HRF's website
+// because we don't have the same routes set up,
+// they currently link to mostly non-existent sites
+// e.g. there is no "/about"
+
 function getItem(label, key, children, type) {
   return {
     key,

@@ -1,7 +1,6 @@
 /**
  * Rather than straight up removing things, tentatively commenting them out for now. To be removed later if proven unnecessary
  */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -11,18 +10,6 @@ import {
   Switch,
 } from 'react-router-dom';
 // import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
-import './styles/styles.css';
-
-import 'antd/dist/antd.less';
-import { NotFoundPage } from './components/pages/NotFound';
-import { ExampleListPage } from './components/pages/ExampleList';
-import { LandingPage } from './components/pages/Landing';
-import { TablePage } from './components/pages/Table';
-import { ExampleDataViz } from './components/pages/ExampleDataViz';
-
-import { NavBar } from './components/Menu';
-import { Layout } from 'antd';
-
 // currently unused imports/components
 /**
  * import { LoadingComponent } from './components/common';
@@ -33,6 +20,14 @@ import { Layout } from 'antd';
  *
  */
 
+import 'antd/dist/antd.less';
+import { NotFoundPage } from './components/pages/NotFound';
+import { ExampleListPage } from './components/pages/ExampleList';
+import { LandingPage } from './components/pages/Landing';
+import { TablePage } from './components/pages/Table';
+import { ExampleDataViz } from './components/pages/ExampleDataViz';
+import { NavBar } from './components/Menu';
+import { Layout } from 'antd';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
@@ -66,8 +61,9 @@ function App() {
     // <Security {...config} onAuthRequired={authHandler}>
     <Layout>
       <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
+        // I would wait on breakpoints and collapsing options until design documents updated to include mobile
+        // breakpoint="lg"
+        // collapsedWidth="0"
         style={{
           overflow: 'auto',
           height: '100vh',
@@ -76,6 +72,7 @@ function App() {
           top: 0,
           bottom: 0,
         }}
+        width="auto"
       >
         <NavBar />
       </Sider>
