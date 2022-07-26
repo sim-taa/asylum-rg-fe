@@ -8,9 +8,7 @@ import React from 'react';
 import items from './items';
 
 const NavBar = () => {
-  const onClick = e => {
-    console.log('click ', e);
-  };
+  const onClick = e => {};
   return (
     <Menu
       onClick={onClick}
