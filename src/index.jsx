@@ -15,10 +15,10 @@ import './styles/styles.css';
 
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
-import { ExampleListPage } from './components/pages/ExampleList';
+import { ExampleListPage } from './components/UNUSED/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
-import { ExampleDataViz } from './components/pages/ExampleDataViz';
+import { ExampleDataViz } from './components/UNUSED/ExampleDataViz';
 
 // currently unused imports/components
 /**
