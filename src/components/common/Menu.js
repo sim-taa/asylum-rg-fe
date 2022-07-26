@@ -375,7 +375,7 @@ const items = [
     ),
   ]),
 ];
-const App = () => {
+const NavBar = () => {
   const onClick = e => {
     console.log('click ', e);
   };
@@ -393,4 +393,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default NavBar;
