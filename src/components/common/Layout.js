@@ -4,7 +4,6 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 
-
 import { Layout, Menu } from 'antd';
 import React from 'react';
 const { Header, Content, Footer, Sider } = Layout;
@@ -22,7 +21,6 @@ const App = () => (
       }}
     >
       <div className="logo" />
-
 
       <Menu
         theme="dark"
@@ -73,10 +71,4 @@ const App = () => (
   </Layout>
 );
 
-<<<<<<< HEAD
-export default Navbar;
-
-// Main HRF site responds to screen width of 766 (Ant Design suggests a medium screen size of 768)
-=======
 export default App;
->>>>>>> ffc5320 (BL-469 initial commit, pulling template from ANT)
