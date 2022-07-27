@@ -1,4 +1,4 @@
-// links are absolute and will need to be changed if implemented on the main site
+// links are absolute and will need to be changed if implemented on the main site.
 
 function getItem(label, key, children, type) {
   return {
