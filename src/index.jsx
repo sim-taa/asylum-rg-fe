@@ -16,6 +16,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { FooterContent, SiderContent, SubFooter } from './components/Layout';
 import { Layout } from 'antd';
 import CaseTotalsHeatMap from './components/pages/DataVisualizations/CaseTotalsHeatMap';
+import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
@@ -45,7 +46,7 @@ function App() {
             <Route path="/table" component={TablePage} />
             <Route path="/example-list" component={ExampleListPage} />
             <Route path="/datavis" component={ExampleDataViz} />
-            <Route path="/heatmap" component={CaseTotalsHeatMap} />
+            <Route path="/heatmap" component={HeatMapContainer} />
             <Route component={NotFoundPage} />
           </Switch>
         </Content>
