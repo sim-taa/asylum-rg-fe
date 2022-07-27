@@ -63,72 +63,60 @@ const HeatMapContainer = props => {
   };
 
   return (
-    <div style={{ display: 'flex', backgroundColor: '#f7e4ca' }}>
-      <div style={{ width: '12vw', backgroundColor: '#fd8960' }}></div>
-      <div
-        style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
-      >
-        <div
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        backgroundColor: 'rgb(247,228,202)',
+      }}
+    >
+      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+        <Select
           style={{
-            height: '20vh',
-            fontWeight: '900',
-            fontSize: '4em',
-            color: '#ffffff',
-            backgroundColor: '#3e2b2f',
             textAlign: 'center',
+            width: '15em',
+            marginTop: '5vh',
           }}
+          placeholder="Filter By Office Region"
+          defaultValue={'all'}
+          onChange={value => setYearSelection(value)}
         >
-          Can You Feel The Heat?
-        </div>
-        <div
-          style={{ display: 'flex', justifyContent: 'center', width: '80vw' }}
-        >
-          <Select
-            style={{
-              textAlign: 'center',
-              width: '15em',
-              marginTop: '15vh',
-            }}
-            placeholder="Filter By Office Region"
-            defaultValue={'all'}
-            onChange={value => setYearSelection(value)}
-          >
-            {/* Ultimately, as the data shape is better known, these should be dynamically created */}
-            <Option value={'all'}>Display Year: All</Option>
-            <Option value={2021}>Display Year: 2021</Option>
-            <Option value={2020}>Display Year: 2020</Option>
-            <Option value={2019}>Display Year: 2019</Option>
-            <Option value={2018}>Display Year: 2018</Option>
-          </Select>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            backgroundColor: '#f7e4ca',
-          }}
-        >
-          <WorldHeatMap
-            yearSelection={yearSelection}
-            reducerForm={reduceTotals}
-            apiData={apiData}
-            title={
-              yearSelection === 'all'
-                ? 'Total Asylum Petitions 2018-2021'
-                : `Asylum Petitions In ${yearSelection}`
-            }
-          />
-          <WorldHeatMap
-            yearSelection={yearSelection}
-            reducerForm={reduceGrantRate}
-            apiData={apiData}
-            title={
-              yearSelection === 'all'
-                ? 'Total Asylum Grant Rate % 2018-2021'
-                : `Asylum Grant Rate % For ${yearSelection}`
-            }
-          />
-        </div>
+          {/* Ultimately, as the data shape is better known, these should be dynamically created */}
+          <Option value={'all'}>Display Year: All</Option>
+          <Option value={2021}>Display Year: 2021</Option>
+          <Option value={2020}>Display Year: 2020</Option>
+          <Option value={2019}>Display Year: 2019</Option>
+          <Option value={2018}>Display Year: 2018</Option>
+        </Select>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          backgroundColor: '#f7e4ca',
+        }}
+      >
+        <WorldHeatMap
+          yearSelection={yearSelection}
+          reducerForm={reduceTotals}
+          apiData={apiData}
+          title={
+            yearSelection === 'all'
+              ? 'Total Asylum Petitions 2018-2021'
+              : `Asylum Petitions In ${yearSelection}`
+          }
+        />
+        <WorldHeatMap
+          yearSelection={yearSelection}
+          reducerForm={reduceGrantRate}
+          apiData={apiData}
+          title={
+            yearSelection === 'all'
+              ? 'Total Asylum Grant Rate % 2018-2021'
+              : `Asylum Grant Rate % For ${yearSelection}`
+          }
+        />
       </div>
     </div>
   );

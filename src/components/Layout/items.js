@@ -379,6 +379,12 @@ const items = [
       </a>,
       'data1'
     ),
+    getItem(
+      <a href="/heatmap" title="heatmap">
+        Heat Map
+      </a>,
+      'data2'
+    ),
   ]),
 ];
 export default items;
