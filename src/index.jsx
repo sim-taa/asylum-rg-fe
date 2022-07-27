@@ -32,7 +32,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-function App() {
+export function App() {
   const { Content, Footer } = Layout;
   return (
     <Layout>

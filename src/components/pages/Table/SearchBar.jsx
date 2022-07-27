@@ -97,7 +97,7 @@ function SearchBar(props) {
           </Select>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" data-testid="filter">
             Filter By Term🔎
           </Button>
           <Button htmlType="button" onClick={reset}>
