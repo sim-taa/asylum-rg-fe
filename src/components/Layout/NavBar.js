@@ -18,7 +18,7 @@ const NavBar = () => {
         color: '#3E2B2F',
       }}
       defaultSelectedKeys={['ab1']}
-      defaultOpenKeys={['ab']}
+      defaultOpenKeys={['']}
       mode="inline"
       items={items}
     />

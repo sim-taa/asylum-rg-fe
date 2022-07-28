@@ -459,13 +459,22 @@ const items = [
       'init2'
     ),
   ]),
-  getItem(<span title="Asylum Case Data">Asylum Case Data</span>, 'data', [
+  getItem(<span title="Asylum Case Data">Case Data</span>, 'data', [
     getItem(
       <a href="/table" title="table">
         Table
       </a>,
       'data1'
     ),
+    getItem(
+      <a href="/heatmap" title="heatmap">
+        Heatmap
+      </a>,
+      'data4'
+    ),
   ]),
 ];
 export default items;
+
+// <Route path="/example-list" component={ExampleListPage} />
+// <Route path="/datavis" component={ExampleDataViz} />
