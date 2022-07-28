@@ -475,6 +475,3 @@ const items = [
   ]),
 ];
 export default items;
-
-// <Route path="/example-list" component={ExampleListPage} />
-// <Route path="/datavis" component={ExampleDataViz} />
