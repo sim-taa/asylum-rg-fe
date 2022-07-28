@@ -8,7 +8,7 @@ import {
   TOGGLE_ADVANCED_SEARCH,
 } from '../actionTypes';
 
-const initialState = {
+export const initialState = {
   cases: [],
   comparisonData: {
     //This will hold keys and values for default displays on the site landing page, similar to TRAC
