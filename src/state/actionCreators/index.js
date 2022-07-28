@@ -16,6 +16,8 @@ import {
   RESET_CASE_DATA,
   TOGGLE_ADVANCED_SEARCH,
   PERFORM_ADVANCED_SEARCH,
+  GET_COUNTRY_YEAR_SUMMARY,
+  SET_HEAT_MAP_YEAR,
 } from '../actionTypes';
 import { generateMockFilteredData } from '../../data/mockAPI';
 
@@ -31,7 +33,7 @@ export const getFilteredData = queryString => dispatch => {
   //Add a slice of state to tell the user to please hold ...
   //Perhaps an animated HRF logo (we have the svg)
   axios
-    .get(url + queryString)
+    .get(url + 'cases' + queryString)
     .then(response => {
       dispatch({ type: GET_FILTERED_DATA, payload: response.data });
     })
@@ -118,3 +120,23 @@ export function performAdvancedSearch(parameters) {
 
   return { type: PERFORM_ADVANCED_SEARCH, payload: payloadData };
 }
+
+export const getCountryYearSummary = () => dispatch => {
+  const url = process.env.REACT_APP_CASE_DATA_API;
+  //Add a slice of state to tell the user to please hold ...
+  //Perhaps an animated HRF logo (we have the svg)
+  axios
+    .get(url + 'summary')
+    .then(response => {
+      dispatch({ type: GET_COUNTRY_YEAR_SUMMARY, payload: response.data });
+    })
+    //A failed-to-retrieve notification of some sort should be added to this catch:
+    //dispatch({ type: SET_FETCH_FAIL})
+    //Also, we should create a dataReducer slice of state to track this
+    //and use conditional rendering to display an error to the user
+    .catch(err => console.error(err));
+};
+
+export const setHeatMapYear = year => {
+  return { type: SET_HEAT_MAP_YEAR, payload: year };
+};
