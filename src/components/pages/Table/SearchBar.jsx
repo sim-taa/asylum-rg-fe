@@ -56,7 +56,7 @@ function SearchBar(props) {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'end' }}>
-        <Button onClick={showAdvancedSearch}>
+        <Button onClick={showAdvancedSearch} data-testid="advancedSearch">
           {displayAdvancedSearch ? 'Use Basic Search' : 'Use Advanced Search'}
         </Button>
       </div>
@@ -97,10 +97,10 @@ function SearchBar(props) {
           </Select>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" data-testid="filter">
             Filter By Term🔎
           </Button>
-          <Button htmlType="button" onClick={reset}>
+          <Button htmlType="button" onClick={reset} data-testid="resetFiltered">
             Reset Term Filter
           </Button>
         </Form.Item>

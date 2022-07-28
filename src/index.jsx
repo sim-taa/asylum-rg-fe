@@ -13,6 +13,16 @@ import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { FooterContent, SiderContent, SubFooter } from './components/Layout';
 import { Layout } from 'antd';
+import { ExampleDataViz } from './components/UNUSED/ExampleDataViz';
+// currently unused imports/components
+/**
+ * import { LoadingComponent } from './components/common';
+ * import { config } from './utils/oktaConfig';
+ * import { HomePage } from './components/pages/Home';
+ * import { LoginPage } from './components/pages/Login';
+ * import { ProfileListPage } from './components/pages/ProfileList';
+ *
+ */
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
@@ -30,7 +40,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-function App() {
+export function App() {
   const { Content, Footer } = Layout;
   return (
     <Layout>
