@@ -9,7 +9,6 @@ import {
 
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
-import { ExampleListPage } from './components/UNUSED/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
 import { FooterContent, SiderContent, SubFooter } from './components/Layout';
@@ -51,8 +50,7 @@ export function App() {
           <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/table" component={TablePage} />
-            <Route path="/example-list" component={ExampleListPage} />
-            <Route path="/datavis" component={ExampleDataViz} />
+            <Route path="/heatmap" component={NotFoundPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </Content>

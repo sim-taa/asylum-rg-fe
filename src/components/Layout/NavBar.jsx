@@ -5,7 +5,7 @@
 
 import { Menu } from 'antd';
 import React from 'react';
-import items from './items';
+import Items from './Items';
 
 const NavBar = () => {
   const onClick = e => {};
@@ -18,9 +18,9 @@ const NavBar = () => {
         color: '#3E2B2F',
       }}
       defaultSelectedKeys={['ab1']}
-      defaultOpenKeys={['ab']}
+      defaultOpenKeys={['']}
       mode="inline"
-      items={items}
+      items={Items}
     />
   );
 };

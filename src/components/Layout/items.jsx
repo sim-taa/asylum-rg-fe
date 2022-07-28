@@ -1,7 +1,4 @@
-// NOTE: I pulled the routes from HRF's website
-// because we don't have the same routes set up,
-// they currently link to mostly non-existent sites
-// e.g. there is no "/about"
+// links are absolute and will need to be changed if implemented on the main site.
 
 function getItem(label, key, children, type) {
   return {
@@ -13,43 +10,49 @@ function getItem(label, key, children, type) {
 }
 const items = [
   getItem(
-    <a href="/about" title="About">
+    <a href="https://www.humanrightsfirst.org/about" title="About">
       About
     </a>,
     'ab',
     [
       getItem(
-        <a href="/about" title="">
+        <a href="https://www.humanrightsfirst.org/about" title="">
           About Us
         </a>,
         'ab1'
       ),
       getItem(
-        <a href="/about/staff" title="">
+        <a href="https://www.humanrightsfirst.org/about/staff" title="">
           Leadership & Staff
         </a>,
         'ab2'
       ),
       getItem(
-        <a href="/about/board-of-directors" title="">
+        <a
+          href="https://www.humanrightsfirst.org/about/board-of-directors"
+          title=""
+        >
           Boards
         </a>,
         'ab3'
       ),
       getItem(
-        <a href="/topics/coalitions" title="">
+        <a href="https://www.humanrightsfirst.org/topics/coalitions" title="">
           Coalitions
         </a>,
         'ab4'
       ),
       getItem(
-        <a href="/about/annual-reports-financials" title="">
+        <a
+          href="https://www.humanrightsfirst.org/about/annual-reports-financials"
+          title=""
+        >
           Annual Reports & Financials
         </a>,
         'ab5'
       ),
       getItem(
-        <a href="/about/events" title="">
+        <a href="https://www.humanrightsfirst.org/about/events" title="">
           Events
         </a>,
         'ab6'
@@ -61,7 +64,7 @@ const items = [
         'ab7'
       ),
       getItem(
-        <a href="/about/contact" title="">
+        <a href="https://www.humanrightsfirst.org/about/contact" title="">
           Contact
         </a>,
         'ab8'
@@ -79,38 +82,53 @@ const items = [
   ),
   getItem(<span title="Campaigns">Campaigns</span>, 'camp', [
     getItem(
-      <a href="/campaigns/2021-policy-blueprint" title="">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/2021-policy-blueprints"
+        title=""
+      >
         2021 Policy Blueprints
       </a>,
       'camp1'
     ),
     getItem(
-      <a href="/campaigns/freedom-for-detained-refugees-project" title="">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/freedom-for-detained-refugees-project"
+        title=""
+      >
         Freedom for Detained Refugees
       </a>,
       'camp2'
     ),
     getItem(
-      <a href="/campaigns/never-torture" title="">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/never-torture"
+        title=""
+      >
         Never Torture
       </a>,
       'camp3'
     ),
     getItem(
-      <a href="/campaigns/refugees-renew-america" title="">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/refugees-renew-america"
+        title=""
+      >
         Refugees Renew America
       </a>,
       'camp4'
     ),
     getItem(
-      <a href="/campaigns/stop-refugee-ban" title="">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/stop-refugee-ban"
+        title=""
+      >
         Stop Trump's Muslim Refugee Ban
       </a>,
       'camp5'
     ),
     getItem(
       <a
-        href="http://www.vfai.org"
+        href="http://www.vfai.org/"
         title="Veterans for American Ideals is a nonpartisan group of veterans who share the belief that America is strongest when its policies and actions match its ideals."
       >
         Veterans for American Ideals
@@ -118,7 +136,10 @@ const items = [
       'camp6'
     ),
     getItem(
-      <a href="/campaigns/close-guantanamo" title="Close Guantanamo">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/close-guantanamo"
+        title="Close Guantanamo"
+      >
         Close Guantanamo
       </a>,
       'camp7'
@@ -131,61 +152,91 @@ const items = [
     'top',
     [
       getItem(
-        <a href="/topics/authoritarianism" title="Authoritarianism">
+        <a
+          href="https://www.humanrightsfirst.org/topics/authoritarianism"
+          title="Authoritarianism"
+        >
           Authoritarianism
         </a>,
         'top1',
         [
           getItem(
-            <a href="/topics/bahrain" title="Bahrain">
+            <a
+              href="https://www.humanrightsfirst.org/topics/bahrain"
+              title="Bahrain"
+            >
               Bahrain
             </a>,
             'top1a'
           ),
           getItem(
-            <a href="/topics/egypt" title="Egypt">
+            <a
+              href="https://www.humanrightsfirst.org/topics/egypt"
+              title="Egypt"
+            >
               Egypt
             </a>,
             'top1b'
           ),
           getItem(
-            <a href="/topics/russia" title="Russia">
+            <a
+              href="https://www.humanrightsfirst.org/topics/russia"
+              title="Russia"
+            >
               Russia
             </a>,
             'top1c'
           ),
           getItem(
-            <a href="/topics/global-magnitsky" title="">
+            <a
+              href="https://www.humanrightsfirst.org/topics/global-magnitsky"
+              title=""
+            >
               Targeted Sanctions (Global Magnitsky)
             </a>,
             'top1d'
           ),
           getItem(
-            <a href="/topics/guantanamo" title="Guantanamo">
+            <a
+              href="https://www.humanrightsfirst.org/topics/guantanamo"
+              title="Guantanamo"
+            >
               Guantanamo
             </a>,
             'top1e'
           ),
           getItem(
-            <a href="/topics/interrogators" title="Interrogators">
+            <a
+              href="https://www.humanrightsfirst.org/topics/interrogators"
+              title="Interrogators"
+            >
               Interrogators
             </a>,
             'top1f'
           ),
           getItem(
-            <a href="/topics/middle-east" title="Middle East">
+            <a
+              href="https://www.humanrightsfirst.org/topics/middle-east"
+              title="Middle East"
+            >
               Middle East
             </a>,
             'top1g'
           ),
           getItem(
-            <a href="/topics/syrian-refugees" title="Syrian Refugees">
+            <a
+              href="https://www.humanrightsfirst.org/topics/syrian-refugees"
+              title="Syrian Refugees"
+            >
               Syrian Refugees
             </a>,
             'top1h'
           ),
           getItem(
-            <a href="/topics/torture" title="Torture">
+            <a
+              href="https://www.humanrightsfirst.org/topics/torture"
+              title="Torture"
+            >
               Torture
             </a>,
             'top1i'
@@ -193,20 +244,26 @@ const items = [
         ]
       ),
       getItem(
-        <a href="/topics/extremism" title="Extremism">
+        <a
+          href="https://www.humanrightsfirst.org/topics/extremism"
+          title="Extremism"
+        >
           Extremism
         </a>,
         'top2',
         [
           getItem(
-            <a href="/topics/xenophobia" title="Xenophobia">
+            <a
+              href="https://www.humanrightsfirst.org/topics/xenophobia"
+              title="Xenophobia"
+            >
               Xenophobia
             </a>,
             'top2a'
           ),
           getItem(
             <a
-              href="/topics/antisemitism-and-extremism"
+              href="https://www.humanrightsfirst.org/topics/antisemitism-and-extremism"
               title="Antisemitism and Extremism"
             >
               Antisemitism and Extremism
@@ -215,7 +272,7 @@ const items = [
           ),
           getItem(
             <a
-              href="/topics-foreign-policy/commission-unalienable-rights-resources"
+              href="https://www.humanrightsfirst.org/topics-foreign-policy/commission-unalienable-rights-resources"
               title=""
             >
               Commission on Unalienable Rights Resources
@@ -223,20 +280,26 @@ const items = [
             'top2c'
           ),
           getItem(
-            <a href="/topics/hate-crimes" title="Hate Crimes">
+            <a
+              href="https://www.humanrightsfirst.org/topics/hate-crimes"
+              title="Hate Crimes"
+            >
               Hate Crimes
             </a>,
             'top2d'
           ),
           getItem(
-            <a href="/topics/islamophobia" title="Islamophobia">
+            <a
+              href="https://www.humanrightsfirst.org/topics/islamophobia"
+              title="Islamophobia"
+            >
               Islamophobia
             </a>,
             'top2e'
           ),
           getItem(
             <a
-              href="/topics/prosecuting-terrorism"
+              href="https://www.humanrightsfirst.org/topics/prosecuting-terrorism"
               title="Prosecuting Terrorism"
             >
               Prosecuting Terrorism
@@ -246,14 +309,17 @@ const items = [
         ]
       ),
       getItem(
-        <a href="/topics/systemic-injustice" title="">
+        <a
+          href="https://www.humanrightsfirst.org/topics/systemic-injustice"
+          title=""
+        >
           Systemic Injustice
         </a>,
         'top3',
         [
           getItem(
             <a
-              href="/topics/international-human-rights-law"
+              href="https://www.humanrightsfirst.org/topics/international-human-rights-law"
               title="International Human Rights Law"
             >
               International Human Rights Law
@@ -261,20 +327,26 @@ const items = [
             'top3a'
           ),
           getItem(
-            <a href="/topics/religious-freedom" title="Religious Freedom">
+            <a
+              href="https://www.humanrightsfirst.org/topics/religious-freedom"
+              title="Religious Freedom"
+            >
               Religious Freedom
             </a>,
             'top3b'
           ),
           getItem(
-            <a href="/topics/targeted-killing" title="Targeted Killing">
+            <a
+              href="https://www.humanrightsfirst.org/topics/targeted-killing"
+              title="Targeted Killing"
+            >
               Targeted Killing
             </a>,
             'top3c'
           ),
           getItem(
             <a
-              href="/topics/immigration-detention"
+              href="https://www.humanrightsfirst.org/topics/immigration-detention"
               title="Immigration Detention"
             >
               Immigration Detention
@@ -282,7 +354,10 @@ const items = [
             'top3d'
           ),
           getItem(
-            <a href="/topics/refugee-protection" title="Refugee Protection">
+            <a
+              href="https://www.humanrightsfirst.org/topics/refugee-protection"
+              title="Refugee Protection"
+            >
               Refugee Protection
             </a>,
             'top3e'
@@ -290,20 +365,26 @@ const items = [
         ]
       ),
       getItem(
-        <a href="/campaigns/innovation-lab-tech-for-human-rights" title="">
+        <a
+          href="https://www.humanrightsfirst.org/campaigns/innovation-lab-tech-for-human-rights"
+          title=""
+        >
           The Use & Abuse of Technology
         </a>,
         'top4',
         [
           getItem(
-            <a href="/resource/counter-human-rights-disinformation" title="">
+            <a
+              href="https://www.humanrightsfirst.org/resource/counter-human-rights-disinformation"
+              title=""
+            >
               Disinformation
             </a>,
             'top4a'
           ),
           getItem(
             <a
-              href="/topics/human-rights-defenders"
+              href="https://www.humanrightsfirst.org/topics/human-rights-defenders"
               title="Human Rights Defenders"
             >
               Human Rights Defenders
@@ -311,7 +392,10 @@ const items = [
             'top4b'
           ),
           getItem(
-            <a href="/resource/hold-human-rights-abusers-accountable" title="">
+            <a
+              href="https://www.humanrightsfirst.org/resource/hold-human-rights-abusers-accountable"
+              title=""
+            >
               Accountability
             </a>,
             'top4c'
@@ -321,37 +405,37 @@ const items = [
     ]
   ),
   getItem(
-    <a href="/resources" title="Resources">
+    <a href="https://www.humanrightsfirst.org/resources" title="Resources">
       Resources
     </a>,
     'res'
   ),
   getItem(
-    <a href="/press" title="">
+    <a href="https://www.humanrightsfirst.org/press" title="">
       Media
     </a>,
     'med',
     [
       getItem(
-        <a href="/press" title="">
+        <a href="https://www.humanrightsfirst.org/press" title="">
           Press Releases
         </a>,
         'med1'
       ),
       getItem(
-        <a href="/about/events" title="">
+        <a href="https://www.humanrightsfirst.org/about/events" title="">
           Events
         </a>,
         'med2'
       ),
       getItem(
-        <a href="/blog" title="Blog">
+        <a href="https://www.humanrightsfirst.org/blog" title="Blog">
           Blog
         </a>,
         'med3'
       ),
       getItem(
-        <a href="/press/in-the-news" title="">
+        <a href="https://www.humanrightsfirst.org/press/in-the-news" title="">
           In the News
         </a>,
         'med4'
@@ -360,7 +444,10 @@ const items = [
   ),
   getItem(<span title="">Initiatives</span>, 'init', [
     getItem(
-      <a href="/campaigns/innovation-lab-tech-for-human-rights" title="">
+      <a
+        href="https://www.humanrightsfirst.org/campaigns/innovation-lab-tech-for-human-rights"
+        title=""
+      >
         Innovation Lab
       </a>,
       'init1'
@@ -372,12 +459,18 @@ const items = [
       'init2'
     ),
   ]),
-  getItem(<span title="Asylum Case Data">Asylum Case Data</span>, 'data', [
+  getItem(<span title="Asylum Case Data">Case Data</span>, 'data', [
     getItem(
       <a href="/table" title="table">
         Table
       </a>,
       'data1'
+    ),
+    getItem(
+      <a href="/heatmap" title="heatmap">
+        Heatmap
+      </a>,
+      'data4'
     ),
   ]),
 ];
