@@ -372,7 +372,7 @@ const items = [
       'init2'
     ),
   ]),
-  getItem(<span title="Asylum Case Data">Asylum Case Data</span>, 'data', [
+  getItem(<span title="Asylum Case Data">Case Data</span>, 'data', [
     getItem(
       <a href="/table" title="table">
         Table
