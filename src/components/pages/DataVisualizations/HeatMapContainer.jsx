@@ -61,6 +61,7 @@ const HeatMapContainer = ({ heatMapYear, heatMapData, setHeatMapYear }) => {
       <div
         style={{
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           backgroundColor: '#f7e4ca',
         }}

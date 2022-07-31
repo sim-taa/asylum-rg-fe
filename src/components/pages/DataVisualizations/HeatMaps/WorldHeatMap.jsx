@@ -41,7 +41,7 @@ const CaseTotalsHeatMap = props => {
           },
         },
       }}
-      // style={{ width: '50%', fontWeight: '900' }}
+      style={{ width: '100%', fontWeight: '900' }}
     ></Plot>
   );
 };
