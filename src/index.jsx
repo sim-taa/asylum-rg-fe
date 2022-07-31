@@ -9,10 +9,8 @@ import {
 
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
-import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
-import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { FooterContent, SiderContent, SubFooter } from './components/Layout';
 import { Layout } from 'antd';
 import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
@@ -33,7 +31,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-function App() {
+export function App() {
   const { Content, Footer } = Layout;
   return (
     <Layout>
@@ -43,8 +41,6 @@ function App() {
           <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/table" component={TablePage} />
-            <Route path="/example-list" component={ExampleListPage} />
-            <Route path="/datavis" component={ExampleDataViz} />
             <Route path="/heatmap" component={HeatMapContainer} />
             <Route component={NotFoundPage} />
           </Switch>

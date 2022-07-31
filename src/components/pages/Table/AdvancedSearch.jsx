@@ -96,7 +96,11 @@ function AdvancedSearch(props) {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit"
+          data-testid="submitAdvancedSearch"
+        >
           Get Advanced Results🔎
         </Button>
       </Form.Item>

@@ -14,7 +14,6 @@ const mapStateToProps = state => {
 
 function DataTable(props) {
   const { cases, filterCount, filteredCases } = props;
-
   return (
     <div>
       <SearchBar />
