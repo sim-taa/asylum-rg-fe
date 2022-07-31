@@ -14,5 +14,4 @@ export const SET_GEOPOLITICAL_FILTER = 'SET_GEOPOLITICAL_FILTER';
 //Prove valuable for testing purposes even after
 export const GET_MOCK_FILTERED_DATA = 'GET_MOCK_FILTERED_DATA';
 //These are for getting and parsing summary data for visualization
-export const GET_COUNTRY_YEAR_SUMMARY = 'GET_COUNTRY_YEAR_SUMMARY';
 export const SET_HEAT_MAP_YEAR = 'SET_HEAT_MAP_YEAR';
