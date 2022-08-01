@@ -5,7 +5,7 @@
 
 import { Menu } from 'antd';
 import React from 'react';
-import Items from './Items';
+import Items from './items';
 
 const NavBar = () => {
   const onClick = e => {};
