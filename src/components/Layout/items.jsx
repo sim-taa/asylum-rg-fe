@@ -6,7 +6,7 @@ function getItem(label, key, children, type) {
     children,
     label,
     type,
-  };
+  }; 
 }
 const items = [
   getItem(
