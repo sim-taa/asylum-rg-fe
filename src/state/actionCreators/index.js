@@ -16,6 +16,7 @@ import {
   RESET_CASE_DATA,
   TOGGLE_ADVANCED_SEARCH,
   PERFORM_ADVANCED_SEARCH,
+  SET_HEAT_MAP_YEAR,
 } from '../actionTypes';
 import { generateMockFilteredData } from '../../data/mockAPI';
 
@@ -31,7 +32,7 @@ export const getFilteredData = queryString => dispatch => {
   //Add a slice of state to tell the user to please hold ...
   //Perhaps an animated HRF logo (we have the svg)
   axios
-    .get(url + queryString)
+    .get(url + 'cases' + queryString)
     .then(response => {
       dispatch({ type: GET_FILTERED_DATA, payload: response.data });
     })
@@ -118,3 +119,7 @@ export function performAdvancedSearch(parameters) {
 
   return { type: PERFORM_ADVANCED_SEARCH, payload: payloadData };
 }
+
+export const setHeatMapYear = year => {
+  return { type: SET_HEAT_MAP_YEAR, payload: year };
+};

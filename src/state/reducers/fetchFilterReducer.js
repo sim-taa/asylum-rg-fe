@@ -83,10 +83,12 @@ const deriveRegion = ({ continents, geopolitical }) => {
   return territoryList;
 };
 
-// This will build the query parameter string to send to the api with all present filter values.
-// As more filter parameters are added, add onto the query string as specified in the api docs.
-// When checking whether to build a query for a particular parameter, be sure to check not only if
-// a selection has been made, but whether all options have been selected (to limit string length).
+/* This will build the query parameter string to send to the api with all present filter values.
+As more filter parameters are added, add onto the query string as specified in the api docs.
+When checking whether to build a query for a particular parameter, be sure to check not only if
+a selection has been made, but whether all options have been selected (to limit string length).
+NOTE - when the from/to query parameters are added, be sure they follow the yyyy-mm-dd string
+format that the back end is expecting */
 export const buildQueryString = ({ isFiscalYear, asylumOffice, region }) => {
   let query = '?';
   const regionArray = Object.entries(region)

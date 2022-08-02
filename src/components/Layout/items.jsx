@@ -1,4 +1,4 @@
-// links are absolute and will need to be changed if implemented on the main site.
+// Links are absolute and will need to be changed if/when this app is add to the main site.
 
 function getItem(label, key, children, type) {
   return {
@@ -468,9 +468,9 @@ const items = [
     ),
     getItem(
       <a href="/heatmap" title="heatmap">
-        Heatmap
+        Heat Map
       </a>,
-      'data4'
+      'data2'
     ),
   ]),
 ];
