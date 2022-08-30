@@ -1,6 +1,7 @@
 import { Button, Space, Typography, Layout, Image } from 'antd';
 import React from 'react';
 import Logo from '../../styles/Images/WhiteLogo.png';
+import '../../styles/RenderLandingPage.less';
 const { Text } = Typography;
 function FooterContent() {
   return (
@@ -32,7 +33,7 @@ function FooterContent() {
 function SubFooter() {
   const { Footer } = Layout;
   return (
-    <Footer style={{ backgroundColor: '#403737' }}>
+    <Footer style={{ backgroundColor: '#707070' }}>
       <Space direction="horizontal">
         <Button
           type="text"
