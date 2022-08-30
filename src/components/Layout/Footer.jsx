@@ -1,7 +1,11 @@
 import { Button, Space, Typography, Layout, Image } from 'antd';
 import React from 'react';
 import Logo from '../../styles/Images/WhiteLogo.png';
+import { colors } from '../../styles/data_vis_colors';
+
 const { Text } = Typography;
+const { background_color, primary_accent_color, secondary_accent_color } = colors;
+
 function FooterContent() {
   return (
     <div>
@@ -12,7 +16,7 @@ function FooterContent() {
       <Space className="footer-container" direction="horizontal">
         <Space direction="vertical" align="start">
           {/*contact info*/}
-          <Text style={{ color: '#E2F0F7' }}>
+          <Text style={{ color: 'white' }}>
             Human Rights First
             <br />
             75 Broad St, 31st Floor, New York,
@@ -20,7 +24,7 @@ function FooterContent() {
             New York, New York 10004 US
           </Text>
           {/*media contact*/}
-          <Text style={{ color: '#E2F0F7' }}>
+          <Text style={{ color: 'white' }}>
             For Media Inquiries call 202-370-3323
           </Text>
         </Space>
@@ -33,14 +37,14 @@ function SubFooter() {
   const { Footer } = Layout;
   return (
     <Footer style={{ 
-      backgroundColor: '#403737' 
+      backgroundColor: primary_accent_color, 
     }}>
       <Space direction="horizontal">
         <Button
           type="text"
           size="small"
           href="https://www.humanrightsfirst.org/about"
-          style={{ color: '#E2F0F7' }}
+          style={{ color: 'white' }}
         >
           About Us
         </Button>
@@ -48,7 +52,7 @@ function SubFooter() {
           type="text"
           size="small"
           href="https://www.humanrightsfirst.org/about/contact"
-          style={{ color: '#E2F0F7' }}
+          style={{ color: 'white' }}
         >
           Contact Us
         </Button>
@@ -56,7 +60,7 @@ function SubFooter() {
           type="text"
           size="small"
           href="https://www.humanrightsfirst.org/press"
-          style={{ color: '#E2F0F7' }}
+          style={{ color: 'white' }}
         >
           Press
         </Button>
@@ -64,7 +68,7 @@ function SubFooter() {
           type="text"
           size="small"
           href="https://www.humanrightsfirst.org/about/privacy-policy"
-          style={{ color: '#E2F0F7' }}
+          style={{ color: 'white' }}
         >
           Terms & Privacy
         </Button>
@@ -72,7 +76,7 @@ function SubFooter() {
           type="text"
           size="small"
           href="https://www.humanrightsfirst.org/sign-up"
-          style={{ color: '#E2F0F7' }}
+          style={{ color: 'white' }}
         >
           Sign Up
         </Button>
@@ -80,7 +84,7 @@ function SubFooter() {
           type="text"
           size="small"
           href="http://www.humanrightsfirst.org/careers"
-          style={{ color: '#E2F0F7' }}
+          style={{ color: 'white' }}
         >
           Careers
         </Button>
