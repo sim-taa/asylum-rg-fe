@@ -33,7 +33,7 @@ function FooterContent() {
 function SubFooter() {
   const { Footer } = Layout;
   return (
-    <Footer style={{ backgroundColor: '#707070' }}>
+    <Footer style={{ backgroundColor: '#404C4A' }}>
       <Space direction="horizontal">
         <Button
           type="text"
