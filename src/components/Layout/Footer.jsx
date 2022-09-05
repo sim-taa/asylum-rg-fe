@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 
+import '../../styles/RenderLandingPage.less';
 const { Text } = Typography;
 const { primary_accent_color } = colors;
 

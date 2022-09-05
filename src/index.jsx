@@ -10,8 +10,13 @@ import {
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
+
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
+
+import { TablePage } from './components/pages/Table';
+import { FooterContent, SubFooter } from './components/Layout';
+
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
 import { Provider } from 'react-redux';
