@@ -10,16 +10,23 @@ import {
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
+
+import { FooterContent, SubFooter } from './components/Layout/Footer';
+import { HeaderContent } from './components/Layout/Header';
+
 import { TablePage } from './components/pages/Table';
 import { FooterContent, SubFooter } from './components/Layout';
+
 import { Layout } from 'antd';
-import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
+import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
+import { colors } from './styles/data_vis_colors';
+
+const { primary_accent_color } = colors;
 
 const store = configureStore({ reducer: reducer });
-
 ReactDOM.render(
   <Router>
     <Provider store={store}>
@@ -32,22 +39,27 @@ ReactDOM.render(
 );
 
 export function App() {
-  const { Content, Footer } = Layout;
+  const { Footer, Header } = Layout;
   return (
     <Layout>
-      <Layout>
-        <Content>
-          <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/table" component={TablePage} />
-            <Route path="/heatmap" component={HeatMapContainer} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Content>
-      </Layout>
+      <Header
+        style={{
+          height: '15vh',
+          display: 'flex',
+          alignItems: 'center',
+          backgroundColor: primary_accent_color,
+        }}
+      >
+        <HeaderContent />
+      </Header>
+      <Switch>
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/graphs" component={GraphsContainer} />
+        <Route component={NotFoundPage} />
+      </Switch>
       <Footer
         style={{
-          backgroundColor: '#404C4A',
+          backgroundColor: primary_accent_color,
           color: '#E2F0F7',
         }}
       >
@@ -55,7 +67,7 @@ export function App() {
       </Footer>
       <Footer
         style={{
-          backgroundColor: '#404C4A',
+          backgroundColor: primary_accent_color,
           padding: 0,
         }}
       >
