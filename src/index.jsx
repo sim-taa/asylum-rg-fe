@@ -11,7 +11,7 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
 import { TablePage } from './components/pages/Table';
-import { FooterContent, SiderContent, SubFooter } from './components/Layout';
+import { FooterContent, SubFooter } from './components/Layout';
 import { Layout } from 'antd';
 import HeatMapContainer from './components/pages/DataVisualizations/HeatMapContainer';
 import { Provider } from 'react-redux';
@@ -36,7 +36,6 @@ export function App() {
   return (
     <Layout>
       <Layout>
-        <SiderContent />
         <Content>
           <Switch>
             <Route path="/" exact component={LandingPage} />
@@ -48,7 +47,7 @@ export function App() {
       </Layout>
       <Footer
         style={{
-          backgroundColor: '#473D3D',
+          backgroundColor: '#404C4A',
           color: '#E2F0F7',
         }}
       >
@@ -56,7 +55,7 @@ export function App() {
       </Footer>
       <Footer
         style={{
-          backgroundColor: '#403737',
+          backgroundColor: '#404C4A',
           padding: 0,
         }}
       >
