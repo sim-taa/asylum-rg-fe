@@ -2,15 +2,11 @@
 
 For steps on how to work with this repository [please see here](https://bloomtechlabs.gitbook.io/labs-spa-starter/)
 
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your first Pull-Request is merged. This is intended to be a guideline. Feel free to add your own flare to it.
-
 # Title of project goes here
 
 You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
 
 ## Contributors
-
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
 
 |                                                      [Simone Taarnskov](https://github.com/sim-taa)                                                       |                                                       [Austin Johnson](https://github.com/)                                                        |                                                      [Andres Bernal](https://github.com/)                                                       |                                                       [Mack Gallagher](https://github.com/)                                                        |                                                      [Eric Peng](https://github.com/)                                                       |
 | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
